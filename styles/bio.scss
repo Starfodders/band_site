@@ -1,0 +1,134 @@
+@use "./partials/global.scss" as *;
+
+header {
+    width: 100%;
+    background-color: $primary;
+    padding-top: 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:  center;
+}
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: $primary;
+
+
+    &__list {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+
+        &--item {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+            padding: 16px;
+            border-bottom: 5px solid white;
+
+            @include tablet {
+            }
+        }
+    }
+}
+
+.hero {
+    background-image: url("../assets/images/hero-bio.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 20vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    position: relative;
+
+    &--text {
+        z-index: 3;
+    }
+}
+
+.hero::before {
+    content: "";
+    width: 100%;
+    height: 20vh;
+    position: absolute;
+    background-color: #323232;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+}
+
+
+.main {
+    padding: 0 16px;
+
+    &__bio {
+        width: 100%;
+
+        &--quote {
+            line-height: 1.7rem;  
+            padding: 16px 0 0;
+        }
+
+        &--title {
+            padding: 24px 0 0;
+        }
+
+        &--picture {
+            width: 100%;
+        }
+
+        &--secondary {
+            padding: 16px 0 0;
+            font-size: $sub-header-mobile;
+        }
+
+        &--text {
+            padding: 16px 0 0;
+        }
+    }
+}
+
+.photo__gal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px 16px 0;
+    background-color: $bg-alt;
+
+    &--title {
+        padding-bottom: 16px;
+    }
+    
+    &--item {
+        width: 100%;
+        padding-bottom: 16px;
+    }
+}
+
+.footer {
+    background-color: $primary;
+    padding: 16px;
+    color: white;
+
+    &__top {
+
+        &--socials {
+            display: flex;
+            justify-content: flex-start;
+    
+            &--icons {
+            }
+        }
+    }
+    
+}
+
+.mobile-hidden {
+    display: none;
+}

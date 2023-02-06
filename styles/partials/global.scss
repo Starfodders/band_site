@@ -1,0 +1,57 @@
+// CSS reset
+*, *::before, *:after{
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, p, body, html, div, span, header, footer, section, nav, ul, li, a, blockquote{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-style: normal;
+    font-weight: normal;
+    
+}
+html {
+    scroll-behavior: smooth;
+}
+ul, li, a{
+    list-style: none;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "Avenir Next LT";
+    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
+    // src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
+    // src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
+}
+// global variables
+$page-header: 4.3rem;
+$section-header: 2.56rem;
+$sub-header: 1.7rem;
+$body: 14px;
+$label-size: 0.85rem;
+
+$page-header-mobile: 1.85rem;
+$section-header-mobile: 1.85rem;
+$sub-header-mobile: 1.07rem;
+$body-mobile: 13px;
+$label-size-mobile: 0.8rem;
+
+$primary: #323232;
+$secondary: #AFAFAF;
+$bg: white;
+$bg-alt: #FAFAFA;
+$cta-hover-color: black;
+$outline-color: #E1E1E1;
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+body {
+    font-family: "Avenir Next LT";
+    font-size: $body-mobile;
+    font-weight: 400;
+}
