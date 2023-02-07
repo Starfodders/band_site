@@ -3,18 +3,31 @@
 header {
     width: 100%;
     background-color: $primary;
-    padding-top: 16px;
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:  center;
+
+    @include tablet {
+        flex-direction: row;
+        // padding: 36px 0;
+    }
+
 }
 .nav {
     display: flex;
     width: 100%;
+    height: 36px;
     justify-content: center;
     background-color: $primary;
+    font-size: $sub-header-mobile;
+    
+
+    @include tablet {
+        width: 70%;
+        justify-content: flex-start;
+    }
 
 
     &__list {
@@ -22,17 +35,52 @@ header {
         width: 100%;
         justify-content: space-around;
 
+        @include tablet {
+            width: 50%;
+            height: 100%;
+            
+        }
+
         &--item {
             display: flex;
             justify-content: center;
             width: 50%;
-            padding: 16px;
-            border-bottom: 5px solid white;
+            
 
             @include tablet {
+                width: 100%;
+
             }
+
         }
     }
+}
+
+.active {
+    border-bottom: 3px solid white;
+}
+
+.site-logo {
+    width: 40%;
+    max-width: 200px;
+
+    @include tablet {
+        width: 100%;
+    }
+
+    &__block {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 0;
+
+        @include tablet {
+            width: 30%;
+
+        }
+    }
+
 }
 
 .hero {
@@ -46,6 +94,15 @@ header {
     align-items: center;
     padding-left: 16px;
     position: relative;
+    font-size: $sub-header-mobile;
+    line-height: 2.46rem;
+
+    @include tablet {
+        height: 90vh;
+        padding-left: 36px;
+        font-size: $page-header;
+        line-height: 2.48rem;
+    }
 
     &--text {
         z-index: 3;
@@ -61,26 +118,49 @@ header {
     opacity: 0.5;
     top: 0;
     left: 0;
+
+    @include tablet {
+        height: 90vh;
+    }
 }
 
 
 .main {
-    padding: 0 16px;
+    padding: 0 16px 16px;
+
+    @include tablet {
+        padding: 48px 36px 0;
+    }
 
     &__bio {
         width: 100%;
 
         &--quote {
+            font-size: $sub-header-mobile;
             line-height: 1.7rem;  
             padding: 16px 0 0;
+
+            @include tablet {
+                font-size: $sub-header;
+            }
         }
 
         &--title {
             padding: 24px 0 0;
+            font-size: $section-header-mobile;
+
+            @include tablet {
+                font-size: $section-header;
+            }
         }
 
         &--picture {
             width: 100%;
+            padding-top: 16px;
+
+            @include tablet {
+                // padding-top: 24px;
+            }
         }
 
         &--secondary {
@@ -90,6 +170,13 @@ header {
 
         &--text {
             padding: 16px 0 0;
+        }
+
+        &--large-container {
+
+            @include tablet {
+                padding: 48px;
+            }
         }
     }
 }
@@ -103,6 +190,8 @@ header {
 
     &--title {
         padding-bottom: 16px;
+        font-size: $section-header-mobile;
+        line-height: 2.5rem;
     }
     
     &--item {
@@ -117,9 +206,12 @@ header {
     color: white;
     display: flex;
     flex-direction: column;
+    line-height: 1.38rem;
 
     &__top {
         padding: 16px 0 16px;
+        font-size: $sub-header-mobile;
+        line-height: 2.5rem;
 
         &--socials {
             width: 50%;

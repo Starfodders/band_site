@@ -93,8 +93,19 @@ $outline-color: #E1E1E1;
     }
 }
 
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
 body {
     font-family: "Avenir Next LT";
     font-size: $body-mobile;
     font-weight: 400;
+    line-height: 1.38rem;
+
+    @include tablet {
+        font-size: $body;
+    }
 }
