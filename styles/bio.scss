@@ -16,14 +16,20 @@ header {
         gap: 5%;
     }
 
+    @include desktop {
+        gap: 4%;
+    }
+
 }
 .site-logo {
     width: 40%;
-    max-width: 200px;
+    max-width: 150px;
 
     @include tablet {
         width: 100%;
     }
+
+    
 
     &__block {
         width: 100%;
@@ -37,6 +43,12 @@ header {
             max-width: 250px;
             height: 100px;
             padding: 0 36px;
+        }
+
+        @include desktop {
+            padding-left: calc(36px + 2vw);
+            margin-left: 5%;
+
         }
     }
 }
@@ -54,6 +66,10 @@ header {
         height: inherit;
         gap: 10%;
 
+    }
+
+    @include desktop {
+        gap: 4%;
     }
 
 
@@ -109,8 +125,16 @@ header {
         background-size: cover;
     }
 
+    @include desktop {
+        padding-left: calc(36px + 2vw);
+    }
+
     &--text {
         z-index: 3;
+
+        @include desktop {
+            margin-left: 5%;
+        }
     }
 }
 
@@ -135,6 +159,11 @@ header {
 
     @include tablet {
         padding: 48px 36px 0;
+    }
+
+    @include desktop {
+        padding: 48px calc(36px + 2vw) 0;
+        margin: 0 5%;
     }
 
     &__bio {
@@ -193,6 +222,9 @@ header {
             @include tablet {
                 padding: 36px;
             }
+            @include desktop {
+                padding: 48px;
+            }
         }
 
         &--block {
@@ -230,10 +262,18 @@ header {
         padding: 48px 36px 36px;
     }
 
+    @include desktop {
+        padding: 48px 5%;
+    }
+
     &--container {
         @include tablet {
             display: flex;
             flex-wrap: wrap;
+        }
+
+        @include desktop {
+            margin: 0 5%;
         }
     }
 
@@ -245,6 +285,10 @@ header {
         @include tablet {
             padding-left: 8px;
             font-size: $section-header;
+        }
+
+        @include desktop {
+            margin: 0 5%;
         }
     }
 
@@ -272,6 +316,7 @@ header {
         padding: 36px;
     }
 
+
     &__top {
         padding: 16px 0 16px;
         font-size: $sub-header-mobile;
@@ -281,11 +326,20 @@ header {
             display: flex;
         }
 
+        @include desktop {
+            padding: 36px;
+            margin: 0 5%;
+        }
+
         &--title {
             @include tablet {
                 display: flex;
                 width: 33%;
                 padding-top: 4px;
+            }
+
+            @include desktop {
+                margin-right: -10%;
             }
         }
 
@@ -301,9 +355,20 @@ header {
                 gap: 15%;
             }
 
+            @include desktop {
+                gap: 10%;
+                padding-top: 8px;
+
+            }
+
             &--icons {
                 display: flex;
                 justify-content: flex-start;
+
+                @include desktop {
+                    width: 30px;
+                    height: 30px;
+                }
             }
         }
 
@@ -314,7 +379,9 @@ header {
                 display: flex;
                 width: 33%;
                 justify-content: flex-end;
+            }
 
+            @include desktop {
             }
         }
     }
@@ -325,11 +392,22 @@ header {
             display: flex;
             width: 100%;
         }
+
+        @include desktop {
+            margin: 0 5%;
+            padding: 0 36px;
+            justify-content: flex-start;
+        }
+
         &--block {
             padding-bottom: 24px;
 
             @include tablet {
                 width: 33%;
+            }
+
+            @include desktop {
+                width: 20%;
             }
 
             &--spacer {
@@ -344,6 +422,11 @@ header {
 
         @include tablet {
             padding-top: 0;
+        }
+
+        @include desktop {
+            padding: 0 36px;
+            margin: 0 5%;
         }
 
         &--copyright {
@@ -362,5 +445,6 @@ header {
 }
 
 .footer-site-logo {
-    width: 50%;
+    width: 100%;
+    max-width: 125px;
 }
