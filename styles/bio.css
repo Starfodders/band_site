@@ -85,7 +85,7 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 10%;
+    gap: 5%;
   }
 }
 
@@ -108,7 +108,9 @@ header {
 @media (min-width: 768px) {
   .site-logo__block {
     width: 30%;
-    padding: 0;
+    max-width: 250px;
+    height: 100px;
+    padding: 0 36px;
   }
 }
 
@@ -141,6 +143,13 @@ header {
 .nav__block--item {
   color: white;
 }
+@media (min-width: 768px) {
+  .nav__block--item {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+}
 
 .active {
   border-bottom: 3px solid white;
@@ -166,6 +175,7 @@ header {
     padding-left: 36px;
     font-size: 2.56rem;
     line-height: 68px;
+    background-size: cover;
   }
 }
 .hero--text {
