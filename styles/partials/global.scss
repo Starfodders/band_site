@@ -1,29 +1,72 @@
 // CSS reset
-*, *::before, *:after{
+*,
+*::before,
+*:after {
     box-sizing: border-box;
 }
-h1, h2, h3, h4, h5, h6, p, body, html, div, span, header, footer, section, nav, ul, li, a, blockquote{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body,
+html,
+div,
+span,
+header,
+footer,
+section,
+nav,
+ul,
+li,
+a,
+blockquote {
     margin: 0;
     padding: 0;
     border: 0;
     font-style: normal;
     font-weight: normal;
-    
+
 }
+
 html {
     scroll-behavior: smooth;
 }
-ul, li, a{
+
+ul,
+li,
+a {
     list-style: none;
     text-decoration: none;
 }
 
 @font-face {
     font-family: "Avenir Next LT";
-    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf");
-    // src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf");
-    // src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf");
+    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf"),
+        url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf");
+    font-weight: 400;
+    font-style: normal;
 }
+
+@font-face {
+    font-family: "Avenir Next LT";
+    src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf"),
+        url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir Next LT";
+    src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf"),
+        url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf");
+    font-weight: 700;
+    font-style: normal;
+}
+
 // global variables
 $page-header: 4.3rem;
 $section-header: 2.56rem;

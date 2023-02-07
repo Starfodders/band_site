@@ -115,15 +115,43 @@ header {
     background-color: $primary;
     padding: 16px;
     color: white;
+    display: flex;
+    flex-direction: column;
 
     &__top {
+        padding: 16px 0 16px;
 
         &--socials {
+            width: 50%;
+            padding: 16px 0;
             display: flex;
             justify-content: flex-start;
+            gap: 25%;
     
             &--icons {
+                display: flex;
+                justify-content: flex-start;
             }
+        }
+    }
+
+    &__mid {
+        
+       &--block {
+            padding-bottom: 24px;
+    
+            &--spacer {
+                padding-bottom: 16px;
+            }
+        }
+        
+    }
+
+    &__bottom {
+        padding-top: 32px;
+
+        &--copyright {
+            padding-top: 16px;
         }
     }
     
