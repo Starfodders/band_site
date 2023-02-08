@@ -34,9 +34,8 @@ header {
     }
 
     @include desktop {
-        gap: 4%;
         max-width: 1020px;
-        margin: auto;
+        margin: 0 auto;
     }
 
 
@@ -49,6 +48,10 @@ header {
             gap: 10%;
             justify-content: flex-start;
             align-items: center;
+        }
+
+        @include desktop {
+            gap: 0;
         }
 
         &--section {
@@ -100,6 +103,12 @@ header {
         width: 100%;
     }
 
+    @include desktop {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
 
     &__block {
         width: 100%;
@@ -115,13 +124,11 @@ header {
         }
 
         @include desktop {
-            margin: auto;
+            width: 20%;
+            margin: 0;
         }
     }
 }
-
-
-
 
 .hero {
     background-image: url("../assets/images/hero-bio.jpg");
@@ -134,7 +141,6 @@ header {
     align-items: center;
     padding-left: 16px;
     position: relative;
-    font-size: $section-header-mobile;
     line-height: 2.46rem;
 
     @include tablet {
@@ -146,16 +152,26 @@ header {
     }
 
     @include desktop {
-        padding-left: calc(36px + 2vw);
+        height: 90vh;
+        padding-left: 0;
     }
 
-    &--text {
+    &__block {
+        width: 100%;
+        font-size: 1.5em;
+        color: white;
         z-index: 3;
-        font-family: "Avenir Next LT";
-        font-weight: 600;
 
-        
         @include desktop {
+        width: 100%;
+        max-width: 1020px;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto;
+        }
+
+        &--text {
+            font-weight: 600;
         }
     }
 }
@@ -173,6 +189,10 @@ header {
     @include tablet {
         height: 60vh;
     }
+
+    @include desktop {
+        height: 90vh;
+    }
 }
 
 
@@ -184,8 +204,9 @@ header {
     }
 
     @include desktop {
-        padding: 48px calc(36px + 2vw) 0;
-        margin: 0 5%;
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 60px 0 0;
     }
 
     &__bio {
@@ -201,10 +222,17 @@ header {
                 font-weight: 700;
             }
 
+            @include desktop {
+                padding: 36px 0 0;
+            }
+
             &--segment {
                 font-weight: 600;
+
+                @include tablet {
                 font-size: 1.6em;
                 line-height: 32px;
+                }
             }
         }
 
@@ -216,6 +244,12 @@ header {
             @include tablet {
                 font-size: $section-header;
                 padding: 0;
+            }
+            @include desktop {
+                width: 100%;
+                max-width: 1020px;
+                margin: 0 auto;
+                font-size: calc($section-header + 0.5em)
             }
         }
 
@@ -237,6 +271,10 @@ header {
                 font-size: $sub-header;
                 padding: 36px 0 0;
             }
+
+            @include desktop {
+                padding: 48px 0 0;
+            }
         }
 
         &--text {
@@ -253,7 +291,7 @@ header {
                 padding: 36px;
             }
             @include desktop {
-                padding: 48px;
+                padding: 60px;
             }
         }
 
@@ -293,6 +331,7 @@ header {
 .photo__gal {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     padding: 24px 16px 0;
     background-color: $bg-alt;
@@ -303,6 +342,7 @@ header {
 
     @include desktop {
         padding: 48px 5%;
+        align-items: center;
     }
 
     &--container {
@@ -313,22 +353,33 @@ header {
 
         @include desktop {
             margin: 0 5%;
+            max-width: 1020px;
         }
     }
 
     &--title {
+        width: 100%;
         padding-bottom: 16px;
-        font-size: $section-header-mobile;
-        line-height: 2.5rem;
-        font-weight: 600;
+        
 
         @include tablet {
-            padding-left: 8px;
-            font-size: $section-header;
+            padding-bottom: 20px;
         }
 
-        @include desktop {
-            margin: 0 5%;
+        @include desktop {    
+            padding-bottom: 36px;
+            max-width: 1020px;        
+        }
+
+        &--text {
+            line-height: 2.5rem;
+            font-weight: 600;
+            font-size: $section-header;
+
+            @include tablet {
+                font-weight: 600;
+                padding-left: 8px;
+            }
         }
     }
 
@@ -356,6 +407,9 @@ header {
         padding: 48px 36px 36px;
     }
 
+    @include desktop {
+        align-items: center;
+    }
 
     &__top {
         display: flex;
@@ -370,8 +424,9 @@ header {
         }
 
         @include desktop {
-            padding: 36px;
-            margin: 0 5%;
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 8px 36px;
         }
 
         &--title {
@@ -439,6 +494,8 @@ header {
             }
 
             @include desktop {
+                width: 42%;
+                justify-self: flex-end;
             }
         }
     }
@@ -451,9 +508,12 @@ header {
         }
 
         @include desktop {
-            margin: 0 5%;
-            padding: 0 36px;
+            padding: 0 8px;
             justify-content: flex-start;
+            max-width: 1020px;
+            margin: 0 auto;
+            gap: 5%;
+
         }
 
         &--block {
@@ -482,12 +542,19 @@ header {
         }
 
         @include desktop {
-            padding: 0 36px;
-            margin: 0 5%;
+            width: 100%;
+            max-width: 1020px;
+            padding-left: 8px;
+
         }
 
         &--copyright {
             padding-top: 16px;
+
+            @include desktop {
+                max-width: 1020px;
+                margin: 0 auto;
+            }
         }
     }
 }
@@ -505,3 +572,4 @@ header {
 .bold {
     font-weight: 600;
 }
+
