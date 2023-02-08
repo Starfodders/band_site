@@ -43,21 +43,24 @@ a {
 
 @font-face {
   font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf"), url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf");
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf"), url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf");
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf"), url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf");
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 body {
   font-family: "Avenir Next LT";
@@ -84,19 +87,87 @@ header {
   header {
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-    gap: 5%;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  background-color: #323232;
+  font-size: 1.07em;
+}
+@media (min-width: 768px) {
+  .nav {
+    width: 70%;
+    font-size: 1.4em;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 }
 @media (min-width: 1280px) {
-  header {
+  .nav {
     gap: 4%;
+    max-width: 1020px;
+    margin: auto;
   }
+}
+.nav__block {
+  width: 100%;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .nav__block {
+    width: 40%;
+    gap: 10%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+.nav__block--section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 16px 0;
+  width: 50%;
+  color: white;
+}
+@media (min-width: 768px) {
+  .nav__block--section {
+    padding: 0;
+    margin: 0 5%;
+    width: 100%;
+    max-width: 80px;
+  }
+}
+.nav__block--section--item {
+  color: white;
+}
+@media (min-width: 768px) {
+  .nav__block--section--item {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+}
+
+.active {
+  border-bottom: 3px solid white;
+}
+
+.nav__block--section:nth-child(2) {
+  border-bottom: 3px solid #323232;
+}
+
+.inactive {
+  color: #E1E1E1;
 }
 
 .site-logo {
   width: 40%;
   max-width: 150px;
+  flex-grow: 2;
 }
 @media (min-width: 768px) {
   .site-logo {
@@ -112,63 +183,15 @@ header {
 }
 @media (min-width: 768px) {
   .site-logo__block {
-    width: 30%;
-    max-width: 250px;
-    height: 100px;
-    padding: 0 36px;
+    width: 40%;
+    margin-left: 36px;
+    justify-content: flex-start;
   }
 }
 @media (min-width: 1280px) {
   .site-logo__block {
-    padding-left: calc(36px + 2vw);
-    margin-left: 5%;
+    margin: auto;
   }
-}
-
-.nav {
-  display: flex;
-  width: 100%;
-  height: 36px;
-  justify-content: center;
-  background-color: #323232;
-  font-size: 1.07rem;
-}
-@media (min-width: 768px) {
-  .nav {
-    justify-content: flex-start;
-    height: inherit;
-    gap: 10%;
-  }
-}
-@media (min-width: 1280px) {
-  .nav {
-    gap: 4%;
-  }
-}
-.nav__block {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  color: white;
-}
-@media (min-width: 768px) {
-  .nav__block {
-    width: 5.2rem;
-  }
-}
-.nav__block--item {
-  color: white;
-}
-@media (min-width: 768px) {
-  .nav__block--item {
-    display: flex;
-    align-items: center;
-    height: 100px;
-  }
-}
-
-.active {
-  border-bottom: 3px solid white;
 }
 
 .hero {
@@ -176,20 +199,20 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   color: white;
   display: flex;
   align-items: center;
   padding-left: 16px;
   position: relative;
-  font-size: 1.07rem;
+  font-size: 1.85em;
   line-height: 2.46rem;
 }
 @media (min-width: 768px) {
   .hero {
-    height: 90vh;
+    height: 60vh;
     padding-left: 36px;
-    font-size: 2.56rem;
+    font-size: 2.56em;
     line-height: 68px;
     background-size: cover;
   }
@@ -201,17 +224,13 @@ header {
 }
 .hero--text {
   z-index: 3;
+  font-family: "Avenir Next LT";
+  font-weight: 600;
 }
-@media (min-width: 1280px) {
-  .hero--text {
-    margin-left: 5%;
-  }
-}
-
 .hero::before {
   content: "";
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   position: absolute;
   background-color: #323232;
   opacity: 0.5;
@@ -220,7 +239,7 @@ header {
 }
 @media (min-width: 768px) {
   .hero::before {
-    height: 90vh;
+    height: 60vh;
   }
 }
 
@@ -242,7 +261,7 @@ header {
   width: 100%;
 }
 .main__bio--quote {
-  font-size: 1.07rem;
+  font-size: 1.4em;
   line-height: 1.7rem;
   padding: 16px 0 0;
 }
@@ -252,13 +271,19 @@ header {
     font-weight: 700;
   }
 }
+.main__bio--quote--segment {
+  font-weight: 600;
+  font-size: 1.6em;
+  line-height: 32px;
+}
 .main__bio--title {
   padding: 24px 0 0;
-  font-size: 1.85rem;
+  font-size: 1.85em;
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   .main__bio--title {
-    font-size: 2.56rem;
+    font-size: 2.56em;
     padding: 0;
   }
 }
@@ -272,12 +297,13 @@ header {
   }
 }
 .main__bio--secondary {
-  padding: 16px 0 0;
-  font-size: 1.07rem;
+  padding: 24px 0 0;
+  font-size: 1.07em;
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   .main__bio--secondary {
-    font-size: 1.7rem;
+    font-size: 1.7em;
     padding: 36px 0 0;
   }
 }
@@ -306,6 +332,16 @@ header {
   .main__bio--block {
     display: flex;
     padding: 0;
+  }
+}
+
+.main__bio--quote--segment:nth-child(1) {
+  padding-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .main__bio--quote--segment:nth-child(2) {
+    font-size: 1.4em;
   }
 }
 
@@ -354,13 +390,14 @@ header {
 }
 .photo__gal--title {
   padding-bottom: 16px;
-  font-size: 1.85rem;
+  font-size: 1.85em;
   line-height: 2.5rem;
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   .photo__gal--title {
     padding-left: 8px;
-    font-size: 2.56rem;
+    font-size: 2.56em;
   }
 }
 @media (min-width: 1280px) {
@@ -382,7 +419,7 @@ header {
 
 .footer {
   background-color: #323232;
-  padding: 16px;
+  padding: 24px 16px 16px;
   color: white;
   display: flex;
   flex-direction: column;
@@ -390,17 +427,20 @@ header {
 }
 @media (min-width: 768px) {
   .footer {
-    padding: 36px;
+    padding: 48px 36px 36px;
   }
 }
 .footer__top {
-  padding: 16px 0 16px;
-  font-size: 1.07rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 1.07em;
   line-height: 2.5rem;
 }
 @media (min-width: 768px) {
   .footer__top {
     display: flex;
+    padding: 0 0 36px;
   }
 }
 @media (min-width: 1280px) {
@@ -409,11 +449,14 @@ header {
     margin: 0 5%;
   }
 }
+.footer__top--title {
+  width: 100%;
+}
 @media (min-width: 768px) {
   .footer__top--title {
     display: flex;
+    align-items: center;
     width: 33%;
-    padding-top: 4px;
   }
 }
 @media (min-width: 1280px) {
@@ -421,17 +464,27 @@ header {
     margin-right: -10%;
   }
 }
+.footer__top--title--text {
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .footer__top--title--text {
+    font-size: 2.3em;
+  }
+}
 .footer__top--socials {
-  width: 50%;
-  padding: 16px 0;
+  width: 100%;
+  padding: 24px 0;
   display: flex;
   justify-content: flex-start;
-  gap: 25%;
+  gap: 9%;
 }
 @media (min-width: 768px) {
   .footer__top--socials {
+    align-items: center;
     width: 33%;
     gap: 15%;
+    padding: 0;
   }
 }
 @media (min-width: 1280px) {
@@ -443,11 +496,13 @@ header {
 .footer__top--socials--icons {
   display: flex;
   justify-content: flex-start;
+  width: 33px;
+  height: 33px;
 }
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .footer__top--socials--icons {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
 }
 .footer__top--logo {
@@ -516,4 +571,8 @@ header {
 .footer-site-logo {
   width: 100%;
   max-width: 125px;
+}
+
+.bold {
+  font-weight: 600;
 }/*# sourceMappingURL=bio.css.map */
