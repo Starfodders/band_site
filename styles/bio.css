@@ -100,7 +100,6 @@ header {
 }
 @media (min-width: 768px) {
   .nav {
-    width: 70%;
     font-size: 1.4em;
     flex-direction: row;
     justify-content: flex-start;
@@ -157,11 +156,30 @@ header {
 }
 
 .active {
-  border-bottom: 3px solid white;
+  border-bottom: 2px solid white;
 }
 
 .nav__block--section:nth-child(2) {
-  border-bottom: 3px solid #323232;
+  padding-bottom: 19px;
+}
+@media (min-width: 768px) {
+  .nav__block--section:nth-child(2) {
+    padding-bottom: 0;
+  }
+}
+.nav__block--section:nth-child(2):hover {
+  border-bottom: 3px solid white;
+  padding-bottom: 16px;
+}
+@media (min-width: 768px) {
+  .nav__block--section:nth-child(2):hover {
+    padding-bottom: 0;
+    margin-bottom: -2px;
+  }
+}
+
+.active-page {
+  font-weight: 600;
 }
 
 .inactive {
@@ -184,6 +202,9 @@ header {
     display: flex;
     justify-content: flex-start;
   }
+}
+.site-logo:hover {
+  cursor: pointer;
 }
 .site-logo__block {
   width: 100%;

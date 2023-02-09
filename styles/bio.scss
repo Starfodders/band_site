@@ -1,5 +1,5 @@
 @use "./partials/global.scss" as *;
-//use margin-auto, max-width. Should add up to 1080.
+//use margin-auto, max-width. Should add up to 1020 for desktop.
 
 header {
     width: 100%;
@@ -16,6 +16,7 @@ header {
     }
 
 }
+
 .nav {
     display: flex;
     flex-direction: column;
@@ -26,7 +27,6 @@ header {
 
 
     @include tablet {
-        width: 70%;
         font-size: 1.4em;
         flex-direction: row;
         justify-content: flex-start;
@@ -55,25 +55,25 @@ header {
         }
 
         &--section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 0 16px 0;
-        width: 50%;
-        color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 16px 0;
+            width: 50%;
+            color: white;
 
 
-        @include tablet {
-            padding: 0;
-            margin: 0 5%;
-            width: 100%;
-            max-width: 80px;
+            @include tablet {
+                padding: 0;
+                margin: 0 5%;
+                width: 100%;
+                max-width: 80px;
 
-        }
+            }
 
             &--item {
                 color: white;
-            
+
                 @include tablet {
                     display: flex;
                     align-items: center;
@@ -84,16 +84,40 @@ header {
         }
     }
 }
+
 .active {
-    border-bottom: 3px solid white;
+    border-bottom: 2px solid white;
 }
+
 .nav__block--section:nth-child(2) {
-    border-bottom: 3px solid $primary;
+    padding-bottom: 19px;
     //to compensate for shifting of item due to active border
+
+    @include tablet {
+        padding-bottom: 0;
+    }
+
+    &:hover {
+        border-bottom: 3px solid white;
+        padding-bottom: 16px;
+
+        @include tablet {
+            padding-bottom: 0;
+            margin-bottom: -2px;
+
+        }
+    }
 }
+
+.active-page {
+    font-weight: 600;
+}
+
 .inactive {
     color: $outline-color;
+
 }
+
 .site-logo {
     width: 40%;
     max-width: 150px;
@@ -107,6 +131,10 @@ header {
         flex-grow: 1;
         display: flex;
         justify-content: flex-start;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 
 
@@ -163,11 +191,11 @@ header {
         z-index: 3;
 
         @include desktop {
-        width: 100%;
-        max-width: 1020px;
-        display: flex;
-        justify-content: flex-start;
-        margin: 0 auto;
+            width: 100%;
+            max-width: 1020px;
+            display: flex;
+            justify-content: flex-start;
+            margin: 0 auto;
         }
 
         &--text {
@@ -230,8 +258,8 @@ header {
                 font-weight: 600;
 
                 @include tablet {
-                font-size: 1.6em;
-                line-height: 32px;
+                    font-size: 1.6em;
+                    line-height: 32px;
                 }
             }
         }
@@ -245,6 +273,7 @@ header {
                 font-size: $section-header;
                 padding: 0;
             }
+
             @include desktop {
                 width: 100%;
                 max-width: 1020px;
@@ -290,6 +319,7 @@ header {
             @include tablet {
                 padding: 36px;
             }
+
             @include desktop {
                 padding: 60px;
             }
@@ -305,23 +335,28 @@ header {
         }
     }
 }
+
 //specific stylings for the main text
 .main__bio--quote--segment:nth-child(1) {
     padding-bottom: 16px;
 }
+
 .main__bio--quote--segment:nth-child(2) {
     @include tablet {
         font-size: 1.4em;
     }
 }
-.main__bio--text:nth-child(1){
+
+.main__bio--text:nth-child(1) {
     padding-bottom: 16px;
+
     @include tablet {
         padding: 36px 16px 0 0;
 
     }
 }
-.main__bio--text:nth-child(2){
+
+.main__bio--text:nth-child(2) {
     @include tablet {
         padding: 36px 0 0 16px;
 
@@ -360,15 +395,15 @@ header {
     &--title {
         width: 100%;
         padding-bottom: 16px;
-        
+
 
         @include tablet {
             padding-bottom: 20px;
         }
 
-        @include desktop {    
+        @include desktop {
             padding-bottom: 36px;
-            max-width: 1020px;        
+            max-width: 1020px;
         }
 
         &--text {
@@ -444,7 +479,7 @@ header {
 
             &--text {
                 font-weight: 600;
-                
+
                 @include tablet {
                     font-size: 2.3em;
                 }
@@ -545,7 +580,6 @@ header {
             width: 100%;
             max-width: 1020px;
             padding-left: 8px;
-
         }
 
         &--copyright {
@@ -564,6 +598,7 @@ header {
         display: none;
     }
 }
+
 .footer-site-logo {
     width: 100%;
     max-width: 125px;
@@ -572,4 +607,3 @@ header {
 .bold {
     font-weight: 600;
 }
-
