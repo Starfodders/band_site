@@ -477,7 +477,6 @@ header {
 }
 @media (min-width: 1280px) {
   .photo__gal--title {
-    padding-bottom: 36px;
     max-width: 1020px;
   }
 }
@@ -495,6 +494,10 @@ header {
 .photo__gal--item {
   width: 100%;
   padding-bottom: 16px;
+  filter: grayscale(1);
+}
+.photo__gal--item:hover {
+  filter: grayscale(0);
 }
 @media (min-width: 768px) {
   .photo__gal--item {
@@ -644,6 +647,12 @@ header {
 }
 .footer__mid--block--spacer {
   padding-bottom: 16px;
+}
+.footer__mid--link {
+  color: #E1E1E1;
+}
+.footer__mid--link:hover {
+  color: white;
 }
 .footer__bottom {
   padding-top: 32px;
