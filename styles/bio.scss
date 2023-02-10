@@ -10,13 +10,11 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 
     @include tablet {
         flex-direction: row;
         justify-content: flex-start;
     }
-
 }
 
 .nav {
@@ -42,10 +40,8 @@ header {
 
     // Container for the Logo Image
     &__logo {
-        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
         padding: 16px 0;
 
         @include tablet {
@@ -60,7 +56,6 @@ header {
         }
 
         &__img {
-            width: 40%;
             max-width: 150px;
             flex-grow: 2;
 
@@ -166,7 +161,6 @@ header {
     background-repeat: no-repeat;
     width: 100%;
     height: 30vh;
-    color: white;
     display: flex;
     align-items: center;
     padding-left: 16px;
@@ -242,7 +236,6 @@ header {
     }
 
     &__bio {
-        width: 100%;
 
         &__quote {
             font-size: 1.4em;
@@ -373,7 +366,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
     padding: 24px 16px 0;
     background-color: $bg-alt;
 
@@ -417,6 +409,7 @@ header {
             font-size: $section-header-mobile;
 
             @include tablet {
+                font-size: $section-header;
                 font-weight: 600;
                 padding-left: 8px;
             }
