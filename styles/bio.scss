@@ -1,4 +1,6 @@
 @use "./partials/global.scss" as *;
+@use "./partials/mixins.scss" as *;
+@use "./partials/variables.scss" as *;
 //use margin-auto, max-width. Should add up to 1020 for desktop.
 
 header {
@@ -38,7 +40,48 @@ header {
         margin: 0 auto;
     }
 
+    // Container for the Logo Image
+    &__logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 0;
 
+        @include tablet {
+            width: 40%;
+            margin-left: 36px;
+            justify-content: flex-start;
+        }
+
+        @include desktop {
+            width: 20%;
+            margin: 0;
+        }
+
+        &__img {
+            width: 40%;
+            max-width: 150px;
+            flex-grow: 2;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include desktop {
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+    }
+
+    // The individual Nav container -> Block -> Text
     &__block {
         width: 100%;
         display: flex;
@@ -54,7 +97,7 @@ header {
             gap: 0;
         }
 
-        &--section {
+        &__section {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,7 +114,7 @@ header {
 
             }
 
-            &--item {
+            &__item {
                 color: white;
 
                 @include tablet {
@@ -89,9 +132,9 @@ header {
     border-bottom: 2px solid white;
 }
 
-.nav__block--section:nth-child(2) {
+// Specific Selector for second item due to offset caused by active border
+.nav__block__section:nth-child(2) {
     padding-bottom: 19px;
-    //to compensate for shifting of item due to active border
 
     @include tablet {
         padding-bottom: 0;
@@ -115,47 +158,6 @@ header {
 
 .inactive {
     color: $outline-color;
-
-}
-
-.site-logo {
-    width: 40%;
-    max-width: 150px;
-    flex-grow: 2;
-
-    @include tablet {
-        width: 100%;
-    }
-
-    @include desktop {
-        flex-grow: 1;
-        display: flex;
-        justify-content: flex-start;
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
-
-
-    &__block {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 16px 0;
-
-        @include tablet {
-            width: 40%;
-            margin-left: 36px;
-            justify-content: flex-start;
-        }
-
-        @include desktop {
-            width: 20%;
-            margin: 0;
-        }
-    }
 }
 
 .hero {
@@ -184,6 +186,7 @@ header {
         padding-left: 0;
     }
 
+    // The block containing the text, for proper margin spacing in desktop breakpoint
     &__block {
         width: 100%;
         font-size: 1.5em;
@@ -204,6 +207,7 @@ header {
     }
 }
 
+// Pseudo for the shadow overlay
 .hero::before {
     content: "";
     width: 100%;
@@ -240,7 +244,7 @@ header {
     &__bio {
         width: 100%;
 
-        &--quote {
+        &__quote {
             font-size: 1.4em;
             line-height: 1.7rem;
             padding: 16px 0 0;
@@ -254,7 +258,7 @@ header {
                 padding: 36px 0 0;
             }
 
-            &--segment {
+            &__segment {
                 font-weight: 600;
 
                 @include tablet {
@@ -264,7 +268,7 @@ header {
             }
         }
 
-        &--title {
+        &__title {
             padding: 24px 0 0;
             font-size: $section-header-mobile;
             font-weight: 600;
@@ -282,7 +286,7 @@ header {
             }
         }
 
-        &--picture {
+        &__picture {
             width: 100%;
             padding-top: 16px;
 
@@ -291,7 +295,8 @@ header {
             }
         }
 
-        &--secondary {
+        // main sub-heading
+        &__secondary {
             padding: 24px 0 0;
             font-size: $sub-header-mobile;
             font-weight: 600;
@@ -306,7 +311,7 @@ header {
             }
         }
 
-        &--text {
+        &__text {
             width: 100%;
 
             @include tablet {
@@ -314,7 +319,8 @@ header {
             }
         }
 
-        &--large-container {
+        // Large container used to contain content after an additional layer of padding is added (desktop & tablet only)
+        &__large-container {
 
             @include tablet {
                 padding: 36px;
@@ -325,7 +331,7 @@ header {
             }
         }
 
-        &--block {
+        &__block {
             padding-top: 16px;
 
             @include tablet {
@@ -336,18 +342,18 @@ header {
     }
 }
 
-//specific stylings for the main text
-.main__bio--quote--segment:nth-child(1) {
+//specific stylings for the main bio text
+.main__bio__quote__segment:nth-child(1) {
     padding-bottom: 16px;
 }
 
-.main__bio--quote--segment:nth-child(2) {
+.main__bio__quote__segment:nth-child(2) {
     @include tablet {
         font-size: 1.4em;
     }
 }
 
-.main__bio--text:nth-child(1) {
+.main__bio__text:nth-child(1) {
     padding-bottom: 16px;
 
     @include tablet {
@@ -356,7 +362,7 @@ header {
     }
 }
 
-.main__bio--text:nth-child(2) {
+.main__bio__text:nth-child(2) {
     @include tablet {
         padding: 36px 0 0 16px;
 
@@ -380,7 +386,7 @@ header {
         align-items: center;
     }
 
-    &--container {
+    &__container {
         @include tablet {
             display: flex;
             flex-wrap: wrap;
@@ -392,7 +398,7 @@ header {
         }
     }
 
-    &--title {
+    &__title {
         width: 100%;
         padding-bottom: 16px;
 
@@ -405,10 +411,10 @@ header {
             max-width: 1020px;
         }
 
-        &--text {
+        &__text {
             line-height: 2.5rem;
             font-weight: 600;
-            font-size: $section-header;
+            font-size: $section-header-mobile;
 
             @include tablet {
                 font-weight: 600;
@@ -417,13 +423,13 @@ header {
         }
     }
 
-    &--item {
+    &__item {
         width: 100%;
         padding-bottom: 16px;
         filter: grayscale(1);
 
         &:hover {
-            filter:grayscale(0);
+            filter: grayscale(0);
         }
 
         @include tablet {
@@ -450,6 +456,7 @@ header {
         align-items: center;
     }
 
+    //Top container that holds the heading, social icons, and logo (tablet & desktop)
     &__top {
         display: flex;
         flex-wrap: wrap;
@@ -468,10 +475,12 @@ header {
             padding: 0 8px 36px;
         }
 
-        &--title {
+        &__title {
             width: 100%;
+            font-size: $section-header-mobile;
 
             @include tablet {
+                font-size: $body;
                 display: flex;
                 align-items: center;
                 width: 33%;
@@ -481,7 +490,7 @@ header {
                 margin-right: -10%;
             }
 
-            &--text {
+            &__text {
                 font-weight: 600;
 
                 @include tablet {
@@ -490,7 +499,7 @@ header {
             }
         }
 
-        &--socials {
+        &__socials {
             width: 100%;
             padding: 24px 0;
             display: flex;
@@ -506,11 +515,10 @@ header {
 
             @include desktop {
                 gap: 10%;
-                padding-top: 8px;
 
             }
 
-            &--icons {
+            &__icons {
                 display: flex;
                 justify-content: flex-start;
                 width: 33px;
@@ -523,7 +531,7 @@ header {
             }
         }
 
-        &--logo {
+        &__logo {
             display: none;
 
             @include tablet {
@@ -539,6 +547,7 @@ header {
         }
     }
 
+    //holds the contact information
     &__mid {
 
         @include tablet {
@@ -555,7 +564,7 @@ header {
 
         }
 
-        &--block {
+        &__block {
             padding-bottom: 24px;
 
             @include tablet {
@@ -566,12 +575,13 @@ header {
                 width: 20%;
             }
 
-            &--spacer {
+            //for formatting
+            &__spacer {
                 padding-bottom: 16px;
             }
         }
 
-        &--link {
+        &__link {
             color: $outline-color;
 
             &:hover {
@@ -594,7 +604,7 @@ header {
             padding-left: 8px;
         }
 
-        &--copyright {
+        &__copyright {
             padding-top: 16px;
 
             @include desktop {
@@ -605,6 +615,7 @@ header {
     }
 }
 
+//for the Bandsite logo at footer bottom, hidden at higher viewpoints
 .large-hidden {
     @include tablet {
         display: none;
@@ -614,8 +625,4 @@ header {
 .footer-site-logo {
     width: 100%;
     max-width: 125px;
-}
-
-.bold {
-    font-weight: 600;
 }

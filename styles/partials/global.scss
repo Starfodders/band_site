@@ -1,3 +1,5 @@
+@use "./mixins.scss" as *;
+@use "./variables.scss" as *;
 // CSS reset
 *,
 *::before,
@@ -68,39 +70,7 @@ a {
     font-style: normal;
     font-display: swap;
 }
-
-// global variables
-$page-header: 4.28em;
-$section-header: 2.56em;
-$sub-header: 1.7em;
-$body: 14px;
-$label-size: 0.85em;
-
-$page-header-mobile: 1.85em;
-$section-header-mobile: 1.85em;
-$sub-header-mobile: 1.07em;
-$body-mobile: 13px;
-$label-size-mobile: 0.8rem;
-
-$primary: #323232;
-$secondary: #AFAFAF;
-$bg: white;
-$bg-alt: #FAFAFA;
-$cta-hover-color: black;
-$outline-color: #E1E1E1;
-
-@mixin tablet {
-    @media (min-width: 768px) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: 1280px) {
-        @content;
-    }
-}
-
+// Keeping this here and not adding '_' to the global partial file because when we do the second page, these styles will be applicable throughout the app
 body {
     font-family: "Avenir Next LT";
     font-size: $body-mobile;
@@ -110,4 +80,8 @@ body {
     @include tablet {
         font-size: $body;
     }
+}
+
+.bold {
+    font-weight: 600;
 }
