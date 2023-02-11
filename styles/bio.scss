@@ -46,6 +46,7 @@ header {
 
         @include tablet {
             width: 40%;
+            max-width: 250px;
             margin-left: 36px;
             justify-content: flex-start;
         }
