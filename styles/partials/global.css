@@ -22,7 +22,8 @@ nav,
 ul,
 li,
 a,
-blockquote {
+blockquote,
+textarea, input {
   margin: 0;
   padding: 0;
   border: 0;

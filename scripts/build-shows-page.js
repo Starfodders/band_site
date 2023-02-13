@@ -35,6 +35,7 @@ const concertList = [
 
 //create HTML element and populate it with the concert object information, append to container
 const ticketContainer = document.querySelector('.tickets__choices');
+
 function createListing(list) {
     list.forEach((item) => {
         const newDiv = document.createElement('div');
@@ -50,7 +51,7 @@ function createListing(list) {
         // })
         ticketContainer.appendChild(newDiv)
     })
-}
+}  
 createListing(concertList)
 
 //hide the mobile headers (date, venue, location) on larger breakpoints

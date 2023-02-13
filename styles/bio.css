@@ -22,7 +22,8 @@ nav,
 ul,
 li,
 a,
-blockquote {
+blockquote,
+textarea, input {
   margin: 0;
   padding: 0;
   border: 0;
@@ -501,6 +502,63 @@ header {
     padding-bottom: 0;
     padding: 16px 8px 0;
   }
+}
+
+.comments {
+  padding: 16px;
+}
+.comments__heading {
+  padding-bottom: 16px;
+}
+.comments__heading__text {
+  font-size: 1.85em;
+  font-weight: 600;
+}
+.comments__block {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.comments__block__profile {
+  width: 10%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+.comments__block__profile__picture {
+  width: 42px;
+  height: 42px;
+  max-width: 48px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comments__block__text {
+  width: 90%;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.comments__block__text__label {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #AFAFAF;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+.comments__block__text__input {
+  padding: 8px;
+  background-color: #FAFAFA;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
+}
+.comments__block__text__area {
+  padding: 8px 8px 48px;
+  background-color: #FAFAFA;
+  border: 1px solid #E1E1E1;
+  border-radius: 5px;
 }
 
 .footer {
