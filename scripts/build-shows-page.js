@@ -38,18 +38,71 @@ const ticketContainer = document.querySelector('.tickets__choices');
 
 function createListing(list) {
     list.forEach((item) => {
-        const newDiv = document.createElement('div');
-        newDiv.className = "tickets__choices__item";
-        newDiv.innerHTML = `<div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Date</p><span class = "bold">${item.date}</span></div>
-            <div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Venue</p>${item.venue}</div>
-            <div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Location</p>${item.location}</div>
-            <div class = "tickets__choices__item__block">
-                <button class = "tickets__choices__item__button">Buy Tickets</button>
-            </div>`
+        //larger block
+        const newContainer = document.createElement('div');
+            newContainer.className = "tickets__choices__item";
+        //date element
+        const itemBlock1 = document.createElement('div');
+            itemBlock1.className = "tickets__choices__item__block";
+        const titleEl1 = document.createElement('p');
+            titleEl1.className = "tickets__choices__item__block__mobile-header";
+            titleEl1.innerText = 'Date'
+            itemBlock1.appendChild(titleEl1);
+        const spanEl1 = document.createElement('span');
+            spanEl1.className = "bold"
+            spanEl1.innerText = item.date;
+            itemBlock1.appendChild(spanEl1);
+        //venue element
+        const itemBlock2 = document.createElement('div');
+            itemBlock2.className = "tickets__choices__item__block";
+        const titleEl2 = document.createElement('p')
+            titleEl2.className = "tickets__choices__item__block__mobile-header";
+            titleEl2.innerText="Venue"
+            itemBlock2.appendChild(titleEl2)
+        const spanEl2 = document.createElement('span');
+            spanEl2.innerText = item.venue;
+            itemBlock2.appendChild(spanEl2);
+        //location element
+        const itemBlock3 = document.createElement('div');
+            itemBlock3.className = "tickets__choices__item__block";
+        const titleEl3 = document.createElement('p')
+            titleEl3.className = "tickets__choices__item__block__mobile-header";
+            titleEl3.innerText="Location"
+            itemBlock3.appendChild(titleEl3)
+        const spanEl3 = document.createElement('span');
+            spanEl3.innerText = item.location;
+            itemBlock3.appendChild(spanEl3);
+        //button element
+        const itemBlock4 = document.createElement('div');
+            itemBlock4.className = "tickets__choices__item__block";
+        const button = document.createElement('button');
+            button.className = "tickets__choices__item__button"
+            button.innerText = "Buy Tickets"
+            itemBlock4.appendChild(button);
+        //add all blocks into item container
+        newContainer.appendChild(itemBlock1);
+        newContainer.appendChild(itemBlock2)
+        newContainer.appendChild(itemBlock3)
+        newContainer.appendChild(itemBlock4)
+        ;
+            
+         
+
+
+
+        // newDiv.className = "tickets__choices__item";
+        // newDiv.innerHTML = `<div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Date</p>
+        // <span class = "bold">${item.date}</span></div>
+        //     <div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Venue</p>${item.venue}</div>
+        //     <div class = "tickets__choices__item__block"><p class = "tickets__choices__item__block__mobile-header">Location</p>${item.location}</div>
+        //     <div class = "tickets__choices__item__block">
+        //         <button class = "tickets__choices__item__button">Buy Tickets</button>
+        //     </div>`
         // newDiv.addEventListener('click', () => {
         //     newDiv.classList.toggle('clicked')
         // })
-        ticketContainer.appendChild(newDiv)
+    
+        ticketContainer.appendChild(newContainer)
     })
 }  
 createListing(concertList)
