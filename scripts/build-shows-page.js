@@ -45,6 +45,9 @@ function createListing(list) {
             <div class = "tickets__choices__item__block">
                 <button class = "tickets__choices__item__button">Buy Tickets</button>
             </div>`
+        // newDiv.addEventListener('click', () => {
+        //     newDiv.classList.toggle('clicked')
+        // })
         ticketContainer.appendChild(newDiv)
     })
 }

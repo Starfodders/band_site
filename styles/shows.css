@@ -399,6 +399,9 @@ header {
     padding: 16px;
   }
 }
+.tickets__choices__item:hover {
+  background-color: #FAFAFA;
+}
 .tickets__choices__item__block {
   font-size: 1.1em;
 }
@@ -437,6 +440,9 @@ header {
 
 .tablet-header {
   display: none;
+}
+.tablet-header:hover {
+  background-color: white;
 }
 @media (min-width: 768px) {
   .tablet-header {

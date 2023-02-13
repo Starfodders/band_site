@@ -324,8 +324,11 @@ header {
                 padding: 16px;
             }
 
+            &:hover {
+                background-color: $bg-alt;
+            }
+
             &__block {
-                // padding-bottom: 16px;
                 font-size: 1.1em;
 
                 @include tablet {
@@ -370,6 +373,11 @@ header {
 .tablet-header {
     display: none;
 
+    //this hover to prevent it from being highlighed
+    &:hover {
+    background-color: $bg;
+    }
+
     @include tablet {
         display: flex;
         border: none;
@@ -386,6 +394,9 @@ header {
         width: 30%;
     }
 }
+// .selected {
+//     background-color: $outline-color;
+// }
 
 
 .footer {
