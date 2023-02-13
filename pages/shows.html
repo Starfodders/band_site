@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Band Site | Shows</title>
+    <link rel="stylesheet" href="../styles/partials/global.css">
+    <link rel="stylesheet" href="../styles/shows.css">
+
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav__logo">
+                <img src="../assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="nav__logo__img"
+                    onclick="location.href='../index.html'">
+            </div>
+            <div class="nav__block">
+                <div class="nav__block__section">
+                    <a href="../index.html" class="nav__block__section__item inactive">Biography</a>
+                </div>
+                <div class="nav__block__section active">
+                    <a href="./shows.html" class="nav__block__section__item active-page">Shows</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class = "shows__hero">
+        <div class = "shows__hero__container">
+        <div class = "shows__hero__container__left">
+            <h2 class = shows__hero__container__left__subheading>Beautiful Beasts Album</h2>
+            <h1 class = "shows__hero__container__left__heading">Queen of Yellow x For The Stings</h1>
+        </div>
+        <div class = "shows__hero__container__right">
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/718846078&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" class = "shows__hero__container__right__player"></iframe>
+            
+        </div>
+    </section>
+    <main class = "tickets">
+        <div class = "tickets__heading">
+            <h3 class = "tickets__heading__text">Shows</h3>
+        </div>
+        <div class = "tickets__choices"></div>
+    </main>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="footer__top__title">
+                <h3 class="footer__top__title__text">Get in Touch</h3>
+            </div>
+            <div class="footer__top__socials">
+                <a href="https://www.instagram.com/brainstation" target ="_blank"><img src="../assets/icons/SVG/Icon-instagram.svg"
+                        alt="ig" class="footer__top__socials__icons"></a>
+                <a href="https://www.facebook.com/BrainStation/" target ="_blank"><img src="../assets/icons/SVG/Icon-facebook.svg"
+                        alt="fb" class="footer__top__socials__icons"></a>
+                <a href="https://twitter.com/brainstation" target ="_blank"><img src="../assets/icons/SVG/Icon-twitter.svg" alt="twit"
+                        class="footer__top__socials__icons"></a>
+            </div>
+            <div class="footer__top__logo">
+                <img src="../assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="footer-site-logo">
+            </div>
+        </div>
+        <div class="footer__mid">
+            <div class="footer__mid__block">
+                <p class="bold">Cam Adams</p>
+                <p class="footer__mid__block__spacer bold">The Bees Knees Management</p>
+                <p>503 Broadway Penthouse,</p>
+                <p class="footer__mid__block__spacer">New York, NY 10012, USA</p>
+                <p><a href="mailto:info@thebeesknees.com" class="footer__mid__link">info@thebeesknees.com</a></p>
+            </div>
+            <div class="footer__mid__block">
+                <p class="bold">Pearl Gregg</p>
+                <p class="footer__mid__block__spacer bold">Limitless Artist Group</p>
+                <p>Booking Agent for</p>
+                <p class="footer__mid__block__spacer">US / South America / Japan</p>
+                <p><a href="mailto:pearl.gregg@limitlessag.com"
+                        class="footer__mid__link">pearl.gregg@limitlessag.com</a></p>
+            </div>
+            <div class="footer__mid__block">
+                <p class="bold">Carson Whyte</p>
+                <p class="footer__mid__block__spacer bold">ARCH Entertainment</p>
+                <p>Booking Agent for</p>
+                <p class="footer__mid__block__spacer">UK / EU / AU</p>
+                <p><a href="mailto:cwhyte@archentertainment.com"
+                        class="footer__mid__link">cwhyte@archentertainment.com</a></p>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <img src="../assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="site-logo large-hidden">
+            <p class="footer__bottom__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+<script src = "../scripts/build-shows-page.js"></script>
+</html>

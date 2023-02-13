@@ -1,0 +1,576 @@
+@use "../styles/partials/global.scss" as *;
+@use "../styles/partials/mixins.scss" as *;
+@use "../styles/partials/variables.scss" as *;
+//use margin-auto, max-width. Should add up to 1020 for desktop.
+
+header {
+    width: 100%;
+    background-color: $primary;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    background-color: $primary;
+    font-size: $sub-header-mobile;
+
+
+    @include tablet {
+        font-size: 1.4em;
+        flex-direction: row;
+        justify-content: flex-start;
+
+    }
+
+    @include desktop {
+        max-width: 1020px;
+        margin: 0 auto;
+    }
+
+    // Container for the Logo Image
+    &__logo {
+        display: flex;
+        justify-content: center;
+        padding: 16px 0;
+
+        @include tablet {
+            width: 40%;
+            max-width: 250px;
+            margin-left: 36px;
+            justify-content: flex-start;
+        }
+
+        @include desktop {
+            width: 20%;
+            margin: 0;
+        }
+
+        &__img {
+            max-width: 150px;
+            flex-grow: 2;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include desktop {
+                flex-grow: 1;
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+        }
+    }
+
+    // The individual Nav container -> Block -> Text
+    &__block {
+        width: 100%;
+        display: flex;
+
+        @include tablet {
+            width: 40%;
+            gap: 10%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        @include desktop {
+            gap: 0;
+        }
+
+        &__section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 16px 0;
+            width: 50%;
+            color: white;
+
+
+            @include tablet {
+                padding: 0;
+                margin: 0 5%;
+                width: 100%;
+                max-width: 80px;
+
+            }
+
+            &__item {
+                color: white;
+
+                @include tablet {
+                    display: flex;
+                    align-items: center;
+                    height: 100px;
+                }
+            }
+
+        }
+    }
+}
+
+.active {
+    border-bottom: 2px solid white;
+}
+
+// Specific Selector for second item due to offset caused by active border
+.nav__block__section:nth-child(1) {
+    padding-bottom: 19px;
+
+    @include tablet {
+        padding-bottom: 0;
+    }
+
+    &:hover {
+        border-bottom: 3px solid white;
+        padding-bottom: 16px;
+
+        @include tablet {
+            padding-bottom: 0;
+            margin-bottom: -2px;
+
+        }
+    }
+}
+
+.active-page {
+    font-weight: 600;
+}
+
+.inactive {
+    color: $outline-color;
+}
+
+
+.shows__hero {
+    background-image: url('../assets/images/hero-shows.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 16px 24px;
+    position: relative;
+    line-height: 2.46rem;
+
+    @include tablet {
+        height: 85vh;
+        padding: 36px;
+    }
+
+    @include desktop {
+        height: 95vh;
+        flex-direction: row;
+        align-items: center;
+    }
+    &__container {
+        z-index: 3;
+
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1020px;
+            margin: 0 auto;
+        }
+
+        &__left {
+            color: white;
+            width: 60%;
+    
+            @include tablet {
+                width: 75%;
+            }
+
+            @include desktop {
+                width: 50%;
+            }
+    
+            &__subheading {
+                padding-bottom: 16px;
+
+                @include tablet {
+                    font-size: $section-header;
+                }
+            }
+    
+            &__heading {
+                font-size: $page-header-mobile;
+                font-weight: 600;
+                padding-bottom: 16px;
+    
+                @include tablet {
+                    font-size: $page-header;
+                    line-height: 68px;
+                    padding-bottom: 48px;
+    
+                }
+            }
+    
+        }
+        &__right {
+            @include tablet {
+                width: 60%;
+            }
+
+            @include desktop {
+                width: 45%;
+                display: flex;
+                align-items: center;
+            }
+    
+            &__player {
+                width: 100%;
+            }
+        }
+    }
+   
+}
+
+.shows__hero::before {
+    content: "";
+    width: 100%;
+    height: 40vh;
+    position: absolute;
+    background-color: #323232;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+
+    @include tablet {
+        height: 85vh;
+    }
+
+    @include desktop {
+        height: 95vh;
+    }
+}
+
+
+.tickets {
+    @include tablet {
+        padding: 24px;
+    }
+
+    @include desktop {
+        display: flex;
+        max-width: 1020px;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 48px 0 36px;
+    }
+
+    &__heading {
+        padding: 40px 16px 16px;
+        font-size: 1.4em;
+
+        @include tablet {
+            padding: 24px 16px 16px;
+        }
+        
+        @include desktop {
+            width: 20%;
+        }
+
+        &__text {
+            font-weight: 600;
+            font-size: $section-header-mobile;
+            font-weight: 600;
+
+            @include tablet {
+                font-size: $section-header;
+            }
+        }
+    }
+
+    &__choices {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 16px;
+
+        @include desktop {
+            width: 75%;
+        }
+
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: solid 1px $outline-color;
+            padding: 0 16px 16px;
+
+            @include tablet {
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px;
+            }
+
+            &__block {
+                // padding-bottom: 16px;
+                font-size: 1.1em;
+
+                @include tablet {
+                    width: 20%;
+                }
+
+                &__mobile-header {
+                    text-transform: uppercase;
+                    color: $secondary;
+                    font-weight: 600;
+                    font-size: $label-size-mobile;
+                    padding-top: 16px;
+                    padding-bottom: 4px;
+
+                }
+            }
+
+            &__button {
+                width: 100%;
+                background-color: $primary;
+                color: white;
+                text-transform: uppercase;
+                padding: 16px;
+                margin-top: 16px;
+                border: none;
+                border-radius: 5px;
+
+                @include desktop {
+                    margin-top: 0;
+                }
+            }
+        }
+
+    }
+}
+
+//stylings for the new heading on tablet/desktops
+.spacer {
+    visibility: hidden;
+}
+
+.tablet-header {
+    display: none;
+
+    @include tablet {
+        display: flex;
+        border: none;
+        text-transform: uppercase;
+        color: $secondary;
+        font-weight: 600;
+        padding-top: 24px;
+        padding-bottom: 0;
+    }
+}
+//spacing for the 'date' column so that it matches the mockup better on desktop
+.tickets__choices__item .tickets__choices__item__block:first-child {
+    @include desktop {
+        width: 30%;
+    }
+}
+
+
+.footer {
+    background-color: $primary;
+    padding: 24px 16px 16px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.38rem;
+
+    @include tablet {
+        padding: 48px 36px 36px;
+    }
+
+    @include desktop {
+        align-items: center;
+    }
+
+    //Top container that holds the heading, social icons, and logo (tablet & desktop)
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        font-size: $sub-header-mobile;
+        line-height: 2.5rem;
+
+        @include tablet {
+            display: flex;
+            padding: 0 0 36px;
+        }
+
+        @include desktop {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 8px 36px;
+        }
+
+        &__title {
+            width: 100%;
+            font-size: $section-header-mobile;
+
+            @include tablet {
+                font-size: $body;
+                display: flex;
+                align-items: center;
+                width: 33%;
+            }
+
+            @include desktop {
+                margin-right: -10%;
+            }
+
+            &__text {
+                font-weight: 600;
+
+                @include tablet {
+                    font-size: 2.3em;
+                }
+            }
+        }
+
+        &__socials {
+            width: 100%;
+            padding: 24px 0;
+            display: flex;
+            justify-content: flex-start;
+            gap: 9%;
+
+            @include tablet {
+                align-items: center;
+                width: 33%;
+                gap: 15%;
+                padding: 0;
+            }
+
+            @include desktop {
+                gap: 10%;
+
+            }
+
+            &__icons {
+                display: flex;
+                justify-content: flex-start;
+                width: 33px;
+                height: 33px;
+
+                @include tablet {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+
+        &__logo {
+            display: none;
+
+            @include tablet {
+                display: flex;
+                width: 33%;
+                justify-content: flex-end;
+            }
+
+            @include desktop {
+                width: 42%;
+                justify-self: flex-end;
+            }
+        }
+    }
+
+    //holds the contact information
+    &__mid {
+
+        @include tablet {
+            display: flex;
+            width: 100%;
+        }
+
+        @include desktop {
+            padding: 0 8px;
+            justify-content: flex-start;
+            max-width: 1020px;
+            margin: 0 auto;
+            gap: 5%;
+
+        }
+
+        &__block {
+            padding-bottom: 24px;
+
+            @include tablet {
+                width: 33%;
+            }
+
+            @include desktop {
+                width: 20%;
+            }
+
+            //for formatting
+            &__spacer {
+                padding-bottom: 16px;
+            }
+        }
+
+        &__link {
+            color: $outline-color;
+
+            &:hover {
+                color: white;
+            }
+        }
+
+    }
+
+    &__bottom {
+        padding-top: 32px;
+
+        @include tablet {
+            padding-top: 0;
+        }
+
+        @include desktop {
+            width: 100%;
+            max-width: 1020px;
+            padding-left: 8px;
+        }
+
+        &__copyright {
+            padding-top: 16px;
+
+            @include desktop {
+                max-width: 1020px;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+//for the Bandsite logo at footer bottom, hidden at higher viewpoints
+.large-hidden {
+    @include tablet {
+        display: none;
+    }
+}
+
+.footer-site-logo {
+    width: 100%;
+    max-width: 125px;
+}
