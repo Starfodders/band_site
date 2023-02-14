@@ -445,54 +445,38 @@ header {
             font-weight: 600;
         }
     }
+}
+//comments display section 
+.comments__container {
+    display: flex;
+    flex-flow: column nowrap;
+
     &__block {
-        width: 100%;
         display: flex;
-        flex-flow: row nowrap;
+        width: 100%;
+        padding: 16px 0;
+        border-bottom: 1px solid $outline-color;
+        
 
-        &__profile {
-            width: 10%;
-            margin-top: 16px;
+        &__profile{
             display: flex;
-            justify-content: center;
+            width: 20%;
+            flex-direction: column;
 
-            &__picture {
-                width: 42px;
-                height: 42px;
-                max-width: 48px;
-                min-width: 36px;
-                min-height: 36px;
+            &__icon {
                 border-radius: 50%;
-                object-fit: cover;
             }
         }
 
         &__text {
-            width: 90%;
-            padding-left: 16px;
             display: flex;
+            width: 80%;
             flex-direction: column;
 
-            &__label {
-                text-transform: uppercase;
-                font-size: $label-size-mobile;
-                color: $secondary;
-                font-weight: 600;
-                padding-bottom: 4px;
-            }
-
-            &__input {
-                padding: 8px;
-                background-color: $bg-alt;
-                border: 1px solid $outline-color;
-                border-radius: 5px;
-            }
-
-            &__area {
-                padding: 8px 8px 48px;
-                background-color: $bg-alt;
-                border: 1px solid $outline-color;
-                border-radius: 5px;
+            &__top {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 8px;
             }
         }
     }
