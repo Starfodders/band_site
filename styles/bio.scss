@@ -437,12 +437,81 @@ header {
 .comments {
     padding: 16px;
 
+    @include tablet {
+        padding: 48px 36px 36px;
+    }
+
     &__heading {
         padding-bottom: 16px;
 
         &__text {
             font-size: $section-header-mobile;
             font-weight: 600;
+        }
+    }
+
+    &__write {
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+            padding: 36px 36px 36px 0;
+        }
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            width: 15%;
+            padding: 24px 16px 16px 0;
+
+            &__picture {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                object-fit: cover;
+
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-flow: column nowrap;
+            width: 80%;
+
+            &__name__label {
+                font-size: $label-size-mobile;
+                color: $secondary;
+                text-transform: uppercase;
+                font-weight: 600;
+            }
+
+            &__name__input {
+                padding: 8px 16px 8px 8px;
+                background-color: $bg-alt;
+                border: solid 1px $outline-color;
+                border-radius: 5px;
+                margin-bottom: 16px;
+            }
+
+            &__comment__label {
+                @extend .comments__write__right__name__label;
+            }
+
+            &__comment__input {
+                @extend .comments__write__right__name__input;
+                padding-bottom: 48px;
+            }
+
+            &__button {
+                width: 100%;
+                background-color: $primary;
+                color: white;
+                text-transform: uppercase;
+                padding: 16px;
+                border: none;
+                border-radius: 5px;
+            }
         }
     }
 }

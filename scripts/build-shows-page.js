@@ -40,20 +40,20 @@ function createListing(list) {
     list.forEach((item) => {
         ticketContainer.appendChild(generateShowHTML(item));
     })
-}  
+}
 createListing(concertList)
 
 function generateShowHTML(item) {
     const newContainer = document.createElement('div');
-        newContainer.className = "tickets__choices__item";
+    newContainer.className = "tickets__choices__item";
     //iterate over every key-value pair in the passed down object
     let itemLength = Object.keys(item).length;
     for (let i = 0; i < itemLength; i++) {
         const block = document.createElement('div');
-            block.className = 'tickets__choices__item__block';
-            const titleEl = document.createElement('p');
-            titleEl.className = "tickets__choices__item__block__mobile-header";
-            titleEl.innerText = Object.keys(item)[i].toString();
+        block.className = 'tickets__choices__item__block';
+        const titleEl = document.createElement('p');
+        titleEl.className = "tickets__choices__item__block__mobile-header";
+        titleEl.innerText = Object.keys(item)[i].toString();
         block.appendChild(titleEl);
 
         const spanEl = document.createElement('span');
@@ -81,7 +81,7 @@ function generateShowHTML(item) {
 //hide the mobile headers (date, venue, location) on larger breakpoints
 const ticketHeaders = document.querySelectorAll('.tickets__choices__item__block__mobile-header');
 function addHiddenClass(list) {
-    for(let i = 0; i < list.length; i++) {
+    for (let i = 0; i < list.length; i++) {
         list[i].classList.add('large-hidden')
     }
 }
@@ -93,16 +93,16 @@ function addTabletHeader() {
     const heading = document.querySelector('.tickets__choices');
     const element = document.createElement('div');
     element.className = "tickets__choices__item tablet-header";
-        for (let i = 0; i < valueArray.length; i++) {
-            const block = document.createElement('div');
-            block.className = "tickets__choices__item__block";
-            //spacer is class given with visibility none for formatting
-            if (valueArray[i] === 'Spacer') {
-                block.className = "tickets__choices__item__block spacer";
-            }
-            block.innerText = valueArray[i]
-            element.appendChild(block);
+    for (let i = 0; i < valueArray.length; i++) {
+        const block = document.createElement('div');
+        block.className = "tickets__choices__item__block";
+        //spacer is class given with visibility none for formatting
+        if (valueArray[i] === 'Spacer') {
+            block.className = "tickets__choices__item__block spacer";
         }
+        block.innerText = valueArray[i]
+        element.appendChild(block);
+    }
     heading.prepend(element);
 }
 addTabletHeader();
