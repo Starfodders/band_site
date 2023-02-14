@@ -192,14 +192,13 @@ header {
 
         &__left {
             color: white;
-            width: 60%;
     
             @include tablet {
                 width: 75%;
             }
 
             @include desktop {
-                width: 50%;
+                width: 48%;
             }
     
             &__subheading {
@@ -207,6 +206,7 @@ header {
 
                 @include tablet {
                     font-size: $section-header;
+                    padding-bottom: 36px;
                 }
             }
     
@@ -214,11 +214,13 @@ header {
                 font-size: $page-header-mobile;
                 font-weight: 600;
                 padding-bottom: 16px;
+                width: 80%;
     
                 @include tablet {
                     font-size: $page-header;
                     line-height: 68px;
                     padding-bottom: 48px;
+                    width: 100%;
     
                 }
             }
@@ -356,8 +358,8 @@ header {
                 border: none;
                 border-radius: 5px;
 
-                @include desktop {
-                    margin-top: 0;
+                @include tablet {
+                    margin-top: 0;;
                 }
             }
         }
@@ -384,8 +386,12 @@ header {
         text-transform: uppercase;
         color: $secondary;
         font-weight: 600;
-        padding-top: 24px;
+        padding-top: 48px;
         padding-bottom: 0;
+    }
+
+    @include desktop {
+        padding-bottom: 36px;
     }
 }
 //spacing for the 'date' column so that it matches the mockup better on desktop

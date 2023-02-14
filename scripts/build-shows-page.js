@@ -96,6 +96,7 @@ function addTabletHeader() {
         for (let i = 0; i < valueArray.length; i++) {
             const block = document.createElement('div');
             block.className = "tickets__choices__item__block";
+            //spacer is class given with visibility none for formatting
             if (valueArray[i] === 'Spacer') {
                 block.className = "tickets__choices__item__block spacer";
             }
