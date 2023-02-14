@@ -647,6 +647,12 @@ header {
   justify-content: space-between;
   padding-bottom: 8px;
 }
+.comments__container__block__text__top__name {
+  font-weight: 600;
+}
+.comments__container__block__text__top__date {
+  color: #AFAFAF;
+}
 
 .footer {
   background-color: #323232;

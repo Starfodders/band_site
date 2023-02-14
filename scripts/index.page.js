@@ -19,47 +19,22 @@ const commentLog = [
     }
 
 ]
-
 const commentContainer = document.querySelector('.comments__container');
-//when the comments button is clicked, evoke the function again
 
 //on page load and on comment submission, this function should be evoked so that the page gets re-rendered. 
 function displayComment() {
-    commentLog.forEach((com) => {
-       commentContainer.appendChild(generateCommentHTML(com));
+    commentLog.forEach((comment) => {
+       commentContainer.appendChild(generateCommentHTML(comment));
     })
 }
 
-function generateCommentHTML(com) {
+function generateCommentHTML(comment) {
     const container = document.createElement('div');
     container.className = "comments__container__block";
     //left side, picture
-    container.appendChild(setImage(com))
+    container.appendChild(setImage(comment))
     //right side, text
-
-    
-    const rightSection = document.createElement('div');
-    rightSection.classList = "comments__container__block__text"
-    //top div of the right side
-    const rightSectionTop = document.createElement('div');
-    rightSectionTop.className = "comments__container__block__text__top";
-    const name = document.createElement('p');
-    name.className = "comments__container__block__text__top__name bold";
-    name.style.color = "#323232"
-    name.innerText = com.name;
-    const date = document.createElement('p');
-    date.className = "comments__container__block__text__top__date";
-    date.innerText = com.date;
-    date.style.color = "#AFAFAF"
-    rightSectionTop.appendChild(name);
-    rightSectionTop.appendChild(date);
-    rightSection.appendChild(rightSectionTop)
-    //comment block
-    const commentText = document.createElement('p');
-    commentText.className = "comments__container__block__text__comment";
-    commentText.innerText = com.comment
-    rightSection.appendChild(commentText);
-    container.appendChild(rightSection);
+    container.appendChild(buildText(comment))
     return container;
 }
 
@@ -80,6 +55,35 @@ function setImage(object) {
         leftContainer.appendChild(picture)
         return leftContainer;
     }
+}
+
+function buildText(object) {
+    const rightSection = document.createElement('div');
+    rightSection.classList = "comments__container__block__text";
+    //top div of the right side
+    function buildTop(object) {
+        const rightSectionTop = document.createElement('div');
+        rightSectionTop.className = "comments__container__block__text__top";
+        const name = document.createElement('p');
+        name.className = "comments__container__block__text__top__name";
+        name.innerText = object.name;
+        const date = document.createElement('p');
+        date.className = "comments__container__block__text__top__date";
+        date.innerText = object.date;
+        rightSectionTop.appendChild(name);
+        rightSectionTop.appendChild(date);
+        rightSection.appendChild(rightSectionTop);
+    }
+    //comment section of right side
+    function buildBottom(object) {
+        const commentText = document.createElement('p');
+        commentText.className = "comments__container__block__text__comment";
+        commentText.innerText = object.comment;
+        rightSection.appendChild(commentText);
+    }
+    buildTop(object);
+    buildBottom(object);
+    return rightSection;
 }
 
 displayComment();

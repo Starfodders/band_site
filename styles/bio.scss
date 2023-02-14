@@ -599,6 +599,14 @@ header {
                 display: flex;
                 justify-content: space-between;
                 padding-bottom: 8px;
+
+                &__name {
+                    font-weight: 600;
+                }
+
+                &__date {
+                    color: $secondary;
+                }
             }
         }
     }
