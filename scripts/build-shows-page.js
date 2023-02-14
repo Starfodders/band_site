@@ -38,12 +38,12 @@ const ticketContainer = document.querySelector('.tickets__choices');
 
 function createListing(list) {
     list.forEach((item) => {
-        ticketContainer.appendChild(generateHTMLElement(item));
+        ticketContainer.appendChild(generateShowHTML(item));
     })
 }  
 createListing(concertList)
 
-function generateHTMLElement(item) {
+function generateShowHTML(item) {
     const newContainer = document.createElement('div');
         newContainer.className = "tickets__choices__item";
     //iterate over every key-value pair in the passed down object
