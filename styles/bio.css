@@ -521,7 +521,9 @@ header {
 }
 .comments__write {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  border-bottom: solid 1px #E1E1E1;
+  padding: 8px 0 16px;
 }
 @media (min-width: 768px) {
   .comments__write {
@@ -533,7 +535,7 @@ header {
   flex-direction: column;
   align-items: flex-end;
   width: 15%;
-  padding: 24px 16px 16px 0;
+  padding: 24px 8px 16px 0;
 }
 .comments__write__left__picture {
   width: 36px;
@@ -542,10 +544,16 @@ header {
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media (min-width: 768px) {
+  .comments__write__left__picture {
+    width: 48px;
+    height: 48px;
+  }
+}
 .comments__write__right {
   display: flex;
   flex-flow: column nowrap;
-  width: 80%;
+  width: 83%;
 }
 .comments__write__right__name__label, .comments__write__right__comment__label {
   font-size: 0.8rem;
@@ -560,8 +568,14 @@ header {
   border-radius: 5px;
   margin-bottom: 16px;
 }
+@media (min-width: 768px) {
+  .comments__write__right__name__input, .comments__write__right__comment__input {
+    padding: 16px 24px 16px 16px;
+    margin-bottom: 24px;
+  }
+}
 .comments__write__right__comment__input {
-  padding-bottom: 48px;
+  padding-bottom: 68px;
 }
 .comments__write__right__button {
   width: 100%;
@@ -572,28 +586,44 @@ header {
   border: none;
   border-radius: 5px;
 }
+@media (min-width: 768px) {
+  .comments__write__right__button {
+    width: 35%;
+    align-self: flex-end;
+  }
+}
 
 .comments__container {
   display: flex;
   flex-flow: column nowrap;
+}
+@media (min-width: 768px) {
+  .comments__container {
+    padding: 16px 36px 36px;
+  }
 }
 .comments__container__block {
   display: flex;
   width: 100%;
   padding: 16px 0;
   border-bottom: 1px solid #E1E1E1;
+  justify-content: space-between;
 }
 .comments__container__block__profile {
   display: flex;
-  width: 20%;
+  align-items: flex-start;
+  width: 15%;
   flex-direction: column;
 }
 .comments__container__block__profile__icon {
+  width: 36px;
+  height: 36px;
+  background-color: #E1E1E1;
   border-radius: 50%;
 }
 .comments__container__block__text {
   display: flex;
-  width: 80%;
+  width: 83%;
   flex-direction: column;
 }
 .comments__container__block__text__top {

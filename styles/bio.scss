@@ -452,7 +452,9 @@ header {
 
     &__write {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        border-bottom: solid 1px $outline-color;
+        padding: 8px 0 16px;
 
         @include tablet {
             padding: 36px 36px 36px 0;
@@ -463,7 +465,7 @@ header {
             flex-direction: column;
             align-items: flex-end;
             width: 15%;
-            padding: 24px 16px 16px 0;
+            padding: 24px 8px 16px 0;
 
             &__picture {
                 width: 36px;
@@ -471,13 +473,18 @@ header {
                 border-radius: 50%;
                 object-fit: cover;
 
+                @include tablet {
+                    width: 48px;
+                    height: 48px;
+                }
+
             }
         }
 
         &__right {
             display: flex;
             flex-flow: column nowrap;
-            width: 80%;
+            width: 83%;
 
             &__name__label {
                 font-size: $label-size-mobile;
@@ -492,6 +499,11 @@ header {
                 border: solid 1px $outline-color;
                 border-radius: 5px;
                 margin-bottom: 16px;
+
+                @include tablet {
+                    padding: 16px 24px 16px 16px;
+                    margin-bottom: 24px;
+                }
             }
 
             &__comment__label {
@@ -500,7 +512,7 @@ header {
 
             &__comment__input {
                 @extend .comments__write__right__name__input;
-                padding-bottom: 48px;
+                padding-bottom: 68px;
             }
 
             &__button {
@@ -511,6 +523,11 @@ header {
                 padding: 16px;
                 border: none;
                 border-radius: 5px;
+
+                @include tablet {
+                    width: 35%;
+                    align-self: flex-end;
+                }
             }
         }
     }
@@ -520,26 +537,35 @@ header {
     display: flex;
     flex-flow: column nowrap;
 
+    @include tablet {
+        padding: 16px 36px 36px;
+    }
+
     &__block {
         display: flex;
         width: 100%;
         padding: 16px 0;
         border-bottom: 1px solid $outline-color;
+        justify-content: space-between;
         
 
         &__profile{
             display: flex;
-            width: 20%;
+            align-items: flex-start;
+            width: 15%;
             flex-direction: column;
 
             &__icon {
+                width: 36px;
+                height: 36px;
+                background-color:$outline-color;
                 border-radius: 50%;
             }
         }
 
         &__text {
             display: flex;
-            width: 80%;
+            width: 83%;
             flex-direction: column;
 
             &__top {

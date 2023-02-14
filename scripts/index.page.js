@@ -34,17 +34,7 @@ function generateCommentHTML(com) {
     const container = document.createElement('div');
     container.className = "comments__container__block";
     //left side, picture
-    const leftSection = document.createElement('div');
-    leftSection.className = "comments__container__block__profile";
-    const profileBlock = document.createElement('div');
-    profileBlock.className = "comments__container__block__profile__icon"
-    const profile = document.createElement('img');
-    profile.className = "comments__container__block__profile__picture";
-    profile.src = setImage(com);
-    profile.alt = "picture"
-    profileBlock.appendChild(profile)
-    leftSection.appendChild(profileBlock);
-    container.appendChild(leftSection);
+    container.appendChild(setImage(com))
     //right side, text
     const rightSection = document.createElement('div');
     rightSection.classList = "comments__container__block__text"
@@ -72,10 +62,21 @@ function generateCommentHTML(com) {
 }
 
 function setImage(object) {
+    //creates container div, checks for image, renders element
+    const leftContainer = document.createElement('div');
+    leftContainer.className = "comments__container__block__profile";
     if (!object.src) {
-        return;
+        const background = document.createElement('div');
+        background.className = "comments__container__block__profile__icon";
+        leftContainer.appendChild(background)
+        return leftContainer;
     }else {
-        return object.src
+        const picture = document.createElement('img');
+        picture.className = "comments__container__block__profile__picture";
+        picture.src = object.src;
+        picture.alt = "profile picture"
+        leftContainer.appendChild(picture)
+        return leftContainer;
     }
 }
 
