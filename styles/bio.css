@@ -512,32 +512,58 @@ header {
     padding: 48px 36px 36px;
   }
 }
+@media (min-width: 1280px) {
+  .comments {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 48px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .comments__heading {
-  padding-bottom: 16px;
+  padding-bottom: 24px;
+}
+@media (min-width: 768px) {
+  .comments__heading {
+    padding-bottom: 48px;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__heading {
+    align-self: flex-start;
+  }
 }
 .comments__heading__text {
   font-size: 1.85em;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  .comments__inner {
+    padding: 0 36px 0;
+  }
+}
+@media (min-width: 1280px) {
+  .comments__inner {
+    max-width: 510px;
+  }
+}
 .comments__write {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px #E1E1E1;
-  padding: 8px 0 16px;
+  padding-bottom: 16px;
+  width: 100%;
 }
-@media (min-width: 768px) {
-  .comments__write {
-    padding: 36px 36px 36px 0;
-  }
-}
-.comments__write__left {
+.comments__write__left, .comments__container__block__profile {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 15%;
-  padding: 24px 8px 16px 0;
+  width: 13%;
+  padding: 24px 0 0;
 }
-.comments__write__left__picture {
+.comments__write__left__picture, .comments__container__block__profile__icon {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -545,7 +571,7 @@ header {
      object-fit: cover;
 }
 @media (min-width: 768px) {
-  .comments__write__left__picture {
+  .comments__write__left__picture, .comments__container__block__profile__icon {
     width: 48px;
     height: 48px;
   }
@@ -560,6 +586,7 @@ header {
   color: #AFAFAF;
   text-transform: uppercase;
   font-weight: 600;
+  padding-bottom: 4px;
 }
 .comments__write__right__name__input, .comments__write__right__comment__input {
   padding: 8px 16px 8px 8px;
@@ -597,11 +624,6 @@ header {
   display: flex;
   flex-flow: column nowrap;
 }
-@media (min-width: 768px) {
-  .comments__container {
-    padding: 16px 36px 36px;
-  }
-}
 .comments__container__block {
   display: flex;
   width: 100%;
@@ -610,16 +632,10 @@ header {
   justify-content: space-between;
 }
 .comments__container__block__profile {
-  display: flex;
-  align-items: flex-start;
-  width: 15%;
-  flex-direction: column;
+  padding-top: 4px;
 }
 .comments__container__block__profile__icon {
-  width: 36px;
-  height: 36px;
   background-color: #E1E1E1;
-  border-radius: 50%;
 }
 .comments__container__block__text {
   display: flex;

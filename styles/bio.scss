@@ -433,7 +433,7 @@ header {
         }
     }
 }
-
+//comment writing section
 .comments {
     padding: 16px;
 
@@ -441,12 +441,39 @@ header {
         padding: 48px 36px 36px;
     }
 
+    @include desktop {
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 48px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__heading {
-        padding-bottom: 16px;
+        padding-bottom: 24px;
+
+        @include tablet {
+            padding-bottom: 48px;
+        }
+
+        @include desktop {
+            align-self: flex-start
+        }
 
         &__text {
             font-size: $section-header-mobile;
             font-weight: 600;
+        }
+    }
+    //only renders for additional padding on larger screens
+    &__inner {
+        @include tablet {
+            padding: 0 36px 0;
+        }
+
+        @include desktop {
+            max-width: 510px;
         }
     }
 
@@ -454,18 +481,22 @@ header {
         display: flex;
         justify-content: space-between;
         border-bottom: solid 1px $outline-color;
-        padding: 8px 0 16px;
+        padding-bottom: 16px;
+        width: 100%;
 
         @include tablet {
-            padding: 36px 36px 36px 0;
+
         }
 
         &__left {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            width: 15%;
-            padding: 24px 8px 16px 0;
+            width: 13%;
+            padding: 24px 0 0;
+
+            @include tablet {
+            }
 
             &__picture {
                 width: 36px;
@@ -491,6 +522,7 @@ header {
                 color: $secondary;
                 text-transform: uppercase;
                 font-weight: 600;
+                padding-bottom: 4px;
             }
 
             &__name__input {
@@ -538,7 +570,6 @@ header {
     flex-flow: column nowrap;
 
     @include tablet {
-        padding: 16px 36px 36px;
     }
 
     &__block {
@@ -550,16 +581,12 @@ header {
         
 
         &__profile{
-            display: flex;
-            align-items: flex-start;
-            width: 15%;
-            flex-direction: column;
+            @extend .comments__write__left;
+            padding-top: 4px;
 
             &__icon {
-                width: 36px;
-                height: 36px;
-                background-color:$outline-color;
-                border-radius: 50%;
+                @extend .comments__write__left__picture;
+                background-color: $outline-color;
             }
         }
 

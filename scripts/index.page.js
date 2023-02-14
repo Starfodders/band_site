@@ -36,6 +36,8 @@ function generateCommentHTML(com) {
     //left side, picture
     container.appendChild(setImage(com))
     //right side, text
+
+    
     const rightSection = document.createElement('div');
     rightSection.classList = "comments__container__block__text"
     //top div of the right side
