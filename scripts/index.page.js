@@ -102,7 +102,7 @@ displayComment();
 formSubmit.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!nameInput.value || !textInput.value) {
-        alert('BOMBACLOT PUT STUFF IN THE FORMS')
+        highlightError();
         throw new RangeError('Must enter valid input values');
     } else {
     function returnTime() {
@@ -128,4 +128,25 @@ formSubmit.addEventListener('submit', (e) => {
 }
 })
 
+function highlightError() {
+    //add error border style, then remove it when it is clicked
+    if (!nameInput.value) {
+        nameInput.style.border = "solid 1px #D22D2D";
+        nameInput.addEventListener('click', function removeError() {
+            nameInput.style.border = "solid 1px #323232"
+            nameInput.removeEventListener('click', removeError);
+        })
+    }
+    if (!textInput.value) {
+        console.log('here');
+        textInput.style.border = "solid 1px #D22D2D";
+        textInput.addEventListener('click', function removeError() {
+            textInput.style.border = "solid 1px #323232"
+            textInput.removeEventListener('click', removeError);
+        })
+    }
+}
+
 //question: should the new object be added to end of the array for consistency?
+
+

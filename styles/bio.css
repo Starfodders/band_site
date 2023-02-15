@@ -589,16 +589,21 @@ header {
   padding-bottom: 4px;
 }
 .comments__write__right__name__input, .comments__write__right__comment__input {
-  padding: 8px 16px 8px 8px;
+  padding: 12px;
   background-color: #FAFAFA;
   border: solid 1px #E1E1E1;
-  border-radius: 5px;
+  border-radius: 4px;
   margin-bottom: 16px;
+}
+.comments__write__right__name__input:focus, .comments__write__right__comment__input:focus {
+  outline: none;
+  border: solid 1px #323232;
 }
 @media (min-width: 768px) {
   .comments__write__right__name__input, .comments__write__right__comment__input {
-    padding: 16px 24px 16px 16px;
+    padding: 24px 16px;
     margin-bottom: 24px;
+    max-height: 48px;
   }
 }
 .comments__write__right__comment__input {
@@ -611,7 +616,7 @@ header {
   text-transform: uppercase;
   padding: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 @media (min-width: 768px) {
   .comments__write__right__button {

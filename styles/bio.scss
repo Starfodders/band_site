@@ -433,6 +433,7 @@ header {
         }
     }
 }
+
 //comment writing section
 .comments {
     padding: 16px;
@@ -466,6 +467,7 @@ header {
             font-weight: 600;
         }
     }
+
     //only renders for additional padding on larger screens
     &__inner {
         @include tablet {
@@ -484,10 +486,6 @@ header {
         padding-bottom: 16px;
         width: 100%;
 
-        @include tablet {
-
-        }
-
         &__left {
             display: flex;
             flex-direction: column;
@@ -495,8 +493,7 @@ header {
             width: 13%;
             padding: 24px 0 0;
 
-            @include tablet {
-            }
+            @include tablet {}
 
             &__picture {
                 width: 36px;
@@ -526,15 +523,20 @@ header {
             }
 
             &__name__input {
-                padding: 8px 16px 8px 8px;
+                padding: 12px;
                 background-color: $bg-alt;
                 border: solid 1px $outline-color;
-                border-radius: 5px;
+                border-radius: 4px;
                 margin-bottom: 16px;
 
+                &:focus {
+                    outline: none;
+                    border: solid 1px $primary;
+                }
                 @include tablet {
-                    padding: 16px 24px 16px 16px;
+                    padding: 24px 16px;
                     margin-bottom: 24px;
+                    max-height: 48px;
                 }
             }
 
@@ -554,7 +556,7 @@ header {
                 text-transform: uppercase;
                 padding: 16px;
                 border: none;
-                border-radius: 5px;
+                border-radius: 4px;
 
                 @include tablet {
                     width: 35%;
@@ -564,13 +566,13 @@ header {
         }
     }
 }
+
 //comments display section 
 .comments__container {
     display: flex;
     flex-flow: column nowrap;
 
-    @include tablet {
-    }
+    @include tablet {}
 
     &__block {
         display: flex;
@@ -578,9 +580,9 @@ header {
         padding: 16px 0;
         border-bottom: 1px solid $outline-color;
         justify-content: space-between;
-        
 
-        &__profile{
+
+        &__profile {
             @extend .comments__write__left;
             padding-top: 4px;
 
