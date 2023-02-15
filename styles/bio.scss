@@ -561,6 +561,11 @@ header {
                 border: none;
                 border-radius: 4px;
 
+                &:hover {
+                    background-color: black;
+                    cursor: pointer;
+                }
+
                 @include tablet {
                     width: 35%;
                     align-self: flex-end;

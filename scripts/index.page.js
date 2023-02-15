@@ -120,8 +120,7 @@ formSubmit.addEventListener('submit', (e) => {
         }
         //prepend new object into array, clear fields, re-render the comments
         commentLog.push(newCommentObject);
-        nameInput.value = '';
-        textInput.value = '';
+        formSubmit.reset();
         displayComment();
     }
 })
@@ -149,29 +148,27 @@ function highlightError() {
     }
 }
 function returnNewTime() {
-    //new date object created on submit event, is then passed into converter for readability
+    //new date object created on submit event, time in epoch format returned
     const currentTime = new Date;
-    const month = currentTime.getMonth() + 1;
-    const day = currentTime.getDate();
-    const year = currentTime.getFullYear();
-    const date = `0${month}/${day}/${year}`;
-    return date;
+    const epoch = currentTime.getTime()
+    return epoch;
 }
 function returnReadableTime(date) {
     //get timestamps for both current day and day comment was made
     const currentDate = new Date();
     const commentDate = new Date(date);
     const difference = currentDate.getTime() - commentDate.getTime();           //returns in ms
+    console.log(difference);
     //convert to usable format (minutes) and compare
-    const minutes = Math.round(difference / 60000);
+    const minutes = Math.abs(difference / 60000);
     if (minutes < 1) {
-        return 'Less than a minute ago';
+        return '< 1 minute ago';
     }
     //minutes ago
     else if (minutes >= 1 && minutes <= 59) {
         const minInt = parseInt(minutes);
         if (minInt === 1) {
-            return `< 1 minute ago`
+            return  `1 minute ago`
         } else {
             return `${minInt} minutes ago`
         }
@@ -216,7 +213,4 @@ function returnReadableTime(date) {
 
 //on page load, run to display current comments
 displayComment();
-
-//question: should the new object be added to end of the array for consistency?
-
 

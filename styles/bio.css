@@ -620,6 +620,10 @@ header {
   border: none;
   border-radius: 4px;
 }
+.comments__write__right__button:hover {
+  background-color: black;
+  cursor: pointer;
+}
 @media (min-width: 768px) {
   .comments__write__right__button {
     width: 35%;
