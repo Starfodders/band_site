@@ -20,9 +20,19 @@ const commentLog = [
 
 ]
 const commentContainer = document.querySelector('.comments__container');
+const nameInput = document.querySelector('#input-name');
+const textInput = document.querySelector('#input-comment');
+const formSubmit = document.querySelector('#writable-form');
 
-//on page load and on comment submission, this function should be evoked so that the page gets re-rendered. 
 function displayComment() {
+    //first clear all existing comments
+    const logLength = commentContainer.children.length;
+    if (logLength > 0) {
+        for (let i = 0; i < logLength; i++) {
+            commentContainer.removeChild(commentContainer.lastChild);
+        }
+    }
+    //then render the array
     commentLog.forEach((comment) => {
        commentContainer.appendChild(generateCommentHTML(comment));
     })
@@ -88,3 +98,34 @@ function buildText(object) {
 
 displayComment();
 
+
+formSubmit.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!nameInput.value || !textInput.value) {
+        alert('BOMBACLOT PUT STUFF IN THE FORMS')
+        throw new RangeError('Must enter valid input values');
+    } else {
+    function returnTime() {
+        const currentTime = new Date;
+        const month = currentTime.getMonth() + 1;
+        const day = currentTime.getDate();
+        const year = currentTime.getFullYear();
+        return `0${month}/${day}/${year}`
+    }
+    let inputHolder = [];
+    inputHolder.push(nameInput.value, returnTime(), textInput.value);
+    const newCommentObject = {
+        src: null,
+        name: inputHolder[0],
+        date: inputHolder[1],
+        comment: inputHolder[2]
+    }
+    //prepend new object into array, clear fields, re-render the comments
+    commentLog.unshift(newCommentObject);
+    nameInput.value = '';
+    textInput.value = '';
+    displayComment();
+}
+})
+
+//question: should the new object be added to end of the array for consistency?

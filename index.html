@@ -95,18 +95,18 @@
             <h3 class = "comments__heading__text">Join the Conversation</h3>
         </div>
         <div class = "comments__inner">
-        <div class = "comments__write">
+        <form class = "comments__write" id = "writable-form" type="submit">
             <div class = "comments__write__left">
                 <img src = "assets/images/Mohan-muruge.jpg" alt = "your image" class = "comments__write__left__picture">
             </div>
             <div class = "comments__write__right">
                 <label for = "name" class = "comments__write__right__name__label">Name</label>
-                <input type = "text" name = "name" placeholder = "Enter Your Name" class = "comments__write__right__name__input">
+                <input type = "text" name = "name" placeholder = "Enter Your Name" class = "comments__write__right__name__input" id = "input-name" autocomplete="off">
                 <label for = "comment" class = "comments__write__right__comment__label">Comment</label>
-                <input name = "comment" placeholder = "Add a new comment" class = "comments__write__right__comment__input"></input>
-                <button class = "comments__write__right__button">Comment</button>
+                <input name = "comment" placeholder = "Add a new comment" class = "comments__write__right__comment__input" id = "input-comment" autocomplete="off"></input>
+                <button class = "comments__write__right__button" type = "submit" id = "input-button">Comment</button>
             </div>
-        </div>
+        </form>
         <div class = "comments__container"></div>
         </div>
     </section>
