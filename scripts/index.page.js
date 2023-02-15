@@ -1,21 +1,25 @@
 const commentLog = [
     {
+        id: 1,
         src: null,
-        name: "Connor Walton",
-        date: "02/17/2021",
-        comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
+        name: "Miles Acosta",
+        date: "12/20/2020",
+        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
+        
     },
     {
+        id: 2,
         src: null,
         name: "Emilie Beach",
         date: "01/09/2021",
         comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
     },
     {
+        id: 3,
         src: null,
-        name: "Miles Acosta",
-        date: "12/20/2020",
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
+        name: "Connor Walton",
+        date: "02/17/2021",
+        comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
     }
 
 ]
@@ -32,8 +36,10 @@ function displayComment() {
             commentContainer.removeChild(commentContainer.lastChild);
         }
     }
+    //sort array to render from latest comment(biggest ID) 
+    reverseLog = commentLog.sort((com1, com2) => com2.id - com1.id);
     //then render the array
-    commentLog.forEach((comment) => {
+    reverseLog.forEach((comment) => {
         commentContainer.appendChild(generateCommentHTML(comment));
     })
 }
@@ -80,7 +86,6 @@ function buildText(object) {
         const date = document.createElement('p');
         date.className = "comments__container__block__text__top__date";
         date.innerText = returnReadableTime(object.date);
-        console.log(object.date);
         rightSectionTop.appendChild(name);
         rightSectionTop.appendChild(date);
         rightSection.appendChild(rightSectionTop);
@@ -104,15 +109,17 @@ formSubmit.addEventListener('submit', (e) => {
         throw new RangeError('Must enter valid input values');
     } else {
         let inputHolder = [];
-        inputHolder.push(nameInput.value, returnNewTime(), textInput.value);
+        let id = commentLog.length + 1;
+        inputHolder.push(id, nameInput.value, returnNewTime(), textInput.value);
         const newCommentObject = {
+            id: inputHolder[0],
             src: null,
-            name: inputHolder[0],
-            date: inputHolder[1],
-            comment: inputHolder[2]
+            name: inputHolder[1],
+            date: inputHolder[2],
+            comment: inputHolder[3]
         }
         //prepend new object into array, clear fields, re-render the comments
-        commentLog.unshift(newCommentObject);
+        commentLog.push(newCommentObject);
         nameInput.value = '';
         textInput.value = '';
         displayComment();
@@ -120,23 +127,23 @@ formSubmit.addEventListener('submit', (e) => {
 })
 
 function highlightError() {
+    //select the hidden error messages, with empty fields change the field stylings and display additional info
     const [firstField, secondField] = document.querySelectorAll(".comments__write__right__error");
     if (!nameInput.value) {
-        nameInput.classList.add('error')
-        firstField.classList.remove('error-hidden')
+        nameInput.classList.add('error-border')
+        firstField.classList.remove('error-message')
         nameInput.addEventListener('click', function removeError() {
-            nameInput.classList.remove('error');
-            firstField.classList.add('error-hidden')
+            nameInput.classList.remove('error-border');
+            firstField.classList.add('error-message')
             nameInput.removeEventListener('click', removeError);
         })
     }
     if (!textInput.value) {
-        console.log('here');
-        textInput.classList.add('error')
-        secondField.classList.remove('error-hidden')
+        textInput.classList.add('error-border')
+        secondField.classList.remove('error-message')
         textInput.addEventListener('click', function removeError() {
-            textInput.classList.remove('error')
-            secondField.classList.add('error-hidden')
+            textInput.classList.remove('error-border')
+            secondField.classList.add('error-message')
             textInput.removeEventListener('click', removeError);
         })
     }
