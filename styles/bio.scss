@@ -527,7 +527,6 @@ header {
                 background-color: $bg-alt;
                 border: solid 1px $outline-color;
                 border-radius: 4px;
-                margin-bottom: 16px;
 
                 &:focus {
                     outline: none;
@@ -535,9 +534,13 @@ header {
                 }
                 @include tablet {
                     padding: 24px 16px;
-                    margin-bottom: 24px;
                     max-height: 48px;
                 }
+            }
+
+            &__error {
+                color: #D22D2D;
+                font-size: 0.8em;
             }
 
             &__comment__label {
@@ -565,6 +568,13 @@ header {
             }
         }
     }
+}
+
+.error {
+    border: solid 1px #D22D2D;
+}
+.error-hidden {
+    visibility: hidden;
 }
 
 //comments display section 

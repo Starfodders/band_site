@@ -34,7 +34,7 @@ function displayComment() {
     }
     //then render the array
     commentLog.forEach((comment) => {
-       commentContainer.appendChild(generateCommentHTML(comment));
+        commentContainer.appendChild(generateCommentHTML(comment));
     })
 }
 
@@ -57,7 +57,7 @@ function setImage(object) {
         background.className = "comments__container__block__profile__icon";
         leftContainer.appendChild(background)
         return leftContainer;
-    }else {
+    } else {
         const picture = document.createElement('img');
         picture.className = "comments__container__block__profile__picture";
         picture.src = object.src;
@@ -79,7 +79,8 @@ function buildText(object) {
         name.innerText = object.name;
         const date = document.createElement('p');
         date.className = "comments__container__block__text__top__date";
-        date.innerText = object.date;
+        date.innerText = returnReadableTime(object.date);
+        console.log(object.date);
         rightSectionTop.appendChild(name);
         rightSectionTop.appendChild(date);
         rightSection.appendChild(rightSectionTop);
@@ -96,56 +97,118 @@ function buildText(object) {
     return rightSection;
 }
 
-displayComment();
-
-
 formSubmit.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!nameInput.value || !textInput.value) {
         highlightError();
         throw new RangeError('Must enter valid input values');
     } else {
-    function returnTime() {
-        const currentTime = new Date;
-        const month = currentTime.getMonth() + 1;
-        const day = currentTime.getDate();
-        const year = currentTime.getFullYear();
-        return `0${month}/${day}/${year}`
+        let inputHolder = [];
+        inputHolder.push(nameInput.value, returnNewTime(), textInput.value);
+        const newCommentObject = {
+            src: null,
+            name: inputHolder[0],
+            date: inputHolder[1],
+            comment: inputHolder[2]
+        }
+        //prepend new object into array, clear fields, re-render the comments
+        commentLog.unshift(newCommentObject);
+        nameInput.value = '';
+        textInput.value = '';
+        displayComment();
     }
-    let inputHolder = [];
-    inputHolder.push(nameInput.value, returnTime(), textInput.value);
-    const newCommentObject = {
-        src: null,
-        name: inputHolder[0],
-        date: inputHolder[1],
-        comment: inputHolder[2]
-    }
-    //prepend new object into array, clear fields, re-render the comments
-    commentLog.unshift(newCommentObject);
-    nameInput.value = '';
-    textInput.value = '';
-    displayComment();
-}
 })
 
 function highlightError() {
-    //add error border style, then remove it when it is clicked
+    const [firstField, secondField] = document.querySelectorAll(".comments__write__right__error");
     if (!nameInput.value) {
-        nameInput.style.border = "solid 1px #D22D2D";
+        nameInput.classList.add('error')
+        firstField.classList.remove('error-hidden')
         nameInput.addEventListener('click', function removeError() {
-            nameInput.style.border = "solid 1px #323232"
+            nameInput.classList.remove('error');
+            firstField.classList.add('error-hidden')
             nameInput.removeEventListener('click', removeError);
         })
     }
     if (!textInput.value) {
         console.log('here');
-        textInput.style.border = "solid 1px #D22D2D";
+        textInput.classList.add('error')
+        secondField.classList.remove('error-hidden')
         textInput.addEventListener('click', function removeError() {
-            textInput.style.border = "solid 1px #323232"
+            textInput.classList.remove('error')
+            secondField.classList.add('error-hidden')
             textInput.removeEventListener('click', removeError);
         })
     }
 }
+function returnNewTime() {
+    //new date object created on submit event, is then passed into converter for readability
+    const currentTime = new Date;
+    const month = currentTime.getMonth() + 1;
+    const day = currentTime.getDate();
+    const year = currentTime.getFullYear();
+    const date = `0${month}/${day}/${year}`;
+    return date;
+}
+function returnReadableTime(date) {
+    //get timestamps for both current day and day comment was made
+    const currentDate = new Date();
+    const commentDate = new Date(date);
+    const difference = currentDate.getTime() - commentDate.getTime();           //returns in ms
+    //convert to usable format (minutes) and compare
+    const minutes = Math.round(difference / 60000);
+    if (minutes < 1) {
+        return 'Less than a minute ago';
+    }
+    //minutes ago
+    else if (minutes >= 1 && minutes <= 59) {
+        const minInt = parseInt(minutes);
+        if (minInt === 1) {
+            return `< 1 minute ago`
+        } else {
+            return `${minInt} minutes ago`
+        }
+    }
+    //hours ago
+    else if (minutes >= 60 && minutes <= 1439) {
+        const hourInt = parseInt(minutes / 60);
+        if (hourInt === 1) {
+            return `${hourInt} hour ago`
+        } else {
+            return `${hourInt} hours ago`
+        }
+    }
+    //days ago, goes up to a month
+    else if (minutes >= 1440 && minutes <= 43799) {
+        const dayInt = parseInt(minutes / 1440);
+        if (dayInt === 1) {
+            return `${dayInt} day ago`
+        } else {
+            return `${dayInt} days ago`
+        }
+    }
+    //months ago up to a year
+    else if (minutes >= 43800 && minutes <= 525599) {
+        const monthInt = parseInt(minutes / 43800);
+        if (monthInt === 1) {
+            return `${monthInt} month ago`
+        } else {
+            return `${monthInt} months ago`
+        }
+    }
+    //years ago
+    else {
+        const yearInt = parseInt(minutes / 525600);
+        if (yearInt === 1) {
+            return `${yearInt} year ago`
+        } else {
+            return `${yearInt} years ago`
+        }
+    }
+}
+
+//on page load, run to display current comments
+displayComment();
 
 //question: should the new object be added to end of the array for consistency?
 
