@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Avenir Next LT";
+  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir Next LT";
+  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir Next LT";
+  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 *,
 *::before,
 *:after {
@@ -42,27 +63,6 @@ a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf") format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Avenir Next LT";
-  src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
 body {
   font-family: "Avenir Next LT";
   font-size: 13px;
@@ -119,13 +119,13 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px 0;
+  padding: 1.2em 0 1.2em 1.2em;
 }
 @media (min-width: 768px) {
   .nav__logo {
     width: 40%;
     max-width: 250px;
-    margin-left: 36px;
+    margin-left: 2.57em;
     justify-content: flex-start;
   }
 }
@@ -178,7 +178,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0 16px 0;
+  padding: 0 0 1.2em 0;
   width: 50%;
   color: white;
 }
@@ -215,7 +215,7 @@ header {
 }
 .nav__section:nth-child(1):hover {
   border-bottom: 3px solid white;
-  padding-bottom: 16px;
+  padding-bottom: 1.2em;
 }
 @media (min-width: 768px) {
   .nav__section:nth-child(1):hover {
@@ -241,14 +241,14 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 16px 16px 24px;
+  padding: 1.2em 1.2em 1.85em;
   position: relative;
   line-height: 2.46rem;
 }
 @media (min-width: 768px) {
   .hero {
     height: 85vh;
-    padding: 36px;
+    padding: 2.57em;
   }
 }
 @media (min-width: 1280px) {
@@ -283,25 +283,25 @@ header {
   }
 }
 .hero__subheading {
-  padding-bottom: 16px;
+  padding-bottom: 1.2em;
 }
 @media (min-width: 768px) {
   .hero__subheading {
     font-size: 2.56em;
-    padding-bottom: 36px;
+    padding-bottom: 2.57em;
   }
 }
 .hero__heading {
   font-size: 1.85em;
   font-weight: 600;
-  padding-bottom: 16px;
+  padding-bottom: 1.2em;
   width: 80%;
 }
 @media (min-width: 768px) {
   .hero__heading {
     font-size: 4.28em;
     line-height: 68px;
-    padding-bottom: 48px;
+    padding-bottom: 3.42em;
     width: 100%;
   }
 }
@@ -344,7 +344,7 @@ header {
 
 @media (min-width: 768px) {
   .tickets {
-    padding: 24px;
+    padding: 1.7em;
   }
 }
 @media (min-width: 1280px) {
@@ -354,16 +354,16 @@ header {
     width: 100%;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 48px 0 36px;
+    padding: 3.42em 0 2.57em;
   }
 }
 .tickets__heading {
-  padding: 40px 16px 16px;
+  padding: 3.07em 1.2em 1.2em;
   font-size: 1.4em;
 }
 @media (min-width: 768px) {
   .tickets__heading {
-    padding: 24px 16px 16px;
+    padding: 1.7em 1.14em 1.14em;
   }
 }
 @media (min-width: 1280px) {
@@ -384,7 +384,7 @@ header {
 .tickets__choices {
   display: flex;
   flex-direction: column;
-  padding-bottom: 16px;
+  padding-bottom: 1.2em;
 }
 @media (min-width: 1280px) {
   .tickets__choices {
@@ -395,7 +395,7 @@ header {
   display: flex;
   flex-direction: column;
   border-bottom: solid 1px #E1E1E1;
-  padding: 0 16px 16px;
+  padding: 0 1.2em 1.2em;
 }
 @media (min-width: 768px) {
   .tickets__item {
@@ -403,7 +403,7 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
+    padding: 1.17em;
   }
 }
 .tickets__item:hover {
@@ -422,16 +422,16 @@ header {
   color: #AFAFAF;
   font-weight: 600;
   font-size: 0.8rem;
-  padding-top: 16px;
-  padding-bottom: 4px;
+  padding-top: 1.2em;
+  padding-bottom: 0.3em;
 }
 .tickets__button {
   width: 100%;
   background-color: #323232;
   color: white;
   text-transform: uppercase;
-  padding: 16px;
-  margin-top: 16px;
+  padding: 1.2em;
+  margin-top: 1.2em;
   border: none;
   border-radius: 4px;
   min-height: 40px;
@@ -469,13 +469,13 @@ header {
     text-transform: uppercase;
     color: #AFAFAF;
     font-weight: 600;
-    padding-top: 48px;
+    padding-top: 3.42em;
     padding-bottom: 0;
   }
 }
 @media (min-width: 1280px) {
   .tablet-header {
-    padding-bottom: 36px;
+    padding-bottom: 2.57em;
   }
 }
 
@@ -487,7 +487,7 @@ header {
 
 .footer {
   background-color: #323232;
-  padding: 24px 16px 16px;
+  padding: 1.85em 1.2em 1.2em;
   color: white;
   display: flex;
   flex-direction: column;
@@ -495,7 +495,7 @@ header {
 }
 @media (min-width: 768px) {
   .footer {
-    padding: 48px 36px 36px;
+    padding: 3.42em 2.57em 2.57em;
   }
 }
 @media (min-width: 1280px) {
@@ -513,14 +513,14 @@ header {
 @media (min-width: 768px) {
   .footer__top {
     display: flex;
-    padding: 0 0 36px;
+    padding: 0 0 2.57em;
   }
 }
 @media (min-width: 1280px) {
   .footer__top {
     max-width: 1020px;
     margin: 0 auto;
-    padding: 0 8px 36px;
+    padding: 0 0.57em 2.57em;
   }
 }
 .footer__upper {
@@ -550,7 +550,7 @@ header {
 }
 .footer__socials {
   width: 100%;
-  padding: 24px 0;
+  padding: 1.85em 0;
   display: flex;
   justify-content: flex-start;
   gap: 9%;
@@ -571,13 +571,13 @@ header {
 .footer__icons {
   display: flex;
   justify-content: flex-start;
-  width: 33px;
-  height: 33px;
+  width: 2.53em;
+  height: 2.53em;
 }
 @media (min-width: 768px) {
   .footer__icons {
-    width: 25px;
-    height: 25px;
+    width: 1.79em;
+    height: 1.79em;
   }
 }
 .footer__logo {
@@ -614,7 +614,7 @@ header {
 }
 @media (min-width: 1280px) {
   .footer__mid {
-    padding: 0 8px;
+    padding: 0 0.57em;
     justify-content: flex-start;
     max-width: 1020px;
     margin: 0 auto;
@@ -622,7 +622,7 @@ header {
   }
 }
 .footer__block {
-  padding-bottom: 24px;
+  padding-bottom: 1.85em;
 }
 @media (min-width: 768px) {
   .footer__block {
@@ -635,7 +635,7 @@ header {
   }
 }
 .footer__spacer {
-  padding-bottom: 16px;
+  padding-bottom: 1.2em;
 }
 .footer__email {
   color: #E1E1E1;
@@ -644,7 +644,7 @@ header {
   color: white;
 }
 .footer__bottom {
-  padding-top: 32px;
+  padding-top: 2.46em;
 }
 @media (min-width: 768px) {
   .footer__bottom {
@@ -655,11 +655,11 @@ header {
   .footer__bottom {
     width: 100%;
     max-width: 1020px;
-    padding-left: 8px;
+    padding-left: 0.57em;
   }
 }
 .footer__copyright {
-  padding-top: 16px;
+  padding-top: 1.2em;
 }
 @media (min-width: 1280px) {
   .footer__copyright {

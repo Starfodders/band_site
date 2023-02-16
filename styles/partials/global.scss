@@ -1,5 +1,6 @@
 @use "./mixins.scss" as *;
 @use "./variables.scss" as *;
+@use "./fonts.scss" as *;
 // CSS reset
 *,
 *::before,
@@ -44,32 +45,6 @@ li,
 a {
     list-style: none;
     text-decoration: none;
-}
-@font-face {
-    font-family: "Avenir Next LT";
-    src: url("../../assets/fonts/AvenirNextLTPro-Regular.otf") format('opentype'),
-        url("../../assets/fonts/Alternative/AvenirNextLTPro.ttf") format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Avenir Next LT";
-    src: url("../../assets/fonts/AvenirNextLTPro-Demi.otf") format('opentype'),
-        url("../../assets/fonts/Alternative/AvenirNextLTProDemi.ttf") format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Avenir Next LT";
-    src: url("../../assets/fonts/AvenirNextLTPro-Bold.otf") format('opentype'),
-        url("../../assets/fonts/Alternative/AvenirNextLTProBold.ttf") format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
 }
 // Keeping this here and not adding '_' to the global partial file because when we do the second page, these styles will be applicable throughout the app
 body {

@@ -43,12 +43,12 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 16px 0;
+        padding: 1.2em 0 1.2em 1.2em;
 
         @include tablet {
             width: 40%;
             max-width: 250px;
-            margin-left: 36px;
+            margin-left: 2.57em;
             justify-content: flex-start;
         }
 
@@ -101,7 +101,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 0 16px 0;
+        padding: 0 0 1.2em 0;
         width: 50%;
         color: white;
 
@@ -141,7 +141,7 @@ header {
 
     &:hover {
         border-bottom: 3px solid white;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
 
         @include tablet {
             padding-bottom: 0;
@@ -169,13 +169,13 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 16px 16px 24px;
+    padding: 1.2em 1.2em 1.85em;
     position: relative;
     line-height: 2.46rem;
 
     @include tablet {
         height: 85vh;
-        padding: 36px;
+        padding: 2.57em;
     }
 
     @include desktop {
@@ -208,24 +208,24 @@ header {
     }
 
     &__subheading {
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
 
         @include tablet {
             font-size: $section-header;
-            padding-bottom: 36px;
+            padding-bottom: 2.57em;
         }
     }
 
     &__heading {
         font-size: $page-header-mobile;
         font-weight: 600;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
         width: 80%;
 
         @include tablet {
             font-size: $page-header;
             line-height: 68px;
-            padding-bottom: 48px;
+            padding-bottom: 3.42em;
             width: 100%;
 
         }
@@ -273,7 +273,7 @@ header {
 
 .tickets {
     @include tablet {
-        padding: 24px;
+        padding: 1.7em;
     }
 
     @include desktop {
@@ -282,15 +282,15 @@ header {
         width: 100%;
         justify-content: space-between;
         margin: 0 auto;
-        padding: 48px 0 36px;
+        padding: 3.42em 0 2.57em;
     }
 
     &__heading {
-        padding: 40px 16px 16px;
+        padding: 3.07em 1.2em 1.2em;
         font-size: 1.4em;
 
         @include tablet {
-            padding: 24px 16px 16px;
+            padding: 1.7em 1.14em 1.14em;
         }
 
         @include desktop {
@@ -312,7 +312,7 @@ header {
     &__choices {
         display: flex;
         flex-direction: column;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
 
         @include desktop {
             width: 75%;
@@ -324,14 +324,14 @@ header {
         display: flex;
         flex-direction: column;
         border-bottom: solid 1px $outline-color;
-        padding: 0 16px 16px;
+        padding: 0 1.2em 1.2em;
 
         @include tablet {
             flex-direction: row;
             width: 100%;
             justify-content: space-between;
             align-items: center;
-            padding: 16px;
+            padding: 1.17em;
         }
 
         &:hover {
@@ -351,8 +351,8 @@ header {
             color: $secondary;
             font-weight: 600;
             font-size: $label-size-mobile;
-            padding-top: 16px;
-            padding-bottom: 4px;
+            padding-top: 1.2em;
+            padding-bottom: 0.3em;
 
         }
     }
@@ -362,8 +362,8 @@ header {
         background-color: $primary;
         color: white;
         text-transform: uppercase;
-        padding: 16px;
-        margin-top: 16px;
+        padding: 1.2em;
+        margin-top: 1.2em;
         border: none;
         border-radius: 4px;
         min-height: 40px;
@@ -409,12 +409,12 @@ header {
         text-transform: uppercase;
         color: $secondary;
         font-weight: 600;
-        padding-top: 48px;
+        padding-top: 3.42em;
         padding-bottom: 0;
     }
 
     @include desktop {
-        padding-bottom: 36px;
+        padding-bottom: 2.57em;
     }
 }
 
@@ -427,14 +427,14 @@ header {
 
 .footer {
     background-color: $primary;
-    padding: 24px 16px 16px;
+    padding: 1.85em 1.2em 1.2em;
     color: white;
     display: flex;
     flex-direction: column;
     line-height: 1.38rem;
 
     @include tablet {
-        padding: 48px 36px 36px;
+        padding: 3.42em 2.57em 2.57em;
     }
 
     @include desktop {
@@ -451,13 +451,13 @@ header {
 
         @include tablet {
             display: flex;
-            padding: 0 0 36px;
+            padding: 0 0 2.57em;
         }
 
         @include desktop {
             max-width: 1020px;
             margin: 0 auto;
-            padding: 0 8px 36px;
+            padding: 0 0.57em 2.57em;
         }
     }
 
@@ -488,7 +488,7 @@ header {
 
     &__socials {
         width: 100%;
-        padding: 24px 0;
+        padding: 1.85em 0;
         display: flex;
         justify-content: flex-start;
         gap: 9%;
@@ -509,15 +509,14 @@ header {
     &__icons {
         display: flex;
         justify-content: flex-start;
-        width: 33px;
-        height: 33px;
+        width: 2.53em;
+        height: 2.53em;
 
         @include tablet {
-            width: 25px;
-            height: 25px;
+            width: 1.79em;
+            height: 1.79em;
         }
     }
-
 
     &__logo {
         display: none;
@@ -554,7 +553,7 @@ header {
         }
 
         @include desktop {
-            padding: 0 8px;
+            padding: 0 0.57em;
             justify-content: flex-start;
             max-width: 1020px;
             margin: 0 auto;
@@ -564,7 +563,7 @@ header {
     }
 
     &__block {
-        padding-bottom: 24px;
+        padding-bottom: 1.85em;
 
         @include tablet {
             width: 33%;
@@ -577,7 +576,7 @@ header {
 
     //for formatting
     &__spacer {
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
     }
 
 
@@ -592,7 +591,7 @@ header {
 
 
     &__bottom {
-        padding-top: 32px;
+        padding-top: 2.46em;
 
         @include tablet {
             padding-top: 0;
@@ -601,12 +600,12 @@ header {
         @include desktop {
             width: 100%;
             max-width: 1020px;
-            padding-left: 8px;
+            padding-left: 0.57em;
         }
     }
 
     &__copyright {
-        padding-top: 16px;
+        padding-top: 1.2em;
 
         @include desktop {
             max-width: 1020px;

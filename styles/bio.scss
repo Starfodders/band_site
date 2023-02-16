@@ -43,12 +43,12 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 16px 0;
+        padding: 1.2em 0 1.2em 1.2em;
 
         @include tablet {
             width: 40%;
             max-width: 250px;
-            margin-left: 36px;
+            margin-left: 2.57em;
             justify-content: flex-start;
         }
 
@@ -101,7 +101,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 0 16px 0;
+        padding: 0 0 1.2em 0;
         width: 50%;
         color: white;
 
@@ -150,7 +150,7 @@ header {
 
     &:hover {
         border-bottom: 3px solid white;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
 
         @include tablet {
             padding-bottom: 0;
@@ -168,15 +168,15 @@ header {
     height: 30vh;
     display: flex;
     align-items: center;
-    padding-left: 16px;
+    padding-left: 1.2em;
     position: relative;
     line-height: 2.46rem;
 
     @include tablet {
         height: 60vh;
-        padding-left: 36px;
+        padding-left: 2.57em;
         font-size: $section-header;
-        line-height: 68px;
+        line-height: 4.86em;
         background-size: cover;
     }
 
@@ -229,20 +229,20 @@ header {
 
 
 .bio {
-    padding: 0 16px 16px;
+    padding: 0 1.2em 1.2em;
 
     @include tablet {
-        padding: 48px 36px 0;
+        padding: 3.42em 2.57em 0;
     }
 
     @include desktop {
         max-width: 1020px;
         margin: 0 auto;
-        padding: 60px 0 0;
+        padding: 4.29em 0 0;
     }
 
     &__title {
-        padding: 24px 0 0;
+        padding: 1.85em 0 0;
         font-size: $section-header-mobile;
         font-weight: 600;
 
@@ -263,17 +263,17 @@ header {
     &__large-container {
 
         @include tablet {
-            padding: 36px;
+            padding: 2.57em;
         }
 
         @include desktop {
-            padding: 60px;
+            padding: 4.29em;
         }
     }
 
     &__picture {
         width: 100%;
-        padding-top: 16px;
+        padding-top: 1.2em;
 
         @include tablet {
             padding-top: 0;
@@ -291,7 +291,7 @@ header {
         }
 
         @include desktop {
-            padding: 36px 0 0;
+            padding: 2.57em 0 0;
         }
     }
 
@@ -306,17 +306,13 @@ header {
 
     // main sub-heading
     &__secondary {
-        padding: 24px 0 0;
+        padding: 1.85em 0 0;
         font-size: $sub-header-mobile;
         font-weight: 600;
 
         @include tablet {
             font-size: $sub-header;
-            padding: 36px 0 0;
-        }
-
-        @include desktop {
-            padding: 48px 0 0;
+            padding: 2.57em 0 0;
         }
     }
 
@@ -329,7 +325,7 @@ header {
     }
 
     &__block {
-        padding-top: 16px;
+        padding-top: 1.2em;
 
         @include tablet {
             display: flex;
@@ -340,7 +336,7 @@ header {
 
 //specific stylings for the main bio text
 .bio__segment:nth-child(1) {
-    padding-bottom: 16px;
+    padding-bottom: 1.2em;
 }
 
 .bio__segment:nth-child(2) {
@@ -350,17 +346,17 @@ header {
 }
 
 .bio__text:nth-child(1) {
-    padding-bottom: 16px;
+    padding-bottom: 1.2em;
 
     @include tablet {
-        padding: 36px 16px 0 0;
+        padding: 2.57em 1.14em 0 0;
 
     }
 }
 
 .bio__text:nth-child(2) {
     @include tablet {
-        padding: 36px 0 0 16px;
+        padding: 2.57em 0 0 1.14em;
 
     }
 }
@@ -369,25 +365,25 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 16px 0;
+    padding: 1.85em 1.2em 0;
     background-color: $bg-alt;
 
     @include tablet {
-        padding: 48px 36px 36px;
+        padding: 3.42em 2.57em 2.57em;
     }
 
     @include desktop {
-        padding: 48px 5%;
+        padding: 3.42em 5%;
         align-items: center;
     }
 
     &__upper {
         width: 100%;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
 
 
         @include tablet {
-            padding-bottom: 20px;
+            padding-bottom: 1.43em;
         }
 
         @include desktop {
@@ -403,7 +399,7 @@ header {
         @include tablet {
             font-size: $section-header;
             font-weight: 600;
-            padding-left: 8px;
+            padding-left: 0.57em;
         }
     }
 
@@ -421,7 +417,7 @@ header {
 
     &__item {
         width: 100%;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
         filter: grayscale(1);
 
         &:hover {
@@ -431,33 +427,33 @@ header {
         @include tablet {
             width: 33%;
             padding-bottom: 0;
-            padding: 16px 8px 0;
+            padding: 1.14em 0.57em 0;
         }
     }
 }
 
 //comment writing section
 .comments {
-    padding: 16px;
+    padding: 1.2em;
 
     @include tablet {
-        padding: 48px 36px 36px;
+        padding: 3.42em 2.57em 2.57em;
     }
 
     @include desktop {
         max-width: 1020px;
         margin: 0 auto;
-        padding: 48px 0;
+        padding: 3.42em 0;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     &__heading {
-        padding-bottom: 24px;
+        padding-bottom: 1.85em;
 
         @include tablet {
-            padding-bottom: 48px;
+            padding-bottom: 3.42em;
         }
 
         @include desktop {
@@ -473,7 +469,7 @@ header {
     //only renders for additional padding on larger screens
     &__inner {
         @include tablet {
-            padding: 0 36px 0;
+            padding: 0 2.57em 0;
         }
 
         @include desktop {
@@ -485,7 +481,7 @@ header {
         display: flex;
         justify-content: space-between;
         border-bottom: solid 1px $outline-color;
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
         width: 100%;
     }
 
@@ -494,19 +490,19 @@ header {
         flex-direction: column;
         align-items: flex-end;
         width: 13%;
-        padding: 24px 0 0;
+        padding: 1.85em 0 0;
 
     }
 
     &__picture {
-        width: 36px;
-        height: 36px;
+        width: 2.8em;
+        height: 2.8em;
         border-radius: 50%;
         object-fit: cover;
 
         @include tablet {
-            width: 48px;
-            height: 48px;
+            width: 3.42em;
+            height: 3.42em;
         }
 
     }
@@ -522,11 +518,11 @@ header {
         color: $secondary;
         text-transform: uppercase;
         font-weight: 600;
-        padding-bottom: 4px;
+        padding-bottom: 0.3em;
     }
 
     &__name--input {
-        padding: 12px;
+        padding: 0.92em;
         background-color: $bg-alt;
         border: solid 1px $outline-color;
         border-radius: 4px;
@@ -537,7 +533,7 @@ header {
         }
 
         @include tablet {
-            padding: 24px 16px;
+            padding: 1.7em 1.14em;
             max-height: 48px;
         }
     }
@@ -553,7 +549,7 @@ header {
 
     &__comment--input {
         @extend .comments__name--input;
-        padding-bottom: 68px;
+        padding-bottom: 4.86em;
     }
 
     &__button {
@@ -561,7 +557,7 @@ header {
         background-color: $primary;
         color: white;
         text-transform: uppercase;
-        padding: 16px;
+        padding: 1.2em;
         border: none;
         border-radius: 4px;
 
@@ -595,10 +591,10 @@ header {
     &__block {
         display: flex;
         width: 100%;
-        padding: 16px 0;
+        padding: 1.2em 0;
         border-bottom: 1px solid $outline-color;
         justify-content: space-between;
-    }
+    }c
 
     &__profile {
         @extend .comments__left;
@@ -620,7 +616,7 @@ header {
     &__top {
         display: flex;
         justify-content: space-between;
-        padding-bottom: 8px;
+        padding-bottom: 0.6em;
     }
 
     &__name {
@@ -636,14 +632,14 @@ header {
 
 .footer {
     background-color: $primary;
-    padding: 24px 16px 16px;
+    padding: 1.85em 1.2em 1.2em;
     color: white;
     display: flex;
     flex-direction: column;
     line-height: 1.38rem;
 
     @include tablet {
-        padding: 48px 36px 36px;
+        padding: 3.42em 2.57em 2.57em;
     }
 
     @include desktop {
@@ -660,13 +656,13 @@ header {
 
         @include tablet {
             display: flex;
-            padding: 0 0 36px;
+            padding: 0 0 2.57em;
         }
 
         @include desktop {
             max-width: 1020px;
             margin: 0 auto;
-            padding: 0 8px 36px;
+            padding: 0 0.57em 2.57em;
         }
     }
 
@@ -718,12 +714,12 @@ header {
     &__icons {
         display: flex;
         justify-content: flex-start;
-        width: 33px;
-        height: 33px;
+        width: 2.53em;
+        height: 2.53em;
 
         @include tablet {
-            width: 25px;
-            height: 25px;
+            width: 1.79em;
+            height: 1.79em;
         }
     }
 
@@ -763,7 +759,7 @@ header {
         }
 
         @include desktop {
-            padding: 0 8px;
+            padding: 0 0.57em;
             justify-content: flex-start;
             max-width: 1020px;
             margin: 0 auto;
@@ -773,7 +769,7 @@ header {
     }
 
     &__block {
-        padding-bottom: 24px;
+        padding-bottom: 1.85em;
 
         @include tablet {
             width: 33%;
@@ -786,7 +782,7 @@ header {
 
     //for formatting
     &__spacer {
-        padding-bottom: 16px;
+        padding-bottom: 1.2em;
     }
 
 
@@ -801,7 +797,7 @@ header {
 
 
     &__bottom {
-        padding-top: 32px;
+        padding-top: 2.46em;
 
         @include tablet {
             padding-top: 0;
@@ -810,12 +806,12 @@ header {
         @include desktop {
             width: 100%;
             max-width: 1020px;
-            padding-left: 8px;
+            padding-left: 0.57em;
         }
     }
 
     &__copyright {
-        padding-top: 16px;
+        padding-top: 1.2em;
 
         @include desktop {
             max-width: 1020px;
