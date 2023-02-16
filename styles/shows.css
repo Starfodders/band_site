@@ -232,7 +232,7 @@ header {
   color: #E1E1E1;
 }
 
-.shows__hero {
+.hero {
   background-image: url("../assets/images/hero-shows.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -246,59 +246,59 @@ header {
   line-height: 2.46rem;
 }
 @media (min-width: 768px) {
-  .shows__hero {
+  .hero {
     height: 85vh;
     padding: 36px;
   }
 }
 @media (min-width: 1280px) {
-  .shows__hero {
+  .hero {
     height: 95vh;
     flex-direction: row;
     align-items: center;
   }
 }
-.shows__hero__container {
+.hero__container {
   z-index: 3;
 }
 @media (min-width: 1280px) {
-  .shows__hero__container {
+  .hero__container {
     display: flex;
     justify-content: space-between;
     max-width: 1020px;
     margin: 0 auto;
   }
 }
-.shows__hero__container__left {
+.hero__left {
   color: white;
 }
 @media (min-width: 768px) {
-  .shows__hero__container__left {
+  .hero__left {
     width: 75%;
   }
 }
 @media (min-width: 1280px) {
-  .shows__hero__container__left {
+  .hero__left {
     width: 48%;
   }
 }
-.shows__hero__container__left__subheading {
+.hero__subheading {
   padding-bottom: 16px;
 }
 @media (min-width: 768px) {
-  .shows__hero__container__left__subheading {
+  .hero__subheading {
     font-size: 2.56em;
     padding-bottom: 36px;
   }
 }
-.shows__hero__container__left__heading {
+.hero__heading {
   font-size: 1.85em;
   font-weight: 600;
   padding-bottom: 16px;
   width: 80%;
 }
 @media (min-width: 768px) {
-  .shows__hero__container__left__heading {
+  .hero__heading {
     font-size: 4.28em;
     line-height: 68px;
     padding-bottom: 48px;
@@ -306,22 +306,22 @@ header {
   }
 }
 @media (min-width: 768px) {
-  .shows__hero__container__right {
+  .hero__right {
     width: 60%;
   }
 }
 @media (min-width: 1280px) {
-  .shows__hero__container__right {
+  .hero__right {
     width: 45%;
     display: flex;
     align-items: center;
   }
 }
-.shows__hero__container__right__player {
+.hero__player {
   width: 100%;
 }
 
-.shows__hero::before {
+.hero::before {
   content: "";
   width: 100%;
   height: 40vh;
@@ -332,12 +332,12 @@ header {
   left: 0;
 }
 @media (min-width: 768px) {
-  .shows__hero::before {
+  .hero::before {
     height: 85vh;
   }
 }
 @media (min-width: 1280px) {
-  .shows__hero::before {
+  .hero::before {
     height: 95vh;
   }
 }
@@ -371,13 +371,13 @@ header {
     width: 20%;
   }
 }
-.tickets__heading__text {
+.tickets__titles {
   font-weight: 600;
   font-size: 1.85em;
   font-weight: 600;
 }
 @media (min-width: 768px) {
-  .tickets__heading__text {
+  .tickets__titles {
     font-size: 2.56em;
   }
 }
@@ -391,14 +391,14 @@ header {
     width: 75%;
   }
 }
-.tickets__choices__item {
+.tickets__item {
   display: flex;
   flex-direction: column;
   border-bottom: solid 1px #E1E1E1;
   padding: 0 16px 16px;
 }
 @media (min-width: 768px) {
-  .tickets__choices__item {
+  .tickets__item {
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
@@ -406,18 +406,18 @@ header {
     padding: 16px;
   }
 }
-.tickets__choices__item:hover {
+.tickets__item:hover {
   background-color: #FAFAFA;
 }
-.tickets__choices__item__block {
+.tickets__block {
   font-size: 1.1em;
 }
 @media (min-width: 768px) {
-  .tickets__choices__item__block {
+  .tickets__block {
     width: 20%;
   }
 }
-.tickets__choices__item__block__mobile-header {
+.tickets__block--mobile-header {
   text-transform: uppercase;
   color: #AFAFAF;
   font-weight: 600;
@@ -425,7 +425,7 @@ header {
   padding-top: 16px;
   padding-bottom: 4px;
 }
-.tickets__choices__item__button {
+.tickets__button {
   width: 100%;
   background-color: #323232;
   color: white;
@@ -437,12 +437,12 @@ header {
   min-height: 40px;
   min-width: 150px;
 }
-.tickets__choices__item__button:hover {
+.tickets__button:hover {
   background-color: black;
   cursor: pointer;
 }
 @media (min-width: 768px) {
-  .tickets__choices__item__button {
+  .tickets__button {
     margin-top: 0;
   }
 }
