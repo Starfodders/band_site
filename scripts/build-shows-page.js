@@ -1,5 +1,3 @@
-//in order to display show content dynamically, need three pieces: date, venue, location.
-
 const concertList = [
     {
         date: "Mon Sept 06 2021",
@@ -107,18 +105,15 @@ function addTabletHeader() {
 addTabletHeader();
 
 function addListeners(element) {
-    const ticketNode = document.querySelector('.tickets__choices');
-    const ticketList = ticketNode.children;
     element.addEventListener('click', () => {
-        ticketList.children.forEach((ticket) => {
-            if (ticket.classList.contains('selected')) {
-                ticket.classList.remove('selected');
-            }
-        })
+        clearSelected();
         element.classList.add('selected');
     })
 }
-
-//ADD LISTENER ONTO THE ENTIRE CONTAINER TO CLEAR THE STYLES ON CLICK
-
-//if ticket choices items have .selected class, classList.remove(), then apply on the mouseClick
+function clearSelected(){
+    const ticketNode = document.querySelector('.tickets__choices');
+    const ticketList = ticketNode.children;
+    for (let i = 0; i < ticketList.length; i++) {
+        ticketList[i].classList.remove('selected')
+    }
+}
