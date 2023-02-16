@@ -23,7 +23,7 @@ const commentLog = [
     }
 
 ]
-const commentContainer = document.querySelector('.comments__container');
+const commentContainer = document.querySelector('.comments-container');
 const nameInput = document.querySelector('#input-name');
 const textInput = document.querySelector('#input-comment');
 const formSubmit = document.querySelector('#writable-form');
@@ -46,7 +46,7 @@ function displayComment() {
 
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
-    container.className = "comments__container__block";
+    container.className = "comments-container__block";
     //left side, picture
     container.appendChild(setImage(comment))
     //right side, text
@@ -57,15 +57,15 @@ function generateCommentHTML(comment) {
 function setImage(object) {
     //creates container div, checks for image, renders element
     const leftContainer = document.createElement('div');
-    leftContainer.className = "comments__container__block__profile";
+    leftContainer.className = "comments-container__profile";
     if (!object.src) {
         const background = document.createElement('div');
-        background.className = "comments__container__block__profile__icon";
+        background.className = "comments-container__icon";
         leftContainer.appendChild(background)
         return leftContainer;
     } else {
         const picture = document.createElement('img');
-        picture.className = "comments__container__block__profile__picture";
+        picture.className = "comments-container__picture";
         picture.src = object.src;
         picture.alt = "profile picture"
         leftContainer.appendChild(picture)
@@ -75,16 +75,16 @@ function setImage(object) {
 
 function buildText(object) {
     const rightSection = document.createElement('div');
-    rightSection.classList = "comments__container__block__text";
+    rightSection.classList = "comments-container__text";
     //top div of the right side
     function buildTop(object) {
         const rightSectionTop = document.createElement('div');
-        rightSectionTop.className = "comments__container__block__text__top";
+        rightSectionTop.className = "comments-container__top";
         const name = document.createElement('p');
-        name.className = "comments__container__block__text__top__name";
+        name.className = "comments-container__name";
         name.innerText = object.name;
         const date = document.createElement('p');
-        date.className = "comments__container__block__text__top__date";
+        date.className = "comments-container__date";
         date.innerText = returnReadableTime(object.date);
         rightSectionTop.appendChild(name);
         rightSectionTop.appendChild(date);
@@ -127,7 +127,7 @@ formSubmit.addEventListener('submit', (e) => {
 
 function highlightError() {
     //select the hidden error messages, with empty fields change the field stylings and display additional info
-    const [firstField, secondField] = document.querySelectorAll(".comments__write__right__error");
+    const [firstField, secondField] = document.querySelectorAll(".comments__error");
     if (!nameInput.value) {
         nameInput.classList.add('error-border')
         firstField.classList.remove('error-message')

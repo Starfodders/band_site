@@ -14,38 +14,39 @@
     <header>
         <nav class="nav">
             <div class="nav__logo">
-                <img src="assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="nav__logo__img"
-                    onclick="location.href='./index.html'">
+                <a href = "./index.html" class = "nav__anchor">
+                    <img src="assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="nav__img">
+                </a> 
             </div>
             <div class="nav__block">
-                <div class="nav__block__section active">
-                    <a href="./index.html" class="nav__block__section__item active-page">Biography</a>
+                <div class="nav__section active">
+                    <a href="./index.html" class="nav__item active-page">Biography</a>
                 </div>
-                <div class="nav__block__section">
-                    <a href="./pages/shows.html" class="nav__block__section__item inactive">Shows</a>
+                <div class="nav__section">
+                    <a href="./pages/shows.html" class="nav__item inactive">Shows</a>
                 </div>
             </div>
         </nav>
     </header>
     <section class="hero">
         <div class="hero__block">
-            <h1 class="hero__block--text">The Bees Knees</h1>
+            <h1 class="hero__text">The Bees Knees</h1>
         </div>
     </section>
-    <main class="main">
-        <section class="main__bio">
-            <h1 class="main__bio__title">About the Musicians</h1>
-            <div class="main__bio__large-container">
-                <img src="./assets/images/band.jpg" alt="pic" class="main__bio__picture">
-                <blockquote class="main__bio__quote">
-                    <p class="main__bio__quote__segment">"We push eachother to be the best. It's not uncommon for us to
+    <main class="bio">
+        <section class="bio__main">
+            <h1 class="bio__title">About the Musicians</h1>
+            <div class="bio__large-container">
+                <img src="./assets/images/band.jpg" alt="pic" class="bio__picture">
+                <blockquote class="bio__quote">
+                    <p class="bio__segment">"We push eachother to be the best. It's not uncommon for us to
                         to say "this needs to be better, back
                         to the drawing board"</p>
-                    <p class="main__bio__quote__segment"> - Bryan Teddy, lead vocalist of the Bee's Knees</p>
+                    <p class="bio__segment"> - Bryan Teddy, lead vocalist of the Bee's Knees</p>
                 </blockquote>
-                <h2 class="main__bio__secondary">The Bees Knees</h2>
-                <div class="main__bio__block">
-                    <p class="main__bio__text">
+                <h2 class="bio__secondary">The Bees Knees</h2>
+                <div class="bio__block">
+                    <p class="bio__text">
                         The Bees Knees is a pop rock band originating from San Francisco, California. The band consists
                         of
                         lead
@@ -59,7 +60,7 @@
                         The Cat’s Meow), Adams was confident the band could succeed even further, pushing them to sign
                         with
                         Magenta Records.</p>
-                    <p class="main__bio__text">
+                    <p class="bio__text">
                         From there, the band has soared, gaining international recognition and ranking in the top 10 on
                         the
                         Poster Charts. New fans immediately fell in love with the band’s original and organic attitude,
@@ -74,89 +75,89 @@
             </div>
         </section>
     </main>
-    <section class="photo__gal">
-        <div class="photo__gal__title">
-            <h2 class="photo__gal__title__text">Photo Gallery</h2>
+    <section class="gallery">
+        <div class="gallery__upper">
+            <h2 class="gallery__title">Photo Gallery</h2>
         </div>
-        <div class="photo__gal__container">
-            <img src="assets/images/Photo-gallery-1.jpg" alt="red smoke vibing" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-2.jpg" alt="girl about to be electrocuted" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-3.jpg" alt="say a prayer" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-4.jpg" alt="lights too bright" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-5.jpg" alt="confetti spaghetti" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-6.jpg" alt="i have four fingers" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-7.jpg" alt="pride rave" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-8.jpg" alt="wokka wokka" class="photo__gal__item">
-            <img src="assets/images/Photo-gallery-9.jpg" alt="toilet paper snowfall" class="photo__gal__item">
+        <div class="gallery__container">
+            <img src="assets/images/Photo-gallery-1.jpg" alt="red smoke vibing" class="gallery__item">
+            <img src="assets/images/Photo-gallery-2.jpg" alt="girl about to be electrocuted" class="gallery__item">
+            <img src="assets/images/Photo-gallery-3.jpg" alt="say a prayer" class="gallery__item">
+            <img src="assets/images/Photo-gallery-4.jpg" alt="lights too bright" class="gallery__item">
+            <img src="assets/images/Photo-gallery-5.jpg" alt="confetti spaghetti" class="gallery__item">
+            <img src="assets/images/Photo-gallery-6.jpg" alt="i have four fingers" class="gallery__item">
+            <img src="assets/images/Photo-gallery-7.jpg" alt="pride rave" class="gallery__item">
+            <img src="assets/images/Photo-gallery-8.jpg" alt="wokka wokka" class="gallery__item">
+            <img src="assets/images/Photo-gallery-9.jpg" alt="toilet paper snowfall" class="gallery__item">
         </div>
     </section>
     <section class = "comments">
         <div class = "comments__heading">
-            <h3 class = "comments__heading__text">Join the Conversation</h3>
+            <h3 class = "comments__title">Join the Conversation</h3>
         </div>
         <div class = "comments__inner">
         <form class = "comments__write" id = "writable-form" type="submit">
-            <div class = "comments__write__left">
-                <img src = "assets/images/Mohan-muruge.jpg" alt = "your image" class = "comments__write__left__picture">
+            <div class = "comments__left">
+                <img src = "assets/images/Mohan-muruge.jpg" alt = "your profile" class = "comments__picture">
             </div>
-            <div class = "comments__write__right">
-                <label for = "name" class = "comments__write__right__name__label">Name</label>
-                <input type = "text" name = "name" placeholder = "Enter Your Name" class = "comments__write__right__name__input" id = "input-name" autocomplete="off">
-                <p class = "comments__write__right__error error-message">This field is required</p>
-                <label for = "comment" class = "comments__write__right__comment__label">Comment</label>
-                <input name = "comment" placeholder = "Add a new comment" class = "comments__write__right__comment__input" id = "input-comment" autocomplete="off"></input>
-                <p class = "comments__write__right__error error-message">This field is required</p>
-                <button class = "comments__write__right__button" type = "submit" id = "input-button">Comment</button>
+            <div class = "comments__right">
+                <label for = "name" class = "comments__name--label">Name</label>
+                <input type = "text" name = "name" placeholder = "Enter Your Name" class = "comments__name--input" id = "input-name" autocomplete="off">
+                <p class = "comments__error error-message">This field is required</p>
+                <label for = "comment" class = "comments__comment--label">Comment</label>
+                <input name = "comment" placeholder = "Add a new comment" class = "comments__comment--input" id = "input-comment" autocomplete="off"></input>
+                <p class = "comments__error error-message">This field is required</p>
+                <button class = "comments__button" type = "submit" id = "input-button">Comment</button>
             </div>
         </form>
-        <div class = "comments__container"></div>
+        <div class = "comments-container"></div>
         </div>
     </section>
     <footer class="footer">
         <div class="footer__top">
-            <div class="footer__top__title">
-                <h3 class="footer__top__title__text">Get in Touch</h3>
+            <div class="footer__upper">
+                <h3 class="footer__title">Get in Touch</h3>
             </div>
-            <div class="footer__top__socials">
+            <div class="footer__socials">
                 <a href="https://www.instagram.com/brainstation" target ="_blank"><img src="./assets/icons/SVG/Icon-instagram.svg"
-                        alt="ig" class="footer__top__socials__icons"></a>
+                        alt="ig" class="footer__icons"></a>
                 <a href="https://www.facebook.com/BrainStation/" target ="_blank"><img src="./assets/icons/SVG/Icon-facebook.svg"
-                        alt="fb" class="footer__top__socials__icons"></a>
+                        alt="fb" class="footer__icons"></a>
                 <a href="https://twitter.com/brainstation" target ="_blank"><img src="./assets/icons/SVG/Icon-twitter.svg" alt="twit"
-                        class="footer__top__socials__icons"></a>
+                        class="footer__icons"></a>
             </div>
-            <div class="footer__top__logo">
-                <img src="assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="footer-site-logo">
+            <div class="footer__logo">
+                <img src="assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="footer__image">
             </div>
         </div>
         <div class="footer__mid">
-            <div class="footer__mid__block">
+            <div class="footer__block">
                 <p class="bold">Cam Adams</p>
-                <p class="footer__mid__block__spacer bold">The Bees Knees Management</p>
+                <p class="footer__spacer bold">The Bees Knees Management</p>
                 <p>503 Broadway Penthouse,</p>
-                <p class="footer__mid__block__spacer">New York, NY 10012, USA</p>
-                <p><a href="mailto:info@thebeesknees.com" class="footer__mid__link">info@thebeesknees.com</a></p>
+                <p class="footer__spacer">New York, NY 10012, USA</p>
+                <p><a href="mailto:info@thebeesknees.com" class="footer__email">info@thebeesknees.com</a></p>
             </div>
-            <div class="footer__mid__block">
+            <div class="footer__block">
                 <p class="bold">Pearl Gregg</p>
-                <p class="footer__mid__block__spacer bold">Limitless Artist Group</p>
+                <p class="footer__spacer bold">Limitless Artist Group</p>
                 <p>Booking Agent for</p>
-                <p class="footer__mid__block__spacer">US / South America / Japan</p>
+                <p class="footer__spacer">US / South America / Japan</p>
                 <p><a href="mailto:pearl.gregg@limitlessag.com"
-                        class="footer__mid__link">pearl.gregg@limitlessag.com</a></p>
+                        class="footer__email">pearl.gregg@limitlessag.com</a></p>
             </div>
-            <div class="footer__mid__block">
+            <div class="footer__block">
                 <p class="bold">Carson Whyte</p>
-                <p class="footer__mid__block__spacer bold">ARCH Entertainment</p>
+                <p class="footer__spacer bold">ARCH Entertainment</p>
                 <p>Booking Agent for</p>
-                <p class="footer__mid__block__spacer">UK / EU / AU</p>
+                <p class="footer__spacer">UK / EU / AU</p>
                 <p><a href="mailto:cwhyte@archentertainment.com"
-                        class="footer__mid__link">cwhyte@archentertainment.com</a></p>
+                        class="footer__email">cwhyte@archentertainment.com</a></p>
             </div>
         </div>
         <div class="footer__bottom">
             <img src="assets/logo/Logo-bandsite.svg" alt="bandsite logo" class="site-logo large-hidden">
-            <p class="footer__bottom__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+            <p class="footer__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</p>
         </div>
     </footer>
 </body>

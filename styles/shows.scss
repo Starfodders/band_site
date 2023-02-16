@@ -42,6 +42,7 @@ header {
     &__logo {
         display: flex;
         justify-content: center;
+        align-items: center;
         padding: 16px 0;
 
         @include tablet {
@@ -55,25 +56,27 @@ header {
             width: 20%;
             margin: 0;
         }
+    }
 
-        &__img {
-            max-width: 150px;
-            flex-grow: 2;
+    &__anchor {
+        max-width: 150px;
+        display: flex;
+        align-items: center;
+        height: 25px;
+    }
 
-            @include tablet {
-                width: 100%;
-            }
+    &__img {
+        max-width: 150px;
+        flex-grow: 2;
 
-            @include desktop {
-                flex-grow: 1;
-                display: flex;
-                justify-content: flex-start;
-            }
+        @include tablet {
+            width: 100%;
+        }
 
-            &:hover {
-                cursor: pointer;
-            }
-
+        @include desktop {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
         }
     }
 
@@ -92,36 +95,36 @@ header {
         @include desktop {
             gap: 0;
         }
+    }
 
-        &__section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 0 16px 0;
-            width: 50%;
-            color: white;
+    &__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 16px 0;
+        width: 50%;
+        color: white;
 
 
-            @include tablet {
-                padding: 0;
-                margin: 0 5%;
-                width: 100%;
-                max-width: 80px;
-
-            }
-
-            &__item {
-                color: white;
-
-                @include tablet {
-                    display: flex;
-                    align-items: center;
-                    height: 100px;
-                }
-            }
+        @include tablet {
+            padding: 0;
+            margin: 0 5%;
+            width: 100%;
+            max-width: 80px;
 
         }
     }
+
+    &__item {
+        color: white;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+    }
+
 }
 
 .active {
@@ -129,7 +132,7 @@ header {
 }
 
 // Specific Selector for second item due to offset caused by active border
-.nav__block__section:nth-child(1) {
+.nav__section:nth-child(1) {
     padding-bottom: 19px;
 
     @include tablet {
@@ -180,6 +183,7 @@ header {
         flex-direction: row;
         align-items: center;
     }
+
     &__container {
         z-index: 3;
 
@@ -192,7 +196,7 @@ header {
 
         &__left {
             color: white;
-    
+
             @include tablet {
                 width: 75%;
             }
@@ -200,7 +204,7 @@ header {
             @include desktop {
                 width: 48%;
             }
-    
+
             &__subheading {
                 padding-bottom: 16px;
 
@@ -209,23 +213,24 @@ header {
                     padding-bottom: 36px;
                 }
             }
-    
+
             &__heading {
                 font-size: $page-header-mobile;
                 font-weight: 600;
                 padding-bottom: 16px;
                 width: 80%;
-    
+
                 @include tablet {
                     font-size: $page-header;
                     line-height: 68px;
                     padding-bottom: 48px;
                     width: 100%;
-    
+
                 }
             }
-    
+
         }
+
         &__right {
             @include tablet {
                 width: 60%;
@@ -236,13 +241,13 @@ header {
                 display: flex;
                 align-items: center;
             }
-    
+
             &__player {
                 width: 100%;
             }
         }
     }
-   
+
 }
 
 .shows__hero::before {
@@ -286,7 +291,7 @@ header {
         @include tablet {
             padding: 24px 16px 16px;
         }
-        
+
         @include desktop {
             width: 20%;
         }
@@ -330,10 +335,6 @@ header {
                 background-color: $bg-alt;
             }
 
-            &:active {
-                background-color: $outline-color;
-            }
-
             &__block {
                 font-size: 1.1em;
 
@@ -370,13 +371,23 @@ header {
                 }
 
                 @include tablet {
-                    margin-top: 0;;
+                    margin-top: 0;
+                    ;
                 }
             }
         }
 
     }
 }
+
+.selected {
+    background-color: $outline-color;
+    pointer-events: none;
+}
+
+// .mouseover {
+//     background-color: $bg-alt;
+// }
 
 //stylings for the new heading on tablet/desktops
 .spacer {
@@ -388,7 +399,7 @@ header {
 
     //this hover to prevent it from being highlighed
     &:hover {
-    background-color: $bg;
+        background-color: $bg;
     }
 
     @include tablet {
@@ -405,15 +416,15 @@ header {
         padding-bottom: 36px;
     }
 }
+
 //spacing for the 'date' column so that it matches the mockup better on desktop
 .tickets__choices__item .tickets__choices__item__block:first-child {
     @include desktop {
         width: 30%;
     }
 }
-// .selected {
-//     background-color: $outline-color;
-// }
+
+
 
 
 .footer {
@@ -450,78 +461,90 @@ header {
             margin: 0 auto;
             padding: 0 8px 36px;
         }
+    }
 
-        &__title {
-            width: 100%;
-            font-size: $section-header-mobile;
+    &__upper {
+        width: 100%;
+        font-size: $section-header-mobile;
 
-            @include tablet {
-                font-size: $body;
-                display: flex;
-                align-items: center;
-                width: 33%;
-            }
-
-            @include desktop {
-                margin-right: -10%;
-            }
-
-            &__text {
-                font-weight: 600;
-
-                @include tablet {
-                    font-size: 2.3em;
-                }
-            }
-        }
-
-        &__socials {
-            width: 100%;
-            padding: 24px 0;
+        @include tablet {
+            font-size: $body;
             display: flex;
-            justify-content: flex-start;
-            gap: 9%;
-
-            @include tablet {
-                align-items: center;
-                width: 33%;
-                gap: 15%;
-                padding: 0;
-            }
-
-            @include desktop {
-                gap: 10%;
-
-            }
-
-            &__icons {
-                display: flex;
-                justify-content: flex-start;
-                width: 33px;
-                height: 33px;
-
-                @include tablet {
-                    width: 25px;
-                    height: 25px;
-                }
-            }
+            align-items: center;
+            width: 33%;
         }
 
-        &__logo {
-            display: none;
-
-            @include tablet {
-                display: flex;
-                width: 33%;
-                justify-content: flex-end;
-            }
-
-            @include desktop {
-                width: 42%;
-                justify-self: flex-end;
-            }
+        @include desktop {
+            margin-right: -10%;
         }
     }
+
+    &__title {
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 2.3em;
+        }
+    }
+
+
+    &__socials {
+        width: 100%;
+        padding: 24px 0;
+        display: flex;
+        justify-content: flex-start;
+        gap: 9%;
+
+        @include tablet {
+            align-items: center;
+            width: 33%;
+            gap: 15%;
+            padding: 0;
+        }
+
+        @include desktop {
+            gap: 10%;
+
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: flex-start;
+        width: 33px;
+        height: 33px;
+
+        @include tablet {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+
+    &__logo {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            width: 33%;
+            justify-content: flex-end;
+        }
+
+        @include desktop {
+            width: 42%;
+            justify-self: flex-end;
+        }
+    }
+    &__image {
+        @include tablet {
+            width: 50%;
+        }
+
+        @include desktop {
+            width: 40%;
+        }
+    }
+
 
     //holds the contact information
     &__mid {
@@ -539,33 +562,35 @@ header {
             gap: 5%;
 
         }
-
-        &__block {
-            padding-bottom: 24px;
-
-            @include tablet {
-                width: 33%;
-            }
-
-            @include desktop {
-                width: 20%;
-            }
-
-            //for formatting
-            &__spacer {
-                padding-bottom: 16px;
-            }
-        }
-
-        &__link {
-            color: $outline-color;
-
-            &:hover {
-                color: white;
-            }
-        }
-
     }
+
+    &__block {
+        padding-bottom: 24px;
+
+        @include tablet {
+            width: 33%;
+        }
+
+        @include desktop {
+            width: 20%;
+        }
+    }
+
+    //for formatting
+    &__spacer {
+        padding-bottom: 16px;
+    }
+
+
+    &__email {
+        color: $outline-color;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+
 
     &__bottom {
         padding-top: 32px;
@@ -579,16 +604,17 @@ header {
             max-width: 1020px;
             padding-left: 8px;
         }
+    }
 
-        &__copyright {
-            padding-top: 16px;
+    &__copyright {
+        padding-top: 16px;
 
-            @include desktop {
-                max-width: 1020px;
-                margin: 0 auto;
-            }
+        @include desktop {
+            max-width: 1020px;
+            margin: 0 auto;
         }
     }
+
 }
 
 //for the Bandsite logo at footer bottom, hidden at higher viewpoints

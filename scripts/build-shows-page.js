@@ -73,11 +73,10 @@ function generateShowHTML(item) {
     button.innerText = "Buy Tickets"
     buttonBlock.appendChild(button);
     newContainer.appendChild(buttonBlock);
-
+    //add event listener for selected state
+    addListeners(newContainer);
     return newContainer;
 }
-
-
 //hide the mobile headers (date, venue, location) on larger breakpoints
 const ticketHeaders = document.querySelectorAll('.tickets__choices__item__block__mobile-header');
 function addHiddenClass(list) {
@@ -107,3 +106,19 @@ function addTabletHeader() {
 }
 addTabletHeader();
 
+function addListeners(element) {
+    const ticketNode = document.querySelector('.tickets__choices');
+    const ticketList = ticketNode.children;
+    element.addEventListener('click', () => {
+        ticketList.children.forEach((ticket) => {
+            if (ticket.classList.contains('selected')) {
+                ticket.classList.remove('selected');
+            }
+        })
+        element.classList.add('selected');
+    })
+}
+
+//ADD LISTENER ONTO THE ENTIRE CONTAINER TO CLEAR THE STYLES ON CLICK
+
+//if ticket choices items have .selected class, classList.remove(), then apply on the mouseClick

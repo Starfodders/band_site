@@ -42,6 +42,7 @@ header {
     &__logo {
         display: flex;
         justify-content: center;
+        align-items: center;
         padding: 16px 0;
 
         @include tablet {
@@ -55,25 +56,27 @@ header {
             width: 20%;
             margin: 0;
         }
+    }
 
-        &__img {
-            max-width: 150px;
-            flex-grow: 2;
+    &__anchor {
+        max-width: 150px;
+        display: flex;
+        align-items: center;
+        height: 25px;
+    }
 
-            @include tablet {
-                width: 100%;
-            }
+    &__img {
+        max-width: 150px;
+        flex-grow: 2;
 
-            @include desktop {
-                flex-grow: 1;
-                display: flex;
-                justify-content: flex-start;
-            }
+        @include tablet {
+            width: 100%;
+        }
 
-            &:hover {
-                cursor: pointer;
-            }
-
+        @include desktop {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
         }
     }
 
@@ -92,44 +95,53 @@ header {
         @include desktop {
             gap: 0;
         }
+    }
 
-        &__section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 0 16px 0;
-            width: 50%;
-            color: white;
+    &__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 16px 0;
+        width: 50%;
+        color: white;
 
 
-            @include tablet {
-                padding: 0;
-                margin: 0 5%;
-                width: 100%;
-                max-width: 80px;
-
-            }
-
-            &__item {
-                color: white;
-
-                @include tablet {
-                    display: flex;
-                    align-items: center;
-                    height: 100px;
-                }
-            }
+        @include tablet {
+            padding: 0;
+            margin: 0 5%;
+            width: 100%;
+            max-width: 80px;
 
         }
     }
+
+    &__item {
+        color: white;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+    }
+
 }
 
 .active {
     border-bottom: 2px solid white;
 }
 
+.active-page {
+    font-weight: 600;
+}
+
+.inactive {
+    color: $outline-color;
+}
+
+
 // Specific Selector for second item due to offset caused by active border
-.nav__block__section:nth-child(2) {
+.nav__section:nth-child(2) {
     padding-bottom: 19px;
 
     @include tablet {
@@ -146,14 +158,6 @@ header {
 
         }
     }
-}
-
-.active-page {
-    font-weight: 600;
-}
-
-.inactive {
-    color: $outline-color;
 }
 
 .hero {
@@ -195,12 +199,13 @@ header {
             justify-content: flex-start;
             margin: 0 auto;
         }
+    }
 
-        &--text {
-            font-weight: 600;
-        }
+    &__text {
+        font-weight: 600;
     }
 }
+
 
 // Pseudo for the shadow overlay
 .hero::before {
@@ -223,7 +228,7 @@ header {
 }
 
 
-.main {
+.bio {
     padding: 0 16px 16px;
 
     @include tablet {
@@ -236,118 +241,115 @@ header {
         padding: 60px 0 0;
     }
 
-    &__bio {
+    &__title {
+        padding: 24px 0 0;
+        font-size: $section-header-mobile;
+        font-weight: 600;
 
-        &__quote {
-            font-size: 1.4em;
-            line-height: 1.7rem;
-            padding: 16px 0 0;
-
-            @include tablet {
-                font-size: $body;
-                font-weight: 700;
-            }
-
-            @include desktop {
-                padding: 36px 0 0;
-            }
-
-            &__segment {
-                font-weight: 600;
-
-                @include tablet {
-                    font-size: 1.6em;
-                    line-height: 32px;
-                }
-            }
+        @include tablet {
+            font-size: $section-header;
+            padding: 0;
         }
 
-        &__title {
-            padding: 24px 0 0;
-            font-size: $section-header-mobile;
-            font-weight: 600;
-
-            @include tablet {
-                font-size: $section-header;
-                padding: 0;
-            }
-
-            @include desktop {
-                width: 100%;
-                max-width: 1020px;
-                margin: 0 auto;
-                font-size: calc($section-header + 0.5em)
-            }
-        }
-
-        &__picture {
+        @include desktop {
             width: 100%;
-            padding-top: 16px;
+            max-width: 1020px;
+            margin: 0 auto;
+            font-size: calc($section-header + 0.5em)
+        }
+    }
 
-            @include tablet {
-                padding-top: 0;
-            }
+    // Large container used to contain content after an additional layer of padding is added (desktop & tablet only)
+    &__large-container {
+
+        @include tablet {
+            padding: 36px;
         }
 
-        // main sub-heading
-        &__secondary {
-            padding: 24px 0 0;
-            font-size: $sub-header-mobile;
-            font-weight: 600;
+        @include desktop {
+            padding: 60px;
+        }
+    }
 
-            @include tablet {
-                font-size: $sub-header;
-                padding: 36px 0 0;
-            }
+    &__picture {
+        width: 100%;
+        padding-top: 16px;
 
-            @include desktop {
-                padding: 48px 0 0;
-            }
+        @include tablet {
+            padding-top: 0;
+        }
+    }
+
+    &__quote {
+        font-size: 1.4em;
+        line-height: 1.7rem;
+        padding: 16px 0 0;
+
+        @include tablet {
+            font-size: $body;
+            font-weight: 700;
         }
 
-        &__text {
-            width: 100%;
+        @include desktop {
+            padding: 36px 0 0;
+        }
+    }
 
-            @include tablet {
-                width: 50%;
-            }
+    &__segment {
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 1.6em;
+            line-height: 32px;
+        }
+    }
+
+    // main sub-heading
+    &__secondary {
+        padding: 24px 0 0;
+        font-size: $sub-header-mobile;
+        font-weight: 600;
+
+        @include tablet {
+            font-size: $sub-header;
+            padding: 36px 0 0;
         }
 
-        // Large container used to contain content after an additional layer of padding is added (desktop & tablet only)
-        &__large-container {
-
-            @include tablet {
-                padding: 36px;
-            }
-
-            @include desktop {
-                padding: 60px;
-            }
+        @include desktop {
+            padding: 48px 0 0;
         }
+    }
 
-        &__block {
-            padding-top: 16px;
+    &__text {
+        width: 100%;
 
-            @include tablet {
-                display: flex;
-                padding: 0;
-            }
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__block {
+        padding-top: 16px;
+
+        @include tablet {
+            display: flex;
+            padding: 0;
         }
     }
 }
 
 //specific stylings for the main bio text
-.main__bio__quote__segment:nth-child(1) {
+.bio__segment:nth-child(1) {
     padding-bottom: 16px;
 }
 
-.main__bio__quote__segment:nth-child(2) {
+.bio__segment:nth-child(2) {
     @include tablet {
         font-size: 1.4em;
     }
 }
 
-.main__bio__text:nth-child(1) {
+.bio__text:nth-child(1) {
     padding-bottom: 16px;
 
     @include tablet {
@@ -356,14 +358,14 @@ header {
     }
 }
 
-.main__bio__text:nth-child(2) {
+.bio__text:nth-child(2) {
     @include tablet {
         padding: 36px 0 0 16px;
 
     }
 }
 
-.photo__gal {
+.gallery {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -379,19 +381,7 @@ header {
         align-items: center;
     }
 
-    &__container {
-        @include tablet {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        @include desktop {
-            margin: 0 5%;
-            max-width: 1020px;
-        }
-    }
-
-    &__title {
+    &__upper {
         width: 100%;
         padding-bottom: 16px;
 
@@ -403,17 +393,29 @@ header {
         @include desktop {
             max-width: 1020px;
         }
+    }
 
-        &__text {
-            line-height: 2.5rem;
+    &__title {
+        line-height: 2.5rem;
+        font-weight: 600;
+        font-size: $section-header-mobile;
+
+        @include tablet {
+            font-size: $section-header;
             font-weight: 600;
-            font-size: $section-header-mobile;
+            padding-left: 8px;
+        }
+    }
 
-            @include tablet {
-                font-size: $section-header;
-                font-weight: 600;
-                padding-left: 8px;
-            }
+    &__container {
+        @include tablet {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        @include desktop {
+            margin: 0 5%;
+            max-width: 1020px;
         }
     }
 
@@ -461,11 +463,11 @@ header {
         @include desktop {
             align-self: flex-start
         }
+    }
 
-        &__text {
-            font-size: $section-header-mobile;
-            font-weight: 600;
-        }
+    &__title {
+        font-size: $section-header-mobile;
+        font-weight: 600;
     }
 
     //only renders for additional padding on larger screens
@@ -485,92 +487,92 @@ header {
         border-bottom: solid 1px $outline-color;
         padding-bottom: 16px;
         width: 100%;
+    }
 
-        &__left {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            width: 13%;
-            padding: 24px 0 0;
+    &__left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 13%;
+        padding: 24px 0 0;
 
-            @include tablet {}
+    }
 
-            &__picture {
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-                object-fit: cover;
+    &__picture {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
 
-                @include tablet {
-                    width: 48px;
-                    height: 48px;
-                }
-
-            }
+        @include tablet {
+            width: 48px;
+            height: 48px;
         }
 
-        &__right {
-            display: flex;
-            flex-flow: column nowrap;
-            width: 83%;
+    }
 
-            &__name__label {
-                font-size: $label-size-mobile;
-                color: $secondary;
-                text-transform: uppercase;
-                font-weight: 600;
-                padding-bottom: 4px;
-            }
+    &__right {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 83%;
+    }
 
-            &__name__input {
-                padding: 12px;
-                background-color: $bg-alt;
-                border: solid 1px $outline-color;
-                border-radius: 4px;
+    &__name--label {
+        font-size: $label-size-mobile;
+        color: $secondary;
+        text-transform: uppercase;
+        font-weight: 600;
+        padding-bottom: 4px;
+    }
 
-                &:focus {
-                    outline: none;
-                    border: solid 1px $primary;
-                }
-                @include tablet {
-                    padding: 24px 16px;
-                    max-height: 48px;
-                }
-            }
+    &__name--input {
+        padding: 12px;
+        background-color: $bg-alt;
+        border: solid 1px $outline-color;
+        border-radius: 4px;
 
-            &__error {
-                color: #D22D2D;
-                font-size: 0.8em;
-            }
+        &:focus {
+            outline: none;
+            border: solid 1px $primary;
+        }
 
-            &__comment__label {
-                @extend .comments__write__right__name__label;
-            }
+        @include tablet {
+            padding: 24px 16px;
+            max-height: 48px;
+        }
+    }
 
-            &__comment__input {
-                @extend .comments__write__right__name__input;
-                padding-bottom: 68px;
-            }
+    &__error {
+        color: #D22D2D;
+        font-size: 0.8em;
+    }
 
-            &__button {
-                width: 100%;
-                background-color: $primary;
-                color: white;
-                text-transform: uppercase;
-                padding: 16px;
-                border: none;
-                border-radius: 4px;
+    &__comment--label {
+        @extend .comments__name--label;
+    }
 
-                &:hover {
-                    background-color: black;
-                    cursor: pointer;
-                }
+    &__comment--input {
+        @extend .comments__name--input;
+        padding-bottom: 68px;
+    }
 
-                @include tablet {
-                    width: 35%;
-                    align-self: flex-end;
-                }
-            }
+    &__button {
+        width: 100%;
+        background-color: $primary;
+        color: white;
+        text-transform: uppercase;
+        padding: 16px;
+        border: none;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+
+        @include tablet {
+            width: 35%;
+            align-self: flex-end;
         }
     }
 }
@@ -578,12 +580,13 @@ header {
 .error-border {
     border: solid 1px #D22D2D;
 }
+
 .error-message {
     visibility: hidden;
 }
 
 //comments display section 
-.comments__container {
+.comments-container {
     display: flex;
     flex-flow: column nowrap;
 
@@ -595,39 +598,40 @@ header {
         padding: 16px 0;
         border-bottom: 1px solid $outline-color;
         justify-content: space-between;
+    }
+
+    &__profile {
+        @extend .comments__left;
+        padding-top: 4px;
+    }
+
+    &__icon {
+        @extend .comments__picture;
+        background-color: $outline-color;
+    }
 
 
-        &__profile {
-            @extend .comments__write__left;
-            padding-top: 4px;
+    &__text {
+        display: flex;
+        width: 83%;
+        flex-direction: column;
+    }
 
-            &__icon {
-                @extend .comments__write__left__picture;
-                background-color: $outline-color;
-            }
-        }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 8px;
+    }
 
-        &__text {
-            display: flex;
-            width: 83%;
-            flex-direction: column;
+    &__name {
+        font-weight: 600;
+    }
 
-            &__top {
-                display: flex;
-                justify-content: space-between;
-                padding-bottom: 8px;
-
-                &__name {
-                    font-weight: 600;
-                }
-
-                &__date {
-                    color: $secondary;
-                }
-            }
-        }
+    &__date {
+        color: $secondary;
     }
 }
+
 
 
 .footer {
@@ -664,78 +668,91 @@ header {
             margin: 0 auto;
             padding: 0 8px 36px;
         }
+    }
 
-        &__title {
-            width: 100%;
-            font-size: $section-header-mobile;
+    &__upper {
+        width: 100%;
+        font-size: $section-header-mobile;
 
-            @include tablet {
-                font-size: $body;
-                display: flex;
-                align-items: center;
-                width: 33%;
-            }
-
-            @include desktop {
-                margin-right: -10%;
-            }
-
-            &__text {
-                font-weight: 600;
-
-                @include tablet {
-                    font-size: 2.3em;
-                }
-            }
-        }
-
-        &__socials {
-            width: 100%;
-            padding: 24px 0;
+        @include tablet {
+            font-size: $body;
             display: flex;
-            justify-content: flex-start;
-            gap: 9%;
-
-            @include tablet {
-                align-items: center;
-                width: 33%;
-                gap: 15%;
-                padding: 0;
-            }
-
-            @include desktop {
-                gap: 10%;
-
-            }
-
-            &__icons {
-                display: flex;
-                justify-content: flex-start;
-                width: 33px;
-                height: 33px;
-
-                @include tablet {
-                    width: 25px;
-                    height: 25px;
-                }
-            }
+            align-items: center;
+            width: 33%;
         }
 
-        &__logo {
-            display: none;
-
-            @include tablet {
-                display: flex;
-                width: 33%;
-                justify-content: flex-end;
-            }
-
-            @include desktop {
-                width: 42%;
-                justify-self: flex-end;
-            }
+        @include desktop {
+            margin-right: -10%;
         }
     }
+
+    &__title {
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 2.3em;
+        }
+    }
+
+
+    &__socials {
+        width: 100%;
+        padding: 24px 0;
+        display: flex;
+        justify-content: flex-start;
+        gap: 9%;
+
+        @include tablet {
+            align-items: center;
+            width: 33%;
+            gap: 15%;
+            padding: 0;
+        }
+
+        @include desktop {
+            gap: 10%;
+
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: flex-start;
+        width: 33px;
+        height: 33px;
+
+        @include tablet {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+
+    &__logo {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            width: 33%;
+            justify-content: flex-end;
+        }
+
+        @include desktop {
+            width: 42%;
+            justify-self: flex-end;
+        }
+    }
+
+    &__image {
+        @include tablet {
+            width: 50%;
+        }
+
+        @include desktop {
+            width: 40%;
+        }
+    }
+
 
     //holds the contact information
     &__mid {
@@ -753,33 +770,35 @@ header {
             gap: 5%;
 
         }
-
-        &__block {
-            padding-bottom: 24px;
-
-            @include tablet {
-                width: 33%;
-            }
-
-            @include desktop {
-                width: 20%;
-            }
-
-            //for formatting
-            &__spacer {
-                padding-bottom: 16px;
-            }
-        }
-
-        &__link {
-            color: $outline-color;
-
-            &:hover {
-                color: white;
-            }
-        }
-
     }
+
+    &__block {
+        padding-bottom: 24px;
+
+        @include tablet {
+            width: 33%;
+        }
+
+        @include desktop {
+            width: 20%;
+        }
+    }
+
+    //for formatting
+    &__spacer {
+        padding-bottom: 16px;
+    }
+
+
+    &__email {
+        color: $outline-color;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+
 
     &__bottom {
         padding-top: 32px;
@@ -793,16 +812,17 @@ header {
             max-width: 1020px;
             padding-left: 8px;
         }
+    }
 
-        &__copyright {
-            padding-top: 16px;
+    &__copyright {
+        padding-top: 16px;
 
-            @include desktop {
-                max-width: 1020px;
-                margin: 0 auto;
-            }
+        @include desktop {
+            max-width: 1020px;
+            margin: 0 auto;
         }
     }
+
 }
 
 //for the Bandsite logo at footer bottom, hidden at higher viewpoints
