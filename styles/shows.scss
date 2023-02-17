@@ -51,7 +51,8 @@ header {
         @include tablet {
             width: 40%;
             max-width: 250px;
-            margin-left: 2.57em;
+            padding: 1.2em 0 1.2em;
+            margin-left: 1.6em;
             justify-content: flex-start;
         }
 
@@ -211,26 +212,29 @@ header {
     }
 
     &__subheading {
-        padding-bottom: 1.2em;
+        margin: 0.8em 0;
 
         @include tablet {
             font-size: $section-header;
-            padding-bottom: 2.57em;
+            padding-bottom: 0.8em;
+            margin: 2em 0 0;
         }
     }
 
     &__heading {
         font-size: $page-header-mobile;
         font-weight: 600;
-        padding-bottom: 1.2em;
+        padding-bottom: 0.8em;
         width: 80%;
 
         @include tablet {
             font-size: $page-header;
             line-height: 68px;
-            padding-bottom: 3.42em;
+            padding-bottom: 1.2em;
             width: 100%;
-
+        }
+        @include desktop {
+            padding-bottom: 2.2em;
         }
     }
 
@@ -291,19 +295,20 @@ header {
     }
 
     &__heading {
-        padding: 3.07em 1.2em 1.2em;
+        padding: 3.07em 0.8em 1.2em;
         font-size: 1.4em;
 
         @include tablet {
-            padding: 1.7em 1.14em 1.14em;
+            padding: 1.7em 0.7em 1.14em;
         }
 
         @include desktop {
             width: 20%;
+            padding-left: 0;
         }
     }
 
-    &__titles {
+    &__title {
         font-weight: 600;
         font-size: $section-header-mobile;
         font-weight: 600;
@@ -420,7 +425,7 @@ header {
 }
 
 //spacing for the 'date' column so that it matches the mockup better on desktop
-.tickets__choices__item .tickets__choices__item__block:first-child {
+.tickets__item .tickets__block:first-child {
     @include desktop {
         width: 30%;
     }

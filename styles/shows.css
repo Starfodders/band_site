@@ -126,7 +126,8 @@ header {
   .nav__logo {
     width: 40%;
     max-width: 250px;
-    margin-left: 2.57em;
+    padding: 1.2em 0 1.2em;
+    margin-left: 1.6em;
     justify-content: flex-start;
   }
 }
@@ -284,26 +285,32 @@ header {
   }
 }
 .hero__subheading {
-  padding-bottom: 1.2em;
+  margin: 0.8em 0;
 }
 @media (min-width: 768px) {
   .hero__subheading {
     font-size: 2.56em;
-    padding-bottom: 2.57em;
+    padding-bottom: 0.8em;
+    margin: 2em 0 0;
   }
 }
 .hero__heading {
   font-size: 1.85em;
   font-weight: 600;
-  padding-bottom: 1.2em;
+  padding-bottom: 0.8em;
   width: 80%;
 }
 @media (min-width: 768px) {
   .hero__heading {
     font-size: 4.28em;
     line-height: 68px;
-    padding-bottom: 3.42em;
+    padding-bottom: 1.2em;
     width: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__heading {
+    padding-bottom: 2.2em;
   }
 }
 @media (min-width: 768px) {
@@ -359,26 +366,27 @@ header {
   }
 }
 .tickets__heading {
-  padding: 3.07em 1.2em 1.2em;
+  padding: 3.07em 0.8em 1.2em;
   font-size: 1.4em;
 }
 @media (min-width: 768px) {
   .tickets__heading {
-    padding: 1.7em 1.14em 1.14em;
+    padding: 1.7em 0.7em 1.14em;
   }
 }
 @media (min-width: 1280px) {
   .tickets__heading {
     width: 20%;
+    padding-left: 0;
   }
 }
-.tickets__titles {
+.tickets__title {
   font-weight: 600;
   font-size: 1.85em;
   font-weight: 600;
 }
 @media (min-width: 768px) {
-  .tickets__titles {
+  .tickets__title {
     font-size: 2.56em;
   }
 }
@@ -481,7 +489,7 @@ header {
 }
 
 @media (min-width: 1280px) {
-  .tickets__choices__item .tickets__choices__item__block:first-child {
+  .tickets__item .tickets__block:first-child {
     width: 30%;
   }
 }
