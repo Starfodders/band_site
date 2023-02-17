@@ -6,13 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Band Site | Biography</title>
-    <!-- Montserrat Backup Font, Stylesheets -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/partials/global.css">
     <link rel="stylesheet" href="styles/bio.css">
-
+    <script defer src="scripts/index.page.js"></script>
 </head>
 
 <body>
@@ -101,18 +97,18 @@
             <h3 class="comments__title">Join the Conversation</h3>
         </div>
         <div class="comments__inner">
-            <form class="comments__write" id="writable-form" type="submit">
+            <form class="comments__write" id="writable-form">
                 <div class="comments__left">
                     <img src="assets/images/Mohan-muruge.jpg" alt="your profile" class="comments__picture">
                 </div>
                 <div class="comments__right">
-                    <label for="name" class="comments__name--label">Name</label>
+                    <label for="input-name" class="comments__name--label">Name</label>
                     <input type="text" name="name" placeholder="Enter Your Name" class="comments__name--input"
                         id="input-name" autocomplete="off">
                     <p class="comments__error error-message">This field is required</p>
-                    <label for="comment" class="comments__comment--label">Comment</label>
+                    <label for="input-comment" class="comments__comment--label">Comment</label>
                     <input name="comment" placeholder="Add a new comment" class="comments__comment--input"
-                        id="input-comment" autocomplete="off"></input>
+                        id="input-comment" autocomplete="off">
                     <p class="comments__error error-message">This field is required</p>
                     <button class="comments__button" type="submit" id="input-button">Comment</button>
                 </div>
@@ -168,6 +164,4 @@
         </div>
     </footer>
 </body>
-<script defer src="scripts/index.page.js"></script>
-
 </html>
