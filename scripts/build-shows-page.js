@@ -41,48 +41,44 @@ function createListing(list) {
 }
 createListing(concertList)
 
+//each item is an object
 function generateShowHTML(item) {
     const newContainer = document.createElement('div');
     newContainer.className = "tickets__item";
-    //iterate over every key-value pair in the passed down object
-    let itemLength = Object.keys(item).length;
-    for (let i = 0; i < itemLength; i++) {
+    addBlock(item, newContainer)
+    addListeners(newContainer);
+    return newContainer
+}
+function addBlock(item, container) {
+    //builds as many blocks as there are details per concert
+    for (let i = 0; i <= Object.keys(item).length - 1; i++) {
         const block = document.createElement('div');
         block.className = 'tickets__block';
+        //make the headers (date, venue, location)
         const titleEl = document.createElement('p');
-        titleEl.className = "tickets__block--mobile-header";
-        titleEl.innerText = Object.keys(item)[i].toString();
-        block.appendChild(titleEl);
-
+        titleEl.className = 'tickets__block--mobile-header large-hidden';
+        titleEl.innerText = Object.keys(item)[i];
+        //make the specific details of date, venue, location. Bold if 'date'
         const spanEl = document.createElement('span');
-        //applies bold to the element if its 'date'
-        if (Object.keys(item)[i].toString() === 'date') {
+        if (titleEl.innerText === 'date') {
             spanEl.className = "bold";
         }
         spanEl.innerText = Object.values(item)[i];
+        block.appendChild(titleEl);
         block.appendChild(spanEl);
-        newContainer.appendChild(block);
+        container.appendChild(block);
     }
-    //add button element
+    container.appendChild(buildButton())
+}
+function buildButton() {
     const buttonBlock = document.createElement('div');
     buttonBlock.className = "tickets__block";
     const button = document.createElement('button');
     button.className = "tickets__button";
     button.innerText = "Buy Tickets"
     buttonBlock.appendChild(button);
-    newContainer.appendChild(buttonBlock);
-    //add event listener for selected state
-    addListeners(newContainer);
-    return newContainer;
+    return buttonBlock;
 }
-//hide the mobile headers (date, venue, location) on larger breakpoints
-const ticketHeaders = document.querySelectorAll('.tickets__block--mobile-header');
-function addHiddenClass(list) {
-    for (let i = 0; i < list.length; i++) {
-        list[i].classList.add('large-hidden')
-    }
-}
-addHiddenClass(ticketHeaders)
 
 //creates html element that displays date, venue, location on larger breakpoints, prepends to the container
 function addTabletHeader() {
@@ -104,6 +100,7 @@ function addTabletHeader() {
 }
 addTabletHeader();
 
+//clear all active styles, then apply selected style on clicked ticket item
 function addListeners(element) {
     element.addEventListener('click', () => {
         clearSelected();
