@@ -19,13 +19,6 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Montserrat", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 *,
 *::before,
 *:after {
@@ -71,7 +64,7 @@ a {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-family: "Avenir Next LT", sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -244,6 +237,7 @@ header {
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: right;
   width: 100%;
   height: 30vh;
   display: flex;
@@ -678,6 +672,28 @@ c .comments-container__profile {
 }
 .comments-container__date {
   color: #AFAFAF;
+}
+
+@-webkit-keyframes commentLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes commentLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-load {
+  -webkit-animation: commentLoad 0.5s ease-out forwards;
+          animation: commentLoad 0.5s ease-out forwards;
 }
 
 .footer {

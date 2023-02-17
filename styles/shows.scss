@@ -3,6 +3,9 @@
 @use "../styles/partials/variables.scss" as *;
 //use margin-auto, max-width. Should add up to 1020 for desktop.
 
+/////////////////////////////
+///////HEADER, NAVBAR////////
+/////////////////////////////
 header {
     width: 100%;
     background-color: $primary;
@@ -270,7 +273,9 @@ header {
     }
 }
 
-
+/////////////////////////////
+///////TICKETS AND BUY//////
+/////////////////////////////
 .tickets {
     @include tablet {
         padding: 1.7em;
@@ -386,10 +391,6 @@ header {
     pointer-events: none;
 }
 
-// .mouseover {
-//     background-color: $bg-alt;
-// }
-
 //stylings for the new heading on tablet/desktops
 .spacer {
     visibility: hidden;
@@ -424,6 +425,10 @@ header {
         width: 30%;
     }
 }
+
+/////////////////////////////
+///////////FOOTER///////////
+/////////////////////////////
 
 .footer {
     background-color: $primary;

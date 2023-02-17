@@ -24,11 +24,3 @@
     font-style: normal;
     font-display: swap;
 }
-//at Kent's suggestion, added fallback font in case the previous Avenir Next LT does not load
-@font-face {
-    font-family: 'Montserrat', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}

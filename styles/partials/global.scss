@@ -48,7 +48,7 @@ a {
 }
 // Keeping this here and not adding '_' to the global partial file because when we do the second page, these styles will be applicable throughout the app
 body {
-    font-family: "Montserrat", sans-serif;               //fallback font, but will use Avenir Next as default
+    font-family: Arial, Helvetica, sans-serif;          //fallback font
     font-family: "Avenir Next LT", sans-serif;
     font-size: $body-mobile;
     font-weight: 400;

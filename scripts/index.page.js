@@ -42,6 +42,12 @@ function displayComment() {
     reverseLog.forEach((comment) => {
         commentContainer.appendChild(generateCommentHTML(comment));
     })
+    //unnecessary load animation
+    loadAnim();
+}
+function loadAnim() {
+    //pass reversed array and then select last (most recent) comment
+    commentContainer.children[0].classList.add('anim-load')
 }
 
 function generateCommentHTML(comment) {
@@ -155,10 +161,10 @@ function returnNewTime() {
 }
 function returnReadableTime(date) {
     //get timestamps for both current day and day comment was made
+    //code is a little buggy, will fix in sprint3
     const currentDate = new Date();
     const commentDate = new Date(date);
     const difference = currentDate.getTime() - commentDate.getTime();           //returns in ms
-    console.log(difference);
     //convert to usable format (minutes) and compare
     const minutes = Math.abs(difference / 60000);
     if (minutes < 1) {
