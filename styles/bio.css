@@ -134,6 +134,7 @@ header {
   .nav__logo {
     width: 20%;
     margin: 0;
+    padding-left: 0;
   }
 }
 .nav__anchor {

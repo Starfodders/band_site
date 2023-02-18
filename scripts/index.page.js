@@ -42,11 +42,10 @@ function displayComment() {
     reverseLog.forEach((comment) => {
         commentContainer.appendChild(generateCommentHTML(comment));
     })
-    //unnecessary load animation
+    //comment submit load animation
     loadAnim();
 }
 function loadAnim() {
-    //pass reversed array and then select last (most recent) comment
     commentContainer.children[0].classList.add('anim-load')
 }
 
@@ -132,7 +131,7 @@ formSubmit.addEventListener('submit', (e) => {
 })
 
 function highlightError() {
-    //select the hidden error messages, with empty fields change the field stylings and display additional info
+    //select the hidden error messages with empty fields, change the field stylings and display additional info
     const [firstField, secondField] = document.querySelectorAll(".comments__error");
     if (!nameInput.value) {
         nameInput.classList.add('error-border')
