@@ -1,81 +1,68 @@
-const commentLog = [
-    {
-        id: 1,
-        src: null,
-        name: "Miles Acosta",
-        date: "12/20/2020",
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-        
-    },
-    {
-        id: 2,
-        src: null,
-        name: "Emilie Beach",
-        date: "01/09/2021",
-        comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-    },
-    {
-        id: 3,
-        src: null,
-        name: "Connor Walton",
-        date: "02/17/2021",
-        comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains."
-    }
+const authentication = {
+    api_key: "9b3e2242-a7b9-42d8-a037-9ba745320380"
+}
+const { api_key: key } = authentication;
 
-]
+
+// const commentLog = [];
+getComments();
+function getComments() {
+    axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
+        .then(result => {
+            result.data.forEach((comment) => {
+                displayComment(comment)
+            })
+        })
+        .catch(err => {
+            console.log('There is an error', err);
+        })
+}
+
 const commentContainer = document.querySelector('.comments-container');
 const nameInput = document.querySelector('#input-name');
 const textInput = document.querySelector('#input-comment');
 const formSubmit = document.querySelector('#writable-form');
 
-function displayComment() {
+function displayComment(comment) {
     //first clear all existing comments
-    const logLength = commentContainer.children.length;
-    if (logLength > 0) {
-        for (let i = 0; i < logLength; i++) {
-            commentContainer.removeChild(commentContainer.lastChild);
-        }
-    }
+    // const logLength = commentContainer.children.length;
+    // if (logLength > 0) {
+    //     for (let i = 0; i < logLength; i++) {
+    //         commentContainer.removeChild(commentContainer.lastChild);
+    //     }
+    // }
+    commentContainer.appendChild(generateCommentHTML(comment))
+
     //sort array to render from latest comment(biggest ID) 
-    reverseLog = commentLog.sort((com1, com2) => com2.id - com1.id);
+    // reverseLog = commentLog.sort((com1, com2) => com2.id - com1.id);
     //then render the array
-    reverseLog.forEach((comment) => {
-        commentContainer.appendChild(generateCommentHTML(comment));
-    })
+    // reverseLog.forEach((comment) => {
+    //     commentContainer.appendChild(generateCommentHTML(comment));
+    // })
     //comment submit load animation
-    loadAnim();
+    // loadAnim();
 }
-function loadAnim() {
-    commentContainer.children[0].classList.add('anim-load')
-}
+// function loadAnim() {
+//     commentContainer.children[0].classList.add('anim-load')
+// }
 
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
     container.className = "comments-container__block";
     //left side, picture
-    container.appendChild(setImage(comment))
+    container.appendChild(setImage())
     //right side, text
     container.appendChild(buildText(comment))
     return container;
 }
 
-function setImage(object) {
-    //creates container div, checks for image, renders element
+function setImage() {
     const leftContainer = document.createElement('div');
     leftContainer.className = "comments-container__profile";
-    if (!object.src) {
-        const background = document.createElement('div');
-        background.className = "comments-container__icon";
-        leftContainer.appendChild(background)
-        return leftContainer;
-    } else {
-        const picture = document.createElement('img');
-        picture.className = "comments-container__picture";
-        picture.src = object.src;
-        picture.alt = "profile picture"
-        leftContainer.appendChild(picture)
-        return leftContainer;
-    }
+    const background = document.createElement('div');
+    background.className = "comments-container__icon";
+    leftContainer.appendChild(background)
+    return leftContainer;
 }
 
 function buildText(object) {
@@ -173,7 +160,7 @@ function returnReadableTime(date) {
     else if (minutes >= 1 && minutes <= 59) {
         const minInt = parseInt(minutes);
         if (minInt === 1) {
-            return  `1 minute ago`
+            return `1 minute ago`
         } else {
             return `${minInt} minutes ago`
         }
@@ -217,20 +204,6 @@ function returnReadableTime(date) {
 }
 
 //on page load, run to display current comments
-displayComment();
+// displayComment();
 
-const authentication = {
-    api_key: "9b3e2242-a7b9-42d8-a037-9ba745320380"
-}
-const {api_key: key} = authentication;
 
-function testGet() {
-    axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
-        .then(data => {
-            console.log(data);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-}
-testGet();
