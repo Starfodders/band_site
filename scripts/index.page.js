@@ -10,6 +10,7 @@ function getComments() {
     axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
         .then(result => {
             result.data.forEach((comment) => {
+                // console.log(comment);
                 displayComment(comment)
             })
         })
@@ -77,7 +78,7 @@ function buildText(object) {
         name.innerText = object.name;
         const date = document.createElement('p');
         date.className = "comments-container__date";
-        date.innerText = returnReadableTime(object.date);
+        date.innerText = convertTime(object.timestamp);
         rightSectionTop.appendChild(name);
         rightSectionTop.appendChild(date);
         rightSection.appendChild(rightSectionTop);
@@ -105,7 +106,6 @@ formSubmit.addEventListener('submit', (e) => {
         inputHolder.push(id, nameInput.value, returnNewTime(), textInput.value);
         const newCommentObject = {
             id: inputHolder[0],
-            src: null,
             name: inputHolder[1],
             date: inputHolder[2],
             comment: inputHolder[3]
@@ -145,14 +145,15 @@ function returnNewTime() {
     const epoch = currentTime.getTime()
     return epoch;
 }
-function returnReadableTime(date) {
-    //get timestamps for both current day and day comment was made
-    //code is a little buggy, will fix in sprint3
+
+
+//on page load, run to display current comments
+// displayComment();
+
+
+function convertTime(epoch) {
     const currentDate = new Date();
-    const commentDate = new Date(date);
-    const difference = currentDate.getTime() - commentDate.getTime();           //returns in ms
-    //convert to usable format (minutes) and compare
-    const minutes = Math.abs(difference / 60000);
+    const minutes = Math.abs(currentDate.getTime() - epoch) / 60000;
     if (minutes < 1) {
         return '< 1 minute ago';
     }
@@ -200,10 +201,5 @@ function returnReadableTime(date) {
         } else {
             return `${yearInt} years ago`
         }
-    }
 }
-
-//on page load, run to display current comments
-// displayComment();
-
-
+}
