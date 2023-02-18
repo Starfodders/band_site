@@ -219,3 +219,18 @@ function returnReadableTime(date) {
 //on page load, run to display current comments
 displayComment();
 
+const authentication = {
+    api_key: "9b3e2242-a7b9-42d8-a037-9ba745320380"
+}
+const {api_key: key} = authentication;
+
+function testGet() {
+    axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+testGet();
