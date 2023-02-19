@@ -30,19 +30,35 @@ function generateCommentHTML(comment) {
     const container = document.createElement('div');
     container.className = "comments-container__block";
     //left side, picture
-    container.appendChild(setImage())
+    container.appendChild(setImage(comment))
     //right side, text
     container.appendChild(buildText(comment))
     return container;
 }
 
-function setImage() {
+function setImage(comment) {
     const leftContainer = document.createElement('div');
     leftContainer.className = "comments-container__profile";
     const background = document.createElement('div');
     background.className = "comments-container__icon";
     leftContainer.appendChild(background)
+    leftContainer.appendChild(renderLikeIcon())
+    leftContainer.appendChild(renderLikeStatus())
     return leftContainer;
+}
+
+function renderLikeIcon() {
+    const heartDiv = document.createElement('div');
+    heartDiv.innerHTML = `<span class="material-symbols-outlined">favorite</span>`
+    return heartDiv;
+}
+function renderLikeStatus(){
+    const likeDiv = document.createElement('div');
+    likeDiv.className = "comments-container__likes"
+    likeDiv.innerText = 0
+    function updateLikes() {
+    }
+    return likeDiv
 }
 
 function buildText(object) {

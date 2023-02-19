@@ -609,18 +609,30 @@ header {
         padding: 1.2em 0;
         border-bottom: 1px solid $outline-color;
         justify-content: space-between;
-    }c
+    }
 
     &__profile {
         @extend .comments__left;
         padding-top: 4px;
+        flex-direction: column;
+        align-items: center;
     }
 
     &__icon {
         @extend .comments__picture;
         background-color: $outline-color;
+        margin-bottom: 0.5em;
     }
 
+    &__likes {
+        background-color: $outline-color;
+        width: 50%;
+        height: 1.2em;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     &__text {
         display: flex;
@@ -656,6 +668,22 @@ header {
 .anim-load {
     animation: commentLoad 0.5s ease-out forwards;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20;
+
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
+  
+}
+
+
 
 /////////////////////////////
 ///////////FOOTER///////////
