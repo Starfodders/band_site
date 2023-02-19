@@ -1,45 +1,22 @@
-const concertList = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Francisco, CA"
-    }
-]
-
+getShows()
+function getShows() {
+    axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${key}`)
+        .then(result => {
+            console.log(result.data);
+            result.data.forEach((item) => {
+                createListing(item)
+            })
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
 //create HTML element and populate it with the concert object information, append to container
 const ticketContainer = document.querySelector('.tickets__choices');
 
-function createListing(list) {
-    list.forEach((item) => {
-        ticketContainer.appendChild(generateShowHTML(item));
-    })
+function createListing(item) {
+    ticketContainer.appendChild(generateShowHTML(item));
 }
-createListing(concertList)
 
 //each item is an object
 function generateShowHTML(item) {
@@ -51,19 +28,21 @@ function generateShowHTML(item) {
 }
 function addBlock(item, container) {
     //builds as many blocks as there are details per concert
-    for (let i = 0; i <= Object.keys(item).length - 1; i++) {
+    for (let i = 1; i <= Object.keys(item).length - 1; i++) {
         const block = document.createElement('div');
         block.className = 'tickets__block';
         //make the headers (date, venue, location)
         const titleEl = document.createElement('p');
         titleEl.className = 'tickets__block--mobile-header large-hidden';
         titleEl.innerText = Object.keys(item)[i];
-        //make the specific details of date, venue, location. Bold if 'date'
+        //make the specific details of date, venue, location. Bold if 'date'. Run convertTime() to change epoch time to readable time
         const spanEl = document.createElement('span');
         if (titleEl.innerText === 'date') {
             spanEl.className = "bold";
+            spanEl.innerText = convertTime(Object.values(item)[i])
+        } else {
+            spanEl.innerText = Object.values(item)[i];
         }
-        spanEl.innerText = Object.values(item)[i];
         block.appendChild(titleEl);
         block.appendChild(spanEl);
         container.appendChild(block);
@@ -114,3 +93,40 @@ function clearSelected(){
         ticketList[i].classList.remove('selected')
     }
 }
+
+function convertTime(epoch) {
+    const date = new Date(epoch);
+    const day = date.getDate();
+    const month = date.toLocaleDateString('default', {month: 'short'});
+    const year = date.getFullYear();
+    const dateString = `${getDayOfWeek(epoch)} ${month} ${day} ${year}`
+    return dateString;
+}
+
+function getDayOfWeek(num) {
+    const date = new Date(num).getDay();
+    switch (date){
+        case 0:
+          day = "Sun";
+          break;
+        case 1:
+          day = "Mon";
+          break;
+        case 2:
+           day = "Tue";
+          break;
+        case 3:
+          day = "Wed";
+          break;
+        case 4:
+          day = "Thur";
+          break;
+        case 5:
+          day = "Fri";
+          break;
+        case 6:
+          day = "Sat";
+      }
+      return day;
+}
+
