@@ -1,6 +1,6 @@
 getShows()
 function getShows() {
-    axios.get(`https://project-1-api.herokuapp.com/showdates?api_key=${key}`)
+    axios.get(`/showdates?api_key=${key}`)
         .then(result => {
             console.log(result.data);
             result.data.forEach((item) => {

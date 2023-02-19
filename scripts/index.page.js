@@ -1,7 +1,7 @@
 // const commentLog = [];
 getComments();
 function getComments() {
-    axios.get(`https://project-1-api.herokuapp.com/comments?api_key=${key}`)
+    axios.get(`/comments?api_key=${key}`)
         .then(result => {
             result.data.forEach((comment) => {
                 // console.log(comment);
@@ -93,24 +93,25 @@ formSubmit.addEventListener('submit', (e) => {
     e.preventDefault();
     if (!nameInput.value || !textInput.value) {
         highlightError();
-        throw new RangeError('Must enter valid input values');
+        throw new Error
     } else {
-        let inputHolder = [];
-        let id = commentLog.length + 1;
-        inputHolder.push(id, nameInput.value, returnNewTime(), textInput.value);
         const newCommentObject = {
-            id: inputHolder[0],
-            name: inputHolder[1],
-            date: inputHolder[2],
-            comment: inputHolder[3]
+            name: nameInput.value,
+            comment: textInput.value
         }
-        //prepend new object into array, clear fields, re-render the comments
-        commentLog.push(newCommentObject);
+        postComment(newCommentObject);
         formSubmit.reset();
-        displayComment();
     }
 })
-
+function postComment(object) {
+    axios.post(`/comments?api_key=${key}`, object)
+        .then(result => {
+            displayComment(result.data)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
 function highlightError() {
     //select the hidden error messages with empty fields, change the field stylings and display additional info
     const [firstField, secondField] = document.querySelectorAll(".comments__error");
@@ -139,12 +140,6 @@ function returnNewTime() {
     const epoch = currentTime.getTime()
     return epoch;
 }
-
-
-//on page load, run to display current comments
-// displayComment();
-
-
 function convertTime(epoch) {
     const currentDate = new Date();
     const minutes = Math.abs(currentDate.getTime() - epoch) / 60000;
