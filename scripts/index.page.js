@@ -3,7 +3,8 @@ getComments();
 function getComments() {
     axios.get(`/comments?api_key=${key}`)
         .then(result => {
-            result.data.forEach((comment) => {
+            const reverse = result.data.sort((com1, com2) => com2.timestamp - com1.timestamp);
+            reverse.forEach((comment) => {
                 // console.log(comment);
                 displayComment(comment)
             })
@@ -19,23 +20,7 @@ const textInput = document.querySelector('#input-comment');
 const formSubmit = document.querySelector('#writable-form');
 
 function displayComment(comment) {
-    //first clear all existing comments
-    // const logLength = commentContainer.children.length;
-    // if (logLength > 0) {
-    //     for (let i = 0; i < logLength; i++) {
-    //         commentContainer.removeChild(commentContainer.lastChild);
-    //     }
-    // }
     commentContainer.appendChild(generateCommentHTML(comment))
-
-    //sort array to render from latest comment(biggest ID) 
-    // reverseLog = commentLog.sort((com1, com2) => com2.id - com1.id);
-    //then render the array
-    // reverseLog.forEach((comment) => {
-    //     commentContainer.appendChild(generateCommentHTML(comment));
-    // })
-    //comment submit load animation
-    // loadAnim();
 }
 // function loadAnim() {
 //     commentContainer.children[0].classList.add('anim-load')
@@ -106,7 +91,8 @@ formSubmit.addEventListener('submit', (e) => {
 function postComment(object) {
     axios.post(`/comments?api_key=${key}`, object)
         .then(result => {
-            displayComment(result.data)
+            clearComments();
+            getComments();
         })
         .catch(err => {
             console.log(err);
@@ -191,4 +177,12 @@ function convertTime(epoch) {
             return `${yearInt} years ago`
         }
 }
+}
+function clearComments() {
+    const logLength = commentContainer.children.length;
+    if (logLength > 0) {
+        for (let i = 0; i < logLength; i++) {
+            commentContainer.removeChild(commentContainer.lastChild);
+        }
+    }
 }
