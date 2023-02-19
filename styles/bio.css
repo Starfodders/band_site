@@ -648,9 +648,10 @@ header {
 .comments-container__block {
   display: flex;
   width: 100%;
-  padding: 1.2em 0;
+  padding: 1.2em 0 2em;
   border-bottom: 1px solid #E1E1E1;
   justify-content: space-between;
+  position: relative;
 }
 .comments-container__profile {
   padding-top: 4px;
@@ -670,6 +671,12 @@ header {
   justify-content: center;
   align-items: center;
 }
+.comments-container__delete {
+  width: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+}
 .comments-container__text {
   display: flex;
   width: 83%;
@@ -677,8 +684,9 @@ header {
 }
 .comments-container__top {
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  padding-bottom: 0.6em;
+  padding: 0.6em 0;
 }
 .comments-container__name {
   font-weight: 600;
@@ -720,6 +728,13 @@ header {
 .clicked {
   font-variation-settings: "FILL" 1;
   color: red;
+}
+
+.delete-icon {
+  opacity: 0.5;
+}
+.delete-icon:hover {
+  opacity: 1;
 }
 
 .footer {

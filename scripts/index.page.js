@@ -62,8 +62,7 @@ function setLeft(comment) {
 
 
 function handleLike(id, target) {
-    axios.put(`./comments/${id}/like?api_key=${key}`,{
-    })
+    axios.put(`./comments/${id}/like?api_key=${key}`)
     .then(result => {
         target.innerText = result.data.likes
     })
@@ -95,7 +94,19 @@ function buildText(object) {
         commentText.className = "comments__container__block__text__comment";
         commentText.innerText = object.comment;
         rightSection.appendChild(commentText);
+        function renderDelete() {
+            const deleteDiv = document.createElement('div');
+            deleteDiv.className = "comments-container__delete"
+            deleteDiv.innerHTML = `<span class="material-symbols-outlined delete-icon">delete</span>`
+            deleteDiv.addEventListener('click', () => {
+                handleDelete(object.id);
+                deleteDiv.parentElement.parentElement.remove();
+            })
+            return deleteDiv
+        }
+        rightSection.appendChild(renderDelete())
     }
+    
     buildTop(object);
     buildBottom(object);
     return rightSection;
@@ -106,6 +117,16 @@ function buildLikeTracker(comment){
     likeDiv.className = "comments-container__likes"
     likeDiv.innerText = comment.likes
     return likeDiv
+}
+
+function handleDelete(id) {
+    axios.delete(`/comments/${id}?api_key=${key}`)
+        .then(result => {
+            console.log(result);
+        })
+        .catch(err => {
+            console.error(err)
+        })
 }
 
 formSubmit.addEventListener('submit', (e) => {
@@ -124,12 +145,12 @@ formSubmit.addEventListener('submit', (e) => {
 })
 function postComment(object) {
     axios.post(`/comments?api_key=${key}`, object)
-        .then(result => {
+        .then(result => {            
             clearComments();
             getComments();
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
         })
 }
 function highlightError() {

@@ -606,9 +606,10 @@ header {
     &__block {
         display: flex;
         width: 100%;
-        padding: 1.2em 0;
+        padding: 1.2em 0 2em;
         border-bottom: 1px solid $outline-color;
         justify-content: space-between;
+        position: relative;
     }
 
     &__profile {
@@ -634,6 +635,13 @@ header {
         align-items: center;
     }
 
+    &__delete {
+        width: 10px;
+        position: absolute;
+        bottom: 0;
+        right: 5%;
+    }
+
     &__text {
         display: flex;
         width: 83%;
@@ -642,8 +650,9 @@ header {
 
     &__top {
         display: flex;
+        width: 100%;
         justify-content: space-between;
-        padding-bottom: 0.6em;
+        padding: 0.6em 0;
     }
 
     &__name {
@@ -687,6 +696,14 @@ header {
     font-variation-settings: 
     'FILL' 1;
     color: red;
+}
+
+.delete-icon {
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 
