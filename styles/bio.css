@@ -659,7 +659,7 @@ header {
 }
 .comments-container__icon {
   background-color: #E1E1E1;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
 }
 .comments-container__likes {
   background-color: #E1E1E1;
@@ -715,6 +715,11 @@ header {
 .material-symbols-outlined:hover {
   color: red;
   cursor: pointer;
+}
+
+.clicked {
+  font-variation-settings: "FILL" 1;
+  color: red;
 }
 
 .footer {

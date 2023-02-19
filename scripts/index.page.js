@@ -5,7 +5,6 @@ function getComments() {
         .then(result => {
             const reverse = result.data.sort((com1, com2) => com2.timestamp - com1.timestamp);
             reverse.forEach((comment) => {
-                // console.log(comment);
                 displayComment(comment)
             })
         })
@@ -29,36 +28,48 @@ function displayComment(comment) {
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
     container.className = "comments-container__block";
-    //left side, picture
-    container.appendChild(setImage(comment))
+    //left side, picture and likes
+    container.appendChild(setLeft(comment))
     //right side, text
     container.appendChild(buildText(comment))
     return container;
 }
 
-function setImage(comment) {
+function setLeft(comment) {
+    //make blank image div
     const leftContainer = document.createElement('div');
     leftContainer.className = "comments-container__profile";
     const background = document.createElement('div');
     background.className = "comments-container__icon";
     leftContainer.appendChild(background)
-    leftContainer.appendChild(renderLikeIcon())
-    leftContainer.appendChild(renderLikeStatus())
+    //build Like Icon and functionality
+    function renderLikeIcon(target) {
+        const heartDiv = document.createElement('div');
+        heartDiv.className = "comments-container__heart"
+        heartDiv.innerHTML = `<span class="material-symbols-outlined">favorite</span>`
+        heartDiv.addEventListener('click', () => {
+            const heartEl = heartDiv.children[0];
+            heartEl.classList.toggle('clicked');
+            handleLike(comment.id, target);
+        })
+        return heartDiv;
+    }
+    const target = buildLikeTracker(comment)
+    leftContainer.appendChild(renderLikeIcon(target))
+    leftContainer.appendChild(target)
     return leftContainer;
 }
 
-function renderLikeIcon() {
-    const heartDiv = document.createElement('div');
-    heartDiv.innerHTML = `<span class="material-symbols-outlined">favorite</span>`
-    return heartDiv;
-}
-function renderLikeStatus(){
-    const likeDiv = document.createElement('div');
-    likeDiv.className = "comments-container__likes"
-    likeDiv.innerText = 0
-    function updateLikes() {
-    }
-    return likeDiv
+
+function handleLike(id, target) {
+    axios.put(`./comments/${id}/like?api_key=${key}`,{
+    })
+    .then(result => {
+        target.innerText = result.data.likes
+    })
+    .catch(err => {
+        console.error(err)
+    })
 }
 
 function buildText(object) {
@@ -88,6 +99,13 @@ function buildText(object) {
     buildTop(object);
     buildBottom(object);
     return rightSection;
+}
+
+function buildLikeTracker(comment){
+    const likeDiv = document.createElement('div');
+    likeDiv.className = "comments-container__likes"
+    likeDiv.innerText = comment.likes
+    return likeDiv
 }
 
 formSubmit.addEventListener('submit', (e) => {

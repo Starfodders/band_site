@@ -621,7 +621,7 @@ header {
     &__icon {
         @extend .comments__picture;
         background-color: $outline-color;
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
     }
 
     &__likes {
@@ -681,6 +681,12 @@ header {
     cursor: pointer;
   }
   
+}
+
+.clicked {
+    font-variation-settings: 
+    'FILL' 1;
+    color: red;
 }
 
 
