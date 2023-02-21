@@ -21,9 +21,6 @@ const formSubmit = document.querySelector('#writable-form');
 function displayComment(comment) {
     commentContainer.appendChild(generateCommentHTML(comment))
 }
-// function loadAnim() {
-//     commentContainer.children[0].classList.add('anim-load')
-// }
 
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
@@ -59,7 +56,6 @@ function setLeft(comment) {
     leftContainer.appendChild(target)
     return leftContainer;
 }
-
 
 function handleLike(id, target) {
     axios.put(`./comments/${id}/like?api_key=${key}`)
@@ -122,7 +118,7 @@ function buildLikeTracker(comment){
 function handleDelete(id) {
     axios.delete(`/comments/${id}?api_key=${key}`)
         .then(result => {
-            console.log(result);
+            return
         })
         .catch(err => {
             console.error(err)
@@ -145,9 +141,8 @@ formSubmit.addEventListener('submit', (e) => {
 })
 function postComment(object) {
     axios.post(`/comments?api_key=${key}`, object)
-        .then(result => {            
-            clearComments();
-            getComments();
+        .then(result => {  
+            addNewComment(result.data)
         })
         .catch(err => {
             console.error(err);
@@ -233,11 +228,10 @@ function convertTime(epoch) {
         }
 }
 }
-function clearComments() {
-    const logLength = commentContainer.children.length;
-    if (logLength > 0) {
-        for (let i = 0; i < logLength; i++) {
-            commentContainer.removeChild(commentContainer.lastChild);
-        }
-    }
+function addNewComment(data) {
+    commentContainer.prepend(generateCommentHTML(data));
+    loadAnim()
+}
+function loadAnim() {
+    commentContainer.children[0].classList.add('anim-load')
 }
