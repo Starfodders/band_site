@@ -1,0 +1,164 @@
+@use "./mixins.scss" as *;
+@use "./variables.scss" as *;
+@use "./fonts.scss" as *;
+
+/////////////////////////////
+///////HEADER, NAVBAR////////
+/////////////////////////////
+header {
+    width: 100%;
+    background-color: $primary;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    background-color: $primary;
+    font-size: $sub-header-mobile;
+
+
+    @include tablet {
+        font-size: 1.4em;
+        flex-direction: row;
+        justify-content: flex-start;
+
+    }
+
+    @include desktop {
+        max-width: 1020px;
+        margin: 0 auto;
+    }
+
+    // Container for the Logo Image
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.2em 0 1.2em 1.2em;
+
+        @include tablet {
+            width: 40%;
+            max-width: 250px;
+            margin-left: 2.57em;
+            justify-content: flex-start;
+        }
+
+        @include desktop {
+            width: 20%;
+            margin: 0;
+            padding-left: 0;
+        }
+    }
+
+    &__anchor {
+        max-width: 150px;
+        display: flex;
+        align-items: center;
+        height: 25px;
+    }
+
+    &__img {
+        max-width: 150px;
+        flex-grow: 2;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        @include desktop {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+
+    // The individual Nav container -> Block -> Text
+    &__block {
+        width: 100%;
+        display: flex;
+
+        @include tablet {
+            width: 40%;
+            gap: 10%;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        @include desktop {
+            gap: 0;
+        }
+    }
+
+    &__section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 1.2em 0;
+        width: 50%;
+        color: white;
+
+
+        @include tablet {
+            padding: 0;
+            margin: 0 5%;
+            width: 100%;
+            max-width: 80px;
+
+        }
+    }
+
+    &__item {
+        color: white;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            height: 100px;
+        }
+    }
+
+}
+
+.active {
+    border-bottom: 2px solid white;
+}
+
+.active-page {
+    font-weight: 600;
+}
+
+.inactive {
+    color: $outline-color;
+}
+
+
+// Specific Selector for second item due to offset caused by active border
+.nav__section:nth-child(2) {
+    padding-bottom: 19px;
+
+    @include tablet {
+        padding-bottom: 0;
+    }
+
+    &:hover {
+        border-bottom: 3px solid white;
+        padding-bottom: 1.2em;
+
+        @include tablet {
+            padding-bottom: 0;
+            margin-bottom: -2px;
+
+        }
+    }
+}
