@@ -110,7 +110,7 @@
     }
 
     // Large container used to contain content after an additional layer of padding is added (desktop & tablet only)
-    &__large-container {
+    &__holder {
 
         @include tablet {
             padding: 2.57em;
@@ -126,7 +126,6 @@
         padding-top: 1.2em;
 
         @include tablet {
-            padding-top: 0;
         }
     }
 
@@ -546,3 +545,14 @@
         opacity: 1;
     }
 }
+
+// @keyframes deleteComment {
+    // from {
+        // transform: translateX(0);
+    // }
+    // to {
+        // transform: translateX(-500px)
+    // }
+// }
+// deleteDiv.style.animation = "deleteComment 0.5s ease-in forwards"
+// 

@@ -11,6 +11,7 @@ function getShows() {
             console.log(err);
         })
 }
+
 //create HTML element and populate it with the concert object information, append to container
 const ticketContainer = document.querySelector('.tickets__choices');
 
@@ -22,19 +23,24 @@ function createListing(item) {
 function generateShowHTML(item) {
     const newContainer = document.createElement('div');
     newContainer.className = "tickets__item";
+
     addBlock(item, newContainer)
     addListeners(newContainer);
+
     return newContainer
 }
+
 function addBlock(item, container) {
     //builds as many blocks as there are details per concert
     for (let i = 1; i <= Object.keys(item).length - 1; i++) {
         const block = document.createElement('div');
         block.className = 'tickets__block';
+
         //make the headers (date, venue, location)
         const titleEl = document.createElement('p');
         titleEl.className = 'tickets__block--mobile-header large-hidden';
         titleEl.innerText = Object.keys(item)[i];
+
         //make the specific details of date, venue, location. Bold if 'date'. Run convertTime() to change epoch time to readable time
         const spanEl = document.createElement('span');
         if (titleEl.innerText === 'date') {
@@ -43,19 +49,25 @@ function addBlock(item, container) {
         } else {
             spanEl.innerText = Object.values(item)[i];
         }
+
         block.appendChild(titleEl);
         block.appendChild(spanEl);
+
         container.appendChild(block);
     }
     container.appendChild(buildButton())
 }
+
 function buildButton() {
     const buttonBlock = document.createElement('div');
     buttonBlock.className = "tickets__block";
+
     const button = document.createElement('button');
     button.className = "tickets__button";
     button.innerText = "Buy Tickets"
+
     buttonBlock.appendChild(button);
+
     return buttonBlock;
 }
 
@@ -65,19 +77,21 @@ function addTabletHeader() {
     const heading = document.querySelector('.tickets__choices');
     const element = document.createElement('div');
     element.className = "tickets__item tablet-header";
+
     for (let i = 0; i < valueArray.length; i++) {
         const block = document.createElement('div');
         block.className = "tickets__block";
+
         //spacer is class given with visibility none for formatting
         if (valueArray[i] === 'Spacer') {
             block.className = "tickets__block spacer";
         }
         block.innerText = valueArray[i]
+
         element.appendChild(block);
     }
     heading.prepend(element);
 }
-addTabletHeader();
 
 //clear all active styles, then apply selected style on clicked ticket item
 function addListeners(element) {
@@ -130,3 +144,4 @@ function getDayOfWeek(num) {
       return day;
 }
 
+addTabletHeader();

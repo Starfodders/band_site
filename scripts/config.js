@@ -4,4 +4,3 @@ const authentication = {
 const { api_key: key } = authentication;
 
 axios.defaults.baseURL = 'https://project-1-api.herokuapp.com'
-// axios.defaults.headers.common['Authorization'] = key;

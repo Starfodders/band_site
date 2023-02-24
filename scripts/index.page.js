@@ -1,5 +1,10 @@
-// const commentLog = [];
+const commentContainer = document.querySelector('.comments-container');
+const nameInput = document.querySelector('#input-name');
+const textInput = document.querySelector('#input-comment');
+const formSubmit = document.querySelector('#writable-form');
+
 getComments();
+
 function getComments() {
     axios.get(`/comments?api_key=${key}`)
         .then(result => {
@@ -13,11 +18,6 @@ function getComments() {
         })
 }
 
-const commentContainer = document.querySelector('.comments-container');
-const nameInput = document.querySelector('#input-name');
-const textInput = document.querySelector('#input-comment');
-const formSubmit = document.querySelector('#writable-form');
-
 function displayComment(comment) {
     commentContainer.appendChild(generateCommentHTML(comment))
 }
@@ -25,10 +25,13 @@ function displayComment(comment) {
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
     container.className = "comments-container__block";
+
     //left side, picture and likes
     container.appendChild(setLeft(comment))
+
     //right side, text
     container.appendChild(buildText(comment))
+
     return container;
 }
 
@@ -36,9 +39,12 @@ function setLeft(comment) {
     //make blank image div
     const leftContainer = document.createElement('div');
     leftContainer.className = "comments-container__profile";
+
     const background = document.createElement('div');
     background.className = "comments-container__icon";
+
     leftContainer.appendChild(background)
+
     //build Like Icon and functionality
     function renderLikeIcon(target) {
         const heartDiv = document.createElement('div');
@@ -52,8 +58,10 @@ function setLeft(comment) {
         return heartDiv;
     }
     const target = buildLikeTracker(comment)
+
     leftContainer.appendChild(renderLikeIcon(target))
     leftContainer.appendChild(target)
+
     return leftContainer;
 }
 
@@ -67,19 +75,32 @@ function handleLike(id, target) {
     })
 }
 
+function buildLikeTracker(comment){
+    const likeDiv = document.createElement('div');
+    likeDiv.className = "comments-container__likes"
+    likeDiv.innerText = comment.likes
+
+    return likeDiv
+}
+
 function buildText(object) {
+
     const rightSection = document.createElement('div');
     rightSection.classList = "comments-container__text";
+
     //top div of the right side
     function buildTop(object) {
         const rightSectionTop = document.createElement('div');
         rightSectionTop.className = "comments-container__top";
+
         const name = document.createElement('p');
         name.className = "comments-container__name";
         name.innerText = object.name;
+
         const date = document.createElement('p');
         date.className = "comments-container__date";
         date.innerText = convertTime(object.timestamp);
+
         rightSectionTop.appendChild(name);
         rightSectionTop.appendChild(date);
         rightSection.appendChild(rightSectionTop);
@@ -89,7 +110,9 @@ function buildText(object) {
         const commentText = document.createElement('p');
         commentText.className = "comments__container__block__text__comment";
         commentText.innerText = object.comment;
+
         rightSection.appendChild(commentText);
+
         function renderDelete() {
             const deleteDiv = document.createElement('div');
             deleteDiv.className = "comments-container__delete"
@@ -106,13 +129,6 @@ function buildText(object) {
     buildTop(object);
     buildBottom(object);
     return rightSection;
-}
-
-function buildLikeTracker(comment){
-    const likeDiv = document.createElement('div');
-    likeDiv.className = "comments-container__likes"
-    likeDiv.innerText = comment.likes
-    return likeDiv
 }
 
 function handleDelete(id) {
@@ -139,6 +155,7 @@ formSubmit.addEventListener('submit', (e) => {
         formSubmit.reset();
     }
 })
+
 function postComment(object) {
     axios.post(`/comments?api_key=${key}`, object)
         .then(result => {  
@@ -148,21 +165,26 @@ function postComment(object) {
             console.error(err);
         })
 }
+
 function highlightError() {
     //select the hidden error messages with empty fields, change the field stylings and display additional info
     const [firstField, secondField] = document.querySelectorAll(".comments__error");
+
     if (!nameInput.value) {
         nameInput.classList.add('error-border')
         firstField.classList.remove('error-message')
+
         nameInput.addEventListener('click', function removeError() {
             nameInput.classList.remove('error-border');
             firstField.classList.add('error-message')
             nameInput.removeEventListener('click', removeError);
         })
     }
+
     if (!textInput.value) {
         textInput.classList.add('error-border')
         secondField.classList.remove('error-message')
+        
         textInput.addEventListener('click', function removeError() {
             textInput.classList.remove('error-border')
             secondField.classList.add('error-message')
@@ -170,12 +192,14 @@ function highlightError() {
         })
     }
 }
+
 function returnNewTime() {
     //new date object created on submit event, time in epoch format returned
     const currentTime = new Date;
     const epoch = currentTime.getTime()
     return epoch;
 }
+
 function convertTime(epoch) {
     const currentDate = new Date();
     const minutes = Math.abs(currentDate.getTime() - epoch) / 60000;
@@ -228,10 +252,16 @@ function convertTime(epoch) {
         }
 }
 }
+
 function addNewComment(data) {
     commentContainer.prepend(generateCommentHTML(data));
     loadAnim()
 }
+
 function loadAnim() {
     commentContainer.children[0].classList.add('anim-load')
 }
+
+
+//For functions declared inside other functions, move them out of the function.
+//Add spacing between individual actions

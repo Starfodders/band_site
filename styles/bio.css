@@ -531,23 +531,18 @@ header {
   }
 }
 @media (min-width: 768px) {
-  .bio__large-container {
+  .bio__holder {
     padding: 2.57em;
   }
 }
 @media (min-width: 1280px) {
-  .bio__large-container {
+  .bio__holder {
     padding: 4.29em;
   }
 }
 .bio__picture {
   width: 100%;
   padding-top: 1.2em;
-}
-@media (min-width: 768px) {
-  .bio__picture {
-    padding-top: 0;
-  }
 }
 .bio__quote {
   font-size: 1.4em;
