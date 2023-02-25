@@ -366,7 +366,7 @@
         width: 83%;
     }
 
-    &__name--label {
+    &__name__label {
         font-size: $label-size-mobile;
         color: $secondary;
         text-transform: uppercase;
@@ -374,7 +374,7 @@
         padding-bottom: 0.3em;
     }
 
-    &__name--input {
+    &__name__input {
         padding: 0.92em;
         background-color: $bg-alt;
         border: solid 1px $outline-color;
@@ -394,14 +394,18 @@
     &__error {
         color: #D22D2D;
         font-size: 0.8em;
+
+        &--message {
+            visibility: hidden;
+        }
     }
 
-    &__comment--label {
-        @extend .comments__name--label;
+    &__comment__label {
+        @extend .comments__name__label;
     }
 
-    &__comment--input {
-        @extend .comments__name--input;
+    &__comment__input {
+        @extend .comments__name__input;
         padding-bottom: 4.86em;
     }
 
@@ -430,18 +434,13 @@
     border: solid 1px #D22D2D;
 }
 
-.error-message {
-    visibility: hidden;
-}
 
 /////////////////////////////
 /////DISPLAY COMMENTS////////
 /////////////////////////////
-.comments-container {
+.comments__container {
     display: flex;
     flex-flow: column nowrap;
-
-    @include tablet {}
 
     &__block {
         display: flex;
@@ -545,14 +544,3 @@
         opacity: 1;
     }
 }
-
-// @keyframes deleteComment {
-    // from {
-        // transform: translateX(0);
-    // }
-    // to {
-        // transform: translateX(-500px)
-    // }
-// }
-// deleteDiv.style.animation = "deleteComment 0.5s ease-in forwards"
-// 

@@ -1,4 +1,4 @@
-const commentContainer = document.querySelector('.comments-container');
+const commentContainer = document.querySelector('.comments__container');
 const nameInput = document.querySelector('#input-name');
 const textInput = document.querySelector('#input-comment');
 const formSubmit = document.querySelector('#writable-form');
@@ -24,7 +24,7 @@ function displayComment(comment) {
 
 function generateCommentHTML(comment) {
     const container = document.createElement('div');
-    container.className = "comments-container__block";
+    container.className = "comments__container__block";
 
     //left side, picture and likes
     container.appendChild(setLeft(comment))
@@ -38,17 +38,17 @@ function generateCommentHTML(comment) {
 function setLeft(comment) {
     //make blank image div
     const leftContainer = document.createElement('div');
-    leftContainer.className = "comments-container__profile";
+    leftContainer.className = "comments__container__profile";
 
     const background = document.createElement('div');
-    background.className = "comments-container__icon";
+    background.className = "comments__container__icon";
 
     leftContainer.appendChild(background)
 
     //build Like Icon and functionality
     function renderLikeIcon(target) {
         const heartDiv = document.createElement('div');
-        heartDiv.className = "comments-container__heart"
+        heartDiv.className = "comments__container__heart"
         heartDiv.innerHTML = `<span class="material-symbols-outlined">favorite</span>`
         heartDiv.addEventListener('click', () => {
             const heartEl = heartDiv.children[0];
@@ -77,7 +77,7 @@ function handleLike(id, target) {
 
 function buildLikeTracker(comment){
     const likeDiv = document.createElement('div');
-    likeDiv.className = "comments-container__likes"
+    likeDiv.className = "comments__container__likes"
     likeDiv.innerText = comment.likes
 
     return likeDiv
@@ -86,19 +86,19 @@ function buildLikeTracker(comment){
 function buildText(object) {
 
     const rightSection = document.createElement('div');
-    rightSection.classList = "comments-container__text";
+    rightSection.classList = "comments__container__text";
 
     //top div of the right side
     function buildTop(object) {
         const rightSectionTop = document.createElement('div');
-        rightSectionTop.className = "comments-container__top";
+        rightSectionTop.className = "comments__container__top";
 
         const name = document.createElement('p');
-        name.className = "comments-container__name";
+        name.className = "comments__container__name";
         name.innerText = object.name;
 
         const date = document.createElement('p');
-        date.className = "comments-container__date";
+        date.className = "comments__container__date";
         date.innerText = convertTime(object.timestamp);
 
         rightSectionTop.appendChild(name);
@@ -115,7 +115,7 @@ function buildText(object) {
 
         function renderDelete() {
             const deleteDiv = document.createElement('div');
-            deleteDiv.className = "comments-container__delete"
+            deleteDiv.className = "comments__container__delete"
             deleteDiv.innerHTML = `<span class="material-symbols-outlined delete-icon">delete</span>`
             deleteDiv.addEventListener('click', () => {
                 handleDelete(object.id);
@@ -172,22 +172,22 @@ function highlightError() {
 
     if (!nameInput.value) {
         nameInput.classList.add('error-border')
-        firstField.classList.remove('error-message')
+        firstField.classList.remove('comments__error--message')
 
         nameInput.addEventListener('click', function removeError() {
             nameInput.classList.remove('error-border');
-            firstField.classList.add('error-message')
+            firstField.classList.add('comments__error--message')
             nameInput.removeEventListener('click', removeError);
         })
     }
 
     if (!textInput.value) {
         textInput.classList.add('error-border')
-        secondField.classList.remove('error-message')
-        
+        secondField.classList.remove('comments__error--message')
+
         textInput.addEventListener('click', function removeError() {
             textInput.classList.remove('error-border')
-            secondField.classList.add('error-message')
+            secondField.classList.add('comments__error--message')
             textInput.removeEventListener('click', removeError);
         })
     }
